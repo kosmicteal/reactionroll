@@ -10,6 +10,18 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { createTheme, Input, MantineProvider } from "@mantine/core";
 import { MainPage } from "./pages/MainPage.tsx";
 import { CreatePageGeneric } from "./pages/CreatePageGeneric.tsx";
+import { Provider as ReactProvider, TypedUseSelectorHook, useSelector } from "react-redux";
+import { GlobalState } from "./redux/state.interface.ts";
+import { configureStore } from "@reduxjs/toolkit";
+import { initialState, reducer } from "./redux/reducer.ts";
+
+const store = configureStore({
+  reducer,
+  preloadedState: initialState
+});
+export const useGlobalSelector: TypedUseSelectorHook<GlobalState> = useSelector;
+export type GlobalDispatch = typeof store.dispatch;
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -42,8 +54,10 @@ const theme = createTheme({
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <MantineProvider defaultColorScheme="auto" theme={theme}>
-      <RouterProvider router={router} />
-    </MantineProvider>
+    <ReactProvider store={store}>
+      <MantineProvider defaultColorScheme="auto" theme={theme}>
+        <RouterProvider router={router} />
+      </MantineProvider>
+    </ReactProvider>
   </StrictMode>,
 );
