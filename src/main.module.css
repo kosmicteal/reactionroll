@@ -1,0 +1,18 @@
+.wrapper {
+    &[data-size='title'] {
+      & .input {
+        font-size: 3.5em;
+      }
+    }
+    &[data-size='md-nb'] {
+        & .input {
+          font-size: 1.5em;
+        }
+      }
+  
+    &[data-size='title'] {
+        & .input {
+          font-size: 3.5em;
+        }
+      }
+  }
