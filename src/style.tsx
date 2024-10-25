@@ -6,10 +6,15 @@ const breakpoints = {
   md: '62em',
   lg: '75em',
   xl: '88em',
-}
+};
 
 export const styling = {
-
+  printOptions: css`
+    @page {
+      size: auto;
+      margin: 10mm;
+    }
+  `,
 
   iconSize: css`
     width: 22px;

@@ -9,10 +9,12 @@ import {
   useMantineColorScheme,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { IconMoon, IconSun } from "@tabler/icons-react";
+import { IconMoon, IconPrinter, IconSun } from "@tabler/icons-react";
 import { styling } from "./style";
 import { cx } from "@emotion/css";
 import { Outlet } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { GlobalDispatch } from "./main";
 
 export function App() {
   const [mobileOpened, { toggle: toggleMobile }] = useDisclosure();
@@ -22,6 +24,8 @@ export function App() {
   const computedColorScheme = useComputedColorScheme("light", {
     getInitialValueInEffect: true,
   });
+
+  const dispatch: GlobalDispatch = useDispatch();
 
   return (
     <AppShell
@@ -56,21 +60,32 @@ export function App() {
             />
             FastInitiative
           </Group>
-          <ActionIcon
-            onClick={() =>
-              setColorScheme(computedColorScheme === "light" ? "dark" : "light")
-            }
-            mr="md"
-            variant="default"
-            size="xl"
-            aria-label="Toggle color scheme"
-          >
-            {computedColorScheme === "dark" ? (
-              <IconSun className={cx(styling.iconSize)} stroke={1.5} />
-            ) : (
-              <IconMoon className={cx(styling.iconSize)} stroke={1.5} />
-            )}
-          </ActionIcon>
+          <Group h="100%" px="md">
+            <ActionIcon
+              onClick={() =>
+                dispatch({ type: 'PRINT_DATA' })
+              }
+              variant="filled"
+              size="lg"
+              aria-label="Toggle color scheme"
+            >
+              <IconPrinter className={cx(styling.iconSize)} stroke={1.5} />
+            </ActionIcon>
+            <ActionIcon
+              onClick={() =>
+                setColorScheme(computedColorScheme === "light" ? "dark" : "light")
+              }
+              variant="default"
+              size="lg"
+              aria-label="Toggle color scheme"
+            >
+              {computedColorScheme === "dark" ? (
+                <IconSun className={cx(styling.iconSize)} stroke={1.5} />
+              ) : (
+                <IconMoon className={cx(styling.iconSize)} stroke={1.5} />
+              )}
+            </ActionIcon>
+          </Group>
         </Flex>
       </AppShell.Header>
       <AppShell.Navbar p="md">

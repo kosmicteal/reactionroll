@@ -1,4 +1,4 @@
-import { Container, Paper, Text } from "@mantine/core";
+import { Container, Paper } from "@mantine/core";
 import "./MainPage.css";
 import { cx } from "@emotion/css";
 import { styling } from "../style";

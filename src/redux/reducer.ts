@@ -2,7 +2,7 @@ import { ActionTypes } from "./action";
 import { GlobalState } from "./state.interface";
 
 export const initialState: GlobalState = {
-    printRef: '',
+    printData: false,
     characterData: {
         name: '',
         class: ''
@@ -22,6 +22,9 @@ export function reducer(state = initialState, action: ActionTypes): GlobalState 
                 ...state.characterData,
                 class: action.payload,
             } }
+        }
+        case 'PRINT_DATA': {
+            return { ...state, printData: !(state.printData) }
         }
         default: {
             return state;

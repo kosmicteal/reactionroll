@@ -8,4 +8,8 @@ export interface SetClassAction {
     payload: string;
 }
 
-export type ActionTypes = SetNameAction | SetClassAction
+export interface PrintAction {
+    type: 'PRINT_DATA';
+}
+
+export type ActionTypes = SetNameAction | SetClassAction | PrintAction
