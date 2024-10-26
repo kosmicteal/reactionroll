@@ -1,18 +1,36 @@
 .wrapper {
-    &[data-size='title'] {
-      & .input {
-        font-size: 3.5em;
-      }
+  --title-size: 3.5em;
+  --regular-size: 1.5em;
+  --condensed-size: 0.8em;
+
+  &[data-size='title'] {
+    & .input {
+      font-size: var(--title-size);
     }
-    &[data-size='md-nb'] {
-        & .input {
-          font-size: 1.5em;
-        }
-      }
-  
-    &[data-size='title'] {
-        & .input {
-          font-size: 3.5em;
-        }
-      }
   }
+  &[data-size='md-nb'] {
+    & .input {
+      font-size: var(--regular-size);
+    }
+  }
+  &[style*='text-align: start'] {
+    & .input {
+      text-align: start;
+    }
+  }
+  &[style*='text-align: end'] {
+    & .input {
+      text-align: end;
+    }
+  }
+  &[style*='text-align: center'] {
+    & .input {
+      text-align: center;
+    }
+  }
+  &[data-size='title'] {
+    & .input {
+      font-size: var(--title-size);
+    }
+  }
+}

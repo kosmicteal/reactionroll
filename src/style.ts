@@ -8,6 +8,13 @@ const breakpoints = {
   xl: '88em',
 };
 
+const textSize = {
+  xl: '3.5em',
+  lg: '2.4em',
+  md: '1.5em',
+  sm: '0.8em',
+};
+
 export const styling = {
   printOptions: css`
     @page {
@@ -59,7 +66,21 @@ export const styling = {
     aspect-ratio: 1 / sqrt(2);
     @media (max-width: ${breakpoints.xl}) {
       width: 100%;
-      background-color: red !important;
     }
+  `,
+
+  itemFitContent: css`
+    * > div {
+      width: fit-content;
+    }
+  `,
+  textXl: css`
+    font-size: ${textSize.xl} !important;
+  `,
+  textMd: css`
+    font-size: ${textSize.md} !important;
+  `,
+  textSm: css`
+    font-size: ${textSize.sm} !important;
   `,
 };
