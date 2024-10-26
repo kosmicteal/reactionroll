@@ -61,10 +61,20 @@ export const styling = {
   `,
 
   paperSize: css`
-    width: 50vw;
-    padding: 2vw 3vw;
+    width: 52em;
+    padding: 2em 3em;
     aspect-ratio: 1 / sqrt(2);
     @media (max-width: ${breakpoints.xl}) {
+      width: 100%;
+    }
+  `,
+
+  paperPrint: css`
+    @media print {
+      @page {
+        size: auto;
+        margin: 10mm;
+      }
       width: 100%;
     }
   `,
@@ -82,5 +92,11 @@ export const styling = {
   `,
   textSm: css`
     font-size: ${textSize.sm} !important;
+  `,
+  topStack: css`
+    position: relative;
+    & > div {
+      position: absolute;
+    }
   `,
 };

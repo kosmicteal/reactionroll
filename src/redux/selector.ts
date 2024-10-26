@@ -22,7 +22,12 @@ export function reduxSelector(actionType: string) {
       );
     }
     case 'PRINT_DATA': {
-      return useSelector((state: GlobalState) => state.printData);
+      return useSelector((state: GlobalState) => state.appLocalData.printData);
+    }
+    case 'SET_ZOOM': {
+      return useSelector(
+        (state: GlobalState) => state.appLocalData.zoomPercentage,
+      );
     }
     default: {
       return '';

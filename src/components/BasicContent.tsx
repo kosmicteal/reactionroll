@@ -1,4 +1,4 @@
-import { Flex, Input, Stack, UnstyledButton } from '@mantine/core';
+import { Flex, Input, Stack, UnstyledButton, Text } from '@mantine/core';
 import { useDispatch } from 'react-redux';
 import { GlobalDispatch } from '../main';
 import { reduxSelector } from '../redux/selector';
@@ -9,6 +9,7 @@ import { cx } from '@emotion/css';
 import { ModalCharacterDetails } from './modalComponents/ModalCharacterDetails';
 import { openModal } from './AutoUpdateModal';
 import { useMediaQuery } from '@mantine/hooks';
+import { concatSelector } from '../utils/concatSelectors';
 
 export function BasicContent() {
   const dispatch: GlobalDispatch = useDispatch();
@@ -18,9 +19,7 @@ export function BasicContent() {
   const reactToPrintContent = () => {
     return componentRef.current;
   };
-  const handlePrint = useReactToPrint({
-    pageStyle: cx(styling.paperSize),
-  });
+  const handlePrint = useReactToPrint({});
 
   if (reduxSelector('PRINT_DATA')) {
     handlePrint(reactToPrintContent);
@@ -34,12 +33,15 @@ export function BasicContent() {
     });
   }
 
-  const detailsButton = `${reduxSelector('SET_CLASS')} (${reduxSelector('SET_SUBCLASS')}) - ${reduxSelector('SET_RACE')}`;
+  const { concatSelectorHasData, concatSelectorResult } = concatSelector(
+    ['SET_CLASS', 'SET_SUBCLASS', 'SET_RACE'],
+    ['$0', ' ($0)', ' - $0'],
+  );
 
   return (
     <div ref={componentRef}>
-      <Flex>
-        <Stack gap="0">
+      <Stack gap="0">
+        <Flex justify="space-between">
           <Input
             variant="unstyled"
             size="title"
@@ -49,22 +51,6 @@ export function BasicContent() {
               handleOnBlur('SET_NAME', e.target.value);
             }}
           />
-          <UnstyledButton
-            variant="transparent"
-            ta="start"
-            onClick={() => {
-              openModal(
-                'Class and Race information',
-                isMobile!,
-                <ModalCharacterDetails />,
-              );
-            }}
-            className={cx(styling.textMd)}
-          >
-            {detailsButton}
-          </UnstyledButton>
-        </Stack>
-        <Stack gap="0">
           <Input
             variant="unstyled"
             size="md-nb"
@@ -75,8 +61,28 @@ export function BasicContent() {
               handleOnBlur('SET_NAME', e.target.value);
             }}
           />
-        </Stack>
-      </Flex>
+        </Flex>
+        <UnstyledButton
+          variant="transparent"
+          ta="start"
+          onClick={() => {
+            openModal(
+              'Class and Race information',
+              isMobile!,
+              <ModalCharacterDetails />,
+            );
+          }}
+        >
+          <Text
+            c={concatSelectorHasData ? '' : 'var(--mantine-color-placeholder)'}
+            className={cx(styling.textMd)}
+          >
+            {concatSelectorHasData
+              ? concatSelectorResult
+              : 'Character Class (Subclass) - Complete Race'}
+          </Text>
+        </UnstyledButton>
+      </Stack>
     </div>
   );
 }

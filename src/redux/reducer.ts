@@ -2,7 +2,10 @@ import { ActionTypes } from './action';
 import { GlobalState } from './state.interface';
 
 export const initialState: GlobalState = {
-  printData: false,
+  appLocalData: {
+    printData: false,
+    zoomPercentage: '1',
+  },
   characterData: {
     name: '',
     details: {
@@ -64,7 +67,22 @@ export function reducer(
       };
     }
     case 'PRINT_DATA': {
-      return { ...state, printData: !state.printData };
+      return {
+        ...state,
+        appLocalData: {
+          ...state.appLocalData,
+          printData: !state.appLocalData.printData,
+        },
+      };
+    }
+    case 'SET_ZOOM': {
+      return {
+        ...state,
+        appLocalData: {
+          ...state.appLocalData,
+          zoomPercentage: action.payload,
+        },
+      };
     }
     default: {
       return state;

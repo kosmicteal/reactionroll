@@ -1,8 +1,11 @@
 export interface GlobalState {
-  printData: boolean;
+  appLocalData: AppData;
   characterData: CharacterData;
 }
-
+export interface AppData {
+  printData: boolean;
+  zoomPercentage: string;
+}
 export interface CharacterData {
   name: string;
   details: CharacterDetails;

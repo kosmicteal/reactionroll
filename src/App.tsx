@@ -7,21 +7,21 @@ import {
   Skeleton,
   useComputedColorScheme,
   useMantineColorScheme,
-} from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
-import { IconMoon, IconPrinter, IconSun } from "@tabler/icons-react";
-import { styling } from "./style";
-import { cx } from "@emotion/css";
-import { Outlet } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { GlobalDispatch } from "./main";
+} from '@mantine/core';
+import { useDisclosure } from '@mantine/hooks';
+import { IconMoon, IconPrinter, IconSun } from '@tabler/icons-react';
+import { styling } from './style';
+import { cx } from '@emotion/css';
+import { Outlet } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { GlobalDispatch } from './main';
 
 export function App() {
   const [mobileOpened, { toggle: toggleMobile }] = useDisclosure();
   const [desktopOpened, { toggle: toggleDesktop }] = useDisclosure(false);
 
   const { setColorScheme } = useMantineColorScheme();
-  const computedColorScheme = useComputedColorScheme("light", {
+  const computedColorScheme = useComputedColorScheme('light', {
     getInitialValueInEffect: true,
   });
 
@@ -32,7 +32,7 @@ export function App() {
       header={{ height: 60 }}
       navbar={{
         width: 300,
-        breakpoint: "sm",
+        breakpoint: 'sm',
         collapsed: { mobile: !mobileOpened, desktop: !desktopOpened },
       }}
       padding="xl"
@@ -62,9 +62,7 @@ export function App() {
           </Group>
           <Group h="100%" px="md">
             <ActionIcon
-              onClick={() =>
-                dispatch({ type: 'PRINT_DATA' })
-              }
+              onClick={() => dispatch({ type: 'PRINT_DATA' })}
               variant="filled"
               size="lg"
               aria-label="Toggle color scheme"
@@ -73,13 +71,15 @@ export function App() {
             </ActionIcon>
             <ActionIcon
               onClick={() =>
-                setColorScheme(computedColorScheme === "light" ? "dark" : "light")
+                setColorScheme(
+                  computedColorScheme === 'light' ? 'dark' : 'light',
+                )
               }
               variant="default"
               size="lg"
               aria-label="Toggle color scheme"
             >
-              {computedColorScheme === "dark" ? (
+              {computedColorScheme === 'dark' ? (
                 <IconSun className={cx(styling.iconSize)} stroke={1.5} />
               ) : (
                 <IconMoon className={cx(styling.iconSize)} stroke={1.5} />

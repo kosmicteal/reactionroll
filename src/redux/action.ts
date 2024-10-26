@@ -18,6 +18,11 @@ export interface SetRaceAction {
   payload: string;
 }
 
+export interface SetZoomAction {
+  type: 'SET_ZOOM';
+  payload: string;
+}
+
 export interface PrintAction {
   type: 'PRINT_DATA';
 }
@@ -27,4 +32,5 @@ export type ActionTypes =
   | SetClassAction
   | SetRaceAction
   | SetSubclassAction
+  | SetZoomAction
   | PrintAction;
