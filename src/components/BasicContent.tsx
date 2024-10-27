@@ -6,7 +6,7 @@ import {
   Text,
   NumberInput,
   Divider,
-  Blockquote,
+  Button,
 } from '@mantine/core';
 import { useDispatch } from 'react-redux';
 import { GlobalDispatch } from '../main';
@@ -14,10 +14,10 @@ import { reduxSelector } from '../redux/selector';
 import { styling } from '../style';
 import { cx } from '@emotion/css';
 import { ModalCharacterDetails } from './modalComponents/ModalCharacterDetails';
-import { openModal } from './AutoUpdateModal';
+import { openModal } from './modalComponents/AutoUpdateModal';
 import { useMediaQuery } from '@mantine/hooks';
 import { concatSelector } from '../utils/concatSelectors';
-import { IconShieldHeart, IconWand } from '@tabler/icons-react';
+import { IconPlus, IconShieldHeart, IconWand } from '@tabler/icons-react';
 import { CharacterData } from '../redux/state.interface';
 
 export function BasicContent() {
@@ -112,15 +112,10 @@ export function BasicContent() {
           </Flex>
         </Stack>
       </Flex>
-      <Divider style={{ borderTop: '1px solid black' }} my="md" />
-      <Blockquote
-        color="blue"
-        cite="– Forrest Gump"
-        icon={<IconShieldHeart stroke={2} />}
-        mt="xl"
-      >
-        Life is like an npm install – you never know what you are going to get.
-      </Blockquote>
+      <Divider my="md" />
+      <Button leftSection={<IconPlus size={14} />} disabled variant="default">
+        Add section
+      </Button>
     </>
   );
 }

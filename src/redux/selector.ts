@@ -7,6 +7,9 @@ export function reduxSelector(actionType: ActionTypes['type']) {
     case 'SET_NAME': {
       return useSelector((state: GlobalState) => state.characterData.name);
     }
+    case 'SET_CAMPAIGN': {
+      return useSelector((state: GlobalState) => state.characterData.campaign);
+    }
     case 'SET_CLASS': {
       return useSelector(
         (state: GlobalState) => state.characterData.details.class,
@@ -37,6 +40,14 @@ export function reduxSelector(actionType: ActionTypes['type']) {
     }
     case 'PRINT_DATA': {
       return useSelector((state: GlobalState) => state.appLocalData.printData);
+    }
+    case 'SET_PREVIEW_PAPER_COLOUR': {
+      return useSelector(
+        (state: GlobalState) => state.appLocalData.previewPaperColour,
+      );
+    }
+    case 'SET_TEXT_COLOUR': {
+      return useSelector((state: GlobalState) => state.appLocalData.textColour);
     }
     case 'SET_ZOOM': {
       return useSelector(

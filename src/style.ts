@@ -53,14 +53,6 @@ export const styling = {
     margin: 0 auto;
   `,
 
-  paperBackground: css`
-    background-color: #f0f0f0 !important;
-    color: #141414 !important;
-    * > input {
-      color: #141414 !important;
-    }
-  `,
-
   paperSize: css`
     width: 52em;
     padding: 2em 3em;

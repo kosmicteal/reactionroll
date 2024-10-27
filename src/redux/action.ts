@@ -42,6 +42,16 @@ export interface SetZoomAction {
   payload: number;
 }
 
+export interface SetPreviewPaperColourAction {
+  type: 'SET_PREVIEW_PAPER_COLOUR';
+  payload: string | undefined;
+}
+
+export interface SetTextColourAction {
+  type: 'SET_TEXT_COLOUR';
+  payload: string | undefined;
+}
+
 export interface PrintAction {
   type: 'PRINT_DATA';
 }
@@ -56,4 +66,6 @@ export type ActionTypes =
   | SetSpellDCAction
   | GetCharacterValuesAction
   | SetZoomAction
+  | SetPreviewPaperColourAction
+  | SetTextColourAction
   | PrintAction;

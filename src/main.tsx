@@ -19,7 +19,7 @@ import { GlobalState } from './redux/state.interface.ts';
 import { configureStore } from '@reduxjs/toolkit';
 import { initialState, reducer } from './redux/reducer.ts';
 import { ModalsProvider } from '@mantine/modals';
-import { AutoUpdateModal } from './components/AutoUpdateModal.tsx';
+import { AutoUpdateModal } from './components/modalComponents/AutoUpdateModal.tsx';
 
 const store = configureStore({
   reducer,

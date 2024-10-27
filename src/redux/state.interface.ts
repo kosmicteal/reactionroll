@@ -5,6 +5,8 @@ export interface GlobalState {
 export interface AppData {
   printData: boolean;
   zoomPercentage: number;
+  previewPaperColour: string | undefined;
+  textColour: string | undefined;
 }
 export interface CharacterData {
   name: string;

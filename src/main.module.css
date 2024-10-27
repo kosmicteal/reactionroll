@@ -34,3 +34,16 @@
     }
   }
 }
+
+*[data-alpha='true'] {
+  display: none;
+}
+
+*[data-hue='true'] {
+  padding-right: 0;
+  margin-right: 0;
+}
+
+div[class*='mantine-ColorInput-preview'] {
+  display: none;
+}

@@ -5,6 +5,8 @@ export const initialState: GlobalState = {
   appLocalData: {
     printData: false,
     zoomPercentage: 1,
+    previewPaperColour: undefined,
+    textColour: undefined,
   },
   characterData: {
     name: '',
@@ -117,6 +119,28 @@ export function reducer(
         appLocalData: {
           ...state.appLocalData,
           zoomPercentage: action.payload,
+        },
+      };
+    }
+    case 'SET_PREVIEW_PAPER_COLOUR': {
+      const checkColourReset =
+        action.payload === '#ffffff' ? undefined : action.payload;
+      return {
+        ...state,
+        appLocalData: {
+          ...state.appLocalData,
+          previewPaperColour: checkColourReset,
+        },
+      };
+    }
+    case 'SET_TEXT_COLOUR': {
+      const checkColourReset =
+        action.payload === '#ffffff' ? undefined : action.payload;
+      return {
+        ...state,
+        appLocalData: {
+          ...state.appLocalData,
+          textColour: checkColourReset,
         },
       };
     }
