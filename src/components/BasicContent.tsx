@@ -112,10 +112,7 @@ export function BasicContent() {
           </Flex>
         </Stack>
       </Flex>
-      <Divider my="md" />
-      <Button leftSection={<IconPlus size={14} />} disabled variant="default">
-        Add section
-      </Button>
+      <Divider size="md" my="md" />
     </>
   );
 }

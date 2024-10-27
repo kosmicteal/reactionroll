@@ -108,4 +108,14 @@ export const styling = {
       position: absolute;
     }
   `,
+  hideOnPrint: css`
+    @media print {
+      * {
+        display: none !important;
+      }
+      * > * {
+        display: none !important;
+      }
+    }
+  `,
 };

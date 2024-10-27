@@ -10,7 +10,7 @@ export function MainPage() {
 
   return (
     <>
-      <div>
+      {/* <div>
         <a href="https://vitejs.dev">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
@@ -25,16 +25,16 @@ export function MainPage() {
         </Button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-        <Link to="/create">
-          <Button onClick={() => setCount(count => count + 1)}>
-            Create new DnD page
-          </Button>
-        </Link>
-      </div>
+        </p> */}
+      <Link to="/create">
+        <Button onClick={() => setCount(count => count + 1)}>
+          Create new DnD sheet
+        </Button>
+      </Link>
+      {/* </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
-      </p>
+      </p> */}
     </>
   );
 }

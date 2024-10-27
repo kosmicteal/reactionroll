@@ -1,4 +1,4 @@
-import { AppShell, Container, Flex } from '@mantine/core';
+import { AppShell, Button, Container, Flex } from '@mantine/core';
 import './MainPage.css';
 import { css, cx } from '@emotion/css';
 import { BasicContent } from '../components/BasicContent';
@@ -7,6 +7,8 @@ import { reduxSelector } from '../redux/selector';
 import { ResponsiveContainer } from '../components/ResponsiveContainer';
 import { useMediaQuery } from '@mantine/hooks';
 import { RenderAndPrint } from '../utils/RenderAndPrint';
+import { IconPlus } from '@tabler/icons-react';
+import { styling } from '../style';
 
 export function CreatePageGeneric() {
   const currentZoomSetting = reduxSelector('SET_ZOOM') as number;
@@ -46,6 +48,17 @@ export function CreatePageGeneric() {
         containerTheme={containerTheme}
       >
         <BasicContent />
+        {/* put BasicContent inside PageContent, then put PageContent 
+        and button into UIcontent and put it here, the one printed is 
+        PageContent which gets the values*/}
+        <Button
+          className={cx(styling.hideOnPrint)}
+          leftSection={<IconPlus size={14} />}
+          disabled
+          variant="default"
+        >
+          Add section
+        </Button>
       </ResponsiveContainer>
 
       {isPrinting && <RenderAndPrint />}
