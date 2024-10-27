@@ -8,7 +8,6 @@ export function Zoom() {
   const currentValue = reduxSelector('SET_ZOOM') as number;
 
   function handleOnChange(value: number) {
-    console.log(value, currentValue);
     if (value !== currentValue) {
       dispatch({ type: 'SET_ZOOM', payload: value });
     }

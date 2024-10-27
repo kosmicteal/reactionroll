@@ -16,6 +16,7 @@ import { cx } from '@emotion/css';
 import { Outlet } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { GlobalDispatch } from './main';
+import { reduxSelector } from './redux/selector';
 
 export function App() {
   const [mobileOpened, { toggle: toggleMobile }] = useDisclosure();
@@ -27,6 +28,7 @@ export function App() {
   });
 
   const dispatch: GlobalDispatch = useDispatch();
+  const isPrinting = reduxSelector('PRINT_DATA') as boolean;
 
   return (
     <AppShell
@@ -65,9 +67,10 @@ export function App() {
             <Tooltip label="Print sheet">
               <ActionIcon
                 onClick={() => dispatch({ type: 'PRINT_DATA' })}
-                variant="filled"
+                variant={isPrinting ? 'light' : 'filled'}
                 size="lg"
                 aria-label="Print sheet"
+                loading={isPrinting}
               >
                 <IconPrinter className={cx(styling.iconSize)} stroke={1.5} />
               </ActionIcon>

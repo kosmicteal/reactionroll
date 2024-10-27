@@ -32,6 +32,9 @@ export interface SetArmorACAction {
   type: 'SET_ARMORAC';
   payload: number;
 }
+export interface GetCharacterValuesAction {
+  type: 'GET_CHARACTER_VALUES';
+}
 
 //// INTERFACE REDUX
 export interface SetZoomAction {
@@ -51,5 +54,6 @@ export type ActionTypes =
   | SetCampaignAction
   | SetArmorACAction
   | SetSpellDCAction
+  | GetCharacterValuesAction
   | SetZoomAction
   | PrintAction;

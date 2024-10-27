@@ -11,8 +11,6 @@ import {
 import { useDispatch } from 'react-redux';
 import { GlobalDispatch } from '../main';
 import { reduxSelector } from '../redux/selector';
-import { useRef } from 'react';
-import { useReactToPrint } from 'react-to-print';
 import { styling } from '../style';
 import { cx } from '@emotion/css';
 import { ModalCharacterDetails } from './modalComponents/ModalCharacterDetails';
@@ -20,23 +18,14 @@ import { openModal } from './AutoUpdateModal';
 import { useMediaQuery } from '@mantine/hooks';
 import { concatSelector } from '../utils/concatSelectors';
 import { IconShieldHeart, IconWand } from '@tabler/icons-react';
+import { CharacterData } from '../redux/state.interface';
 
 export function BasicContent() {
   const dispatch: GlobalDispatch = useDispatch();
-  const componentRef = useRef(null);
   const isMobile = useMediaQuery('(max-width: 50em)');
-
-  const reactToPrintContent = () => {
-    return componentRef.current;
-  };
-  const handlePrint = useReactToPrint({
-    preserveAfterPrint: true,
-  });
-
-  if (reduxSelector('PRINT_DATA')) {
-    handlePrint(reactToPrintContent);
-    dispatch({ type: 'PRINT_DATA' });
-  }
+  const values: CharacterData = reduxSelector(
+    'GET_CHARACTER_VALUES',
+  ) as CharacterData;
 
   function handleOnBlur(actionName: string, target: string) {
     dispatch({
@@ -51,10 +40,11 @@ export function BasicContent() {
   );
 
   return (
-    <div ref={componentRef}>
+    <>
       <Flex justify="space-between">
         <Stack gap="0" w="70%">
           <Input
+            defaultValue={values.name}
             variant="unstyled"
             size="c-md"
             radius="xs"
@@ -88,6 +78,7 @@ export function BasicContent() {
         </Stack>
         <Stack w="30%">
           <Input
+            defaultValue={values.campaign}
             variant="unstyled"
             size="c-sm"
             ta="end"
@@ -99,6 +90,7 @@ export function BasicContent() {
           />
           <Flex gap="xl">
             <NumberInput
+              defaultValue={values.details?.spellDC}
               leftSection={<IconWand stroke={1.5} />}
               className={cx(styling.textSm, styling.caNumber)}
               placeholder="DC"
@@ -108,6 +100,7 @@ export function BasicContent() {
               }}
             />
             <NumberInput
+              defaultValue={values.details?.armorAC}
               leftSection={<IconShieldHeart stroke={2} />}
               className={cx(styling.textSm, styling.caNumber)}
               placeholder="AC"
@@ -128,6 +121,6 @@ export function BasicContent() {
       >
         Life is like an npm install – you never know what you are going to get.
       </Blockquote>
-    </div>
+    </>
   );
 }

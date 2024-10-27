@@ -1,7 +1,8 @@
 import { useSelector } from 'react-redux';
 import { GlobalState } from './state.interface';
+import { ActionTypes } from './action';
 
-export function reduxSelector(actionType: string) {
+export function reduxSelector(actionType: ActionTypes['type']) {
   switch (actionType) {
     case 'SET_NAME': {
       return useSelector((state: GlobalState) => state.characterData.name);
@@ -20,6 +21,19 @@ export function reduxSelector(actionType: string) {
       return useSelector(
         (state: GlobalState) => state.characterData.details.race,
       );
+    }
+    case 'SET_ARMORAC': {
+      return useSelector(
+        (state: GlobalState) => state.characterData.details.armorAC,
+      );
+    }
+    case 'SET_SPELLDC': {
+      return useSelector(
+        (state: GlobalState) => state.characterData.details.spellDC,
+      );
+    }
+    case 'GET_CHARACTER_VALUES': {
+      return useSelector((state: GlobalState) => state.characterData);
     }
     case 'PRINT_DATA': {
       return useSelector((state: GlobalState) => state.appLocalData.printData);
