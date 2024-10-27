@@ -12,7 +12,8 @@ const textSize = {
   xl: '3.5em',
   lg: '2.4em',
   md: '1.5em',
-  sm: '0.8em',
+  smMd: '1.2em',
+  sm: '1em',
 };
 
 export const styling = {
@@ -89,9 +90,25 @@ export const styling = {
   `,
   textMd: css`
     font-size: ${textSize.md} !important;
+    & > input {
+      font-size: ${textSize.md} !important;
+    }
   `,
   textSm: css`
+    height: fit-content;
     font-size: ${textSize.sm} !important;
+    & > input {
+      font-size: ${textSize.sm} !important;
+    }
+  `,
+  caNumber: css`
+    font-size: ${textSize.smMd} !important;
+    text-align: center;
+    & > * > input {
+      background-color: transparent;
+      text-align: center !important;
+      font-size: ${textSize.smMd} !important;
+    }
   `,
   topStack: css`
     position: relative;

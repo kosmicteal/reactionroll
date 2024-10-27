@@ -7,7 +7,7 @@ import { Zoom } from '../components/Zoom';
 import { reduxSelector } from '../redux/selector';
 
 export function CreatePageGeneric() {
-  const currentZoomSetting = parseFloat(reduxSelector('SET_ZOOM') as string);
+  const currentZoomSetting = reduxSelector('SET_ZOOM') as number;
   const zoomPage = css`
     transform: scale(${currentZoomSetting}, ${currentZoomSetting});
     margin-top: ${currentZoomSetting * 40 - 40}em;

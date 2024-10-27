@@ -1,14 +1,14 @@
 .wrapper {
-  --title-size: 3.5em;
-  --regular-size: 1.5em;
+  --title-size: 2em;
+  --regular-size: 1em;
   --condensed-size: 0.8em;
 
-  &[data-size='title'] {
+  &[data-size='c-md'] {
     & .input {
       font-size: var(--title-size);
     }
   }
-  &[data-size='md-nb'] {
+  &[data-size='c-sm'] {
     & .input {
       font-size: var(--regular-size);
     }

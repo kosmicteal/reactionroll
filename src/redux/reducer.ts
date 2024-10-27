@@ -4,14 +4,17 @@ import { GlobalState } from './state.interface';
 export const initialState: GlobalState = {
   appLocalData: {
     printData: false,
-    zoomPercentage: '1',
+    zoomPercentage: 1,
   },
   characterData: {
     name: '',
+    campaign: '',
     details: {
       class: '',
       subclass: '',
       race: '',
+      spellDC: undefined,
+      armorAC: undefined,
     },
   },
 };
@@ -62,6 +65,39 @@ export function reducer(
           details: {
             ...state.characterData.details,
             race: action.payload,
+          },
+        },
+      };
+    }
+    case 'SET_CAMPAIGN': {
+      return {
+        ...state,
+        characterData: {
+          ...state.characterData,
+          campaign: action.payload,
+        },
+      };
+    }
+    case 'SET_ARMORAC': {
+      return {
+        ...state,
+        characterData: {
+          ...state.characterData,
+          details: {
+            ...state.characterData.details,
+            armorAC: action.payload,
+          },
+        },
+      };
+    }
+    case 'SET_SPELLDC': {
+      return {
+        ...state,
+        characterData: {
+          ...state.characterData,
+          details: {
+            ...state.characterData.details,
+            spellDC: action.payload,
           },
         },
       };

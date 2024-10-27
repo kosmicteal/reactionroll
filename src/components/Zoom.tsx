@@ -5,12 +5,12 @@ import { GlobalDispatch } from '../main';
 
 export function Zoom() {
   const dispatch: GlobalDispatch = useDispatch();
-  const currentValue = parseFloat(reduxSelector('SET_ZOOM') as string);
+  const currentValue = reduxSelector('SET_ZOOM') as number;
 
   function handleOnChange(value: number) {
     console.log(value, currentValue);
     if (value !== currentValue) {
-      dispatch({ type: 'SET_ZOOM', payload: value.toString() });
+      dispatch({ type: 'SET_ZOOM', payload: value });
     }
   }
 

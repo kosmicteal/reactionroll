@@ -5,6 +5,7 @@ import {
   Flex,
   Group,
   Skeleton,
+  Tooltip,
   useComputedColorScheme,
   useMantineColorScheme,
 } from '@mantine/core';
@@ -61,30 +62,34 @@ export function App() {
             FastInitiative
           </Group>
           <Group h="100%" px="md">
-            <ActionIcon
-              onClick={() => dispatch({ type: 'PRINT_DATA' })}
-              variant="filled"
-              size="lg"
-              aria-label="Toggle color scheme"
-            >
-              <IconPrinter className={cx(styling.iconSize)} stroke={1.5} />
-            </ActionIcon>
-            <ActionIcon
-              onClick={() =>
-                setColorScheme(
-                  computedColorScheme === 'light' ? 'dark' : 'light',
-                )
-              }
-              variant="default"
-              size="lg"
-              aria-label="Toggle color scheme"
-            >
-              {computedColorScheme === 'dark' ? (
-                <IconSun className={cx(styling.iconSize)} stroke={1.5} />
-              ) : (
-                <IconMoon className={cx(styling.iconSize)} stroke={1.5} />
-              )}
-            </ActionIcon>
+            <Tooltip label="Print sheet">
+              <ActionIcon
+                onClick={() => dispatch({ type: 'PRINT_DATA' })}
+                variant="filled"
+                size="lg"
+                aria-label="Print sheet"
+              >
+                <IconPrinter className={cx(styling.iconSize)} stroke={1.5} />
+              </ActionIcon>
+            </Tooltip>
+            <Tooltip label="Toggle skin theme">
+              <ActionIcon
+                onClick={() =>
+                  setColorScheme(
+                    computedColorScheme === 'light' ? 'dark' : 'light',
+                  )
+                }
+                variant="default"
+                size="lg"
+                aria-label="Toggle skin theme"
+              >
+                {computedColorScheme === 'dark' ? (
+                  <IconSun className={cx(styling.iconSize)} stroke={1.5} />
+                ) : (
+                  <IconMoon className={cx(styling.iconSize)} stroke={1.5} />
+                )}
+              </ActionIcon>
+            </Tooltip>
           </Group>
         </Flex>
       </AppShell.Header>

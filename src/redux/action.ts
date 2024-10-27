@@ -3,6 +3,11 @@ export interface SetNameAction {
   payload: string;
 }
 
+export interface SetCampaignAction {
+  type: 'SET_CAMPAIGN';
+  payload: string;
+}
+
 export interface SetClassAction {
   type: 'SET_CLASS';
   payload: string;
@@ -18,9 +23,20 @@ export interface SetRaceAction {
   payload: string;
 }
 
+export interface SetSpellDCAction {
+  type: 'SET_SPELLDC';
+  payload: number;
+}
+
+export interface SetArmorACAction {
+  type: 'SET_ARMORAC';
+  payload: number;
+}
+
+//// INTERFACE REDUX
 export interface SetZoomAction {
   type: 'SET_ZOOM';
-  payload: string;
+  payload: number;
 }
 
 export interface PrintAction {
@@ -32,5 +48,8 @@ export type ActionTypes =
   | SetClassAction
   | SetRaceAction
   | SetSubclassAction
+  | SetCampaignAction
+  | SetArmorACAction
+  | SetSpellDCAction
   | SetZoomAction
   | PrintAction;
