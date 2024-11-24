@@ -9,13 +9,19 @@ import {
   useComputedColorScheme,
   useMantineColorScheme,
   ColorInput,
+  Paper,
+  Code,
+  Button,
+  FileButton,
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import {
   IconChevronRight,
+  IconDownload,
   IconMoon,
   IconPrinter,
   IconSun,
+  IconUpload,
   IconUser,
   IconWallpaper,
 } from '@tabler/icons-react';
@@ -25,6 +31,8 @@ import { Outlet, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { GlobalDispatch } from './main';
 import { reduxSelector } from './redux/selector';
+import { CharacterData } from './redux/state.interface';
+import save from 'save-file';
 
 export function App() {
   const [mobileOpened, { toggle: toggleMobile }] = useDisclosure();
@@ -37,9 +45,23 @@ export function App() {
 
   const dispatch: GlobalDispatch = useDispatch();
   const isPrinting = reduxSelector('PRINT_DATA') as boolean;
-
+  const characterValues = reduxSelector(
+    'ACTION_CHARACTER_VALUES',
+  ) as CharacterData;
+  console.log(characterValues);
   const location = useLocation();
   const isStartScreen = location.pathname === '/';
+
+  function setFile(value: File) {
+    const reader = new FileReader();
+    reader.readAsText(value);
+    dispatch({ type: 'ACTION_CHARACTER_VALUES', payload: value });
+  }
+
+  async function saveFile() {
+    console.log(characterValues);
+    await save(characterValues, `reActionRoll_${characterValues.name}.json`);
+  }
 
   return (
     <AppShell
@@ -133,7 +155,7 @@ export function App() {
               label="Preview page background color"
               placeholder="None, use #FFFFFF to reset"
               pr="lg"
-              pt="md"
+              pt="xs"
               pb="md"
               swatches={[
                 '#ffffff00',
@@ -180,7 +202,35 @@ export function App() {
               />
             }
             active
-          />
+          >
+            <Flex mr="lg" mt="md" mb="md" gap={'xs'} justify="space-between">
+              <FileButton
+                onChange={payload => setFile(payload)}
+                accept="application/json"
+              >
+                {props => (
+                  <Button {...props} leftSection={<IconUpload size={14} />}>
+                    Load data
+                  </Button>
+                )}
+              </FileButton>
+
+              <Button
+                onClick={() => {
+                  console.log('a');
+                  saveFile();
+                }}
+                leftSection={<IconDownload size={14} />}
+              >
+                Save data
+              </Button>
+            </Flex>
+            <Paper shadow="xs" mr="lg" mt="md" mb="md">
+              <Code block ta={'left'} h={'20em'} mah={'20em'}>
+                {JSON.stringify(characterValues, null, 2)}
+              </Code>
+            </Paper>
+          </NavLink>
         </AppShell.Navbar>
       )}
       <AppShell.Main>

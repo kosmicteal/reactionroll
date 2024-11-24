@@ -35,7 +35,7 @@ export function reduxSelector(actionType: ActionTypes['type']) {
         (state: GlobalState) => state.characterData.details.spellDC,
       );
     }
-    case 'GET_CHARACTER_VALUES': {
+    case 'ACTION_CHARACTER_VALUES': {
       return useSelector((state: GlobalState) => state.characterData);
     }
     case 'PRINT_DATA': {

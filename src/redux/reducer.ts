@@ -144,6 +144,12 @@ export function reducer(
         },
       };
     }
+    case 'ACTION_CHARACTER_VALUES': {
+      return {
+        ...state,
+        characterData: action.payload,
+      };
+    }
     default: {
       return state;
     }

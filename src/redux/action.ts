@@ -1,3 +1,5 @@
+import { CharacterData } from './state.interface';
+
 export interface SetNameAction {
   type: 'SET_NAME';
   payload: string;
@@ -33,7 +35,8 @@ export interface SetArmorACAction {
   payload: number;
 }
 export interface GetCharacterValuesAction {
-  type: 'GET_CHARACTER_VALUES';
+  type: 'ACTION_CHARACTER_VALUES';
+  payload: CharacterData;
 }
 
 //// INTERFACE REDUX

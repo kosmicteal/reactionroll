@@ -23,7 +23,7 @@ export function BasicContent() {
   const dispatch: GlobalDispatch = useDispatch();
   const isMobile = useMediaQuery('(max-width: 50em)');
   const values: CharacterData = reduxSelector(
-    'GET_CHARACTER_VALUES',
+    'ACTION_CHARACTER_VALUES',
   ) as CharacterData;
 
   function handleOnBlur(actionName: string, target: string) {
