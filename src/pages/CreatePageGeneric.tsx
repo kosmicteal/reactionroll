@@ -9,6 +9,8 @@ import { useMediaQuery } from '@mantine/hooks';
 import { RenderAndPrint } from '../utils/RenderAndPrint';
 import { IconPlus } from '@tabler/icons-react';
 import { styling } from '../style';
+import { openModal } from '../components/modalComponents/AutoUpdateModal';
+import { ModalAddSection } from '../components/modalComponents/ModalAddSection';
 
 export function CreatePageGeneric() {
   const currentZoomSetting = reduxSelector('SET_ZOOM') as number;
@@ -54,8 +56,10 @@ export function CreatePageGeneric() {
         <Button
           className={cx(styling.hideOnPrint)}
           leftSection={<IconPlus size={14} />}
-          disabled
           variant="default"
+          onClick={() => {
+            openModal('Add new section', <ModalAddSection />, isMobile!, true);
+          }}
         >
           Add section
         </Button>

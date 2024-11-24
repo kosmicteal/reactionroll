@@ -19,7 +19,10 @@ import { GlobalState } from './redux/state.interface.ts';
 import { configureStore } from '@reduxjs/toolkit';
 import { initialState, reducer } from './redux/reducer.ts';
 import { ModalsProvider } from '@mantine/modals';
-import { AutoUpdateModal } from './components/modalComponents/AutoUpdateModal.tsx';
+import {
+  AutoUpdateModal,
+  FullFocusModal,
+} from './components/modalComponents/AutoUpdateModal.tsx';
 
 const store = configureStore({
   reducer,
@@ -62,7 +65,9 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ReactProvider store={store}>
       <MantineProvider defaultColorScheme="auto" theme={theme}>
-        <ModalsProvider modals={{ autoupdate: AutoUpdateModal }}>
+        <ModalsProvider
+          modals={{ autoupdate: AutoUpdateModal, fullfocus: FullFocusModal }}
+        >
           <RouterProvider router={router} />
         </ModalsProvider>
       </MantineProvider>

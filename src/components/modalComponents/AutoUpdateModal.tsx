@@ -17,13 +17,20 @@ export const AutoUpdateModal = ({
   </>
 );
 
+export const FullFocusModal = ({
+  innerProps,
+}: ContextModalProps<{ modalBody: PropsWithChildren }>) => (
+  <>{innerProps.modalBody.children}</>
+);
+
 export const openModal = (
   title: string,
-  isMobile: boolean,
   children: ReactNode,
+  isMobile: boolean,
+  isFocus?: boolean,
 ): void =>
   modals.openContextModal({
-    modal: 'autoupdate',
+    modal: isFocus ? 'fullfocus' : 'autoupdate',
     title,
     centered: true,
     fullScreen: isMobile,

@@ -6,7 +6,6 @@ import {
   Text,
   NumberInput,
   Divider,
-  Button,
 } from '@mantine/core';
 import { useDispatch } from 'react-redux';
 import { GlobalDispatch } from '../main';
@@ -17,7 +16,7 @@ import { ModalCharacterDetails } from './modalComponents/ModalCharacterDetails';
 import { openModal } from './modalComponents/AutoUpdateModal';
 import { useMediaQuery } from '@mantine/hooks';
 import { concatSelector } from '../utils/concatSelectors';
-import { IconPlus, IconShieldHeart, IconWand } from '@tabler/icons-react';
+import { IconShieldHeart, IconWand } from '@tabler/icons-react';
 import { CharacterData } from '../redux/state.interface';
 
 export function BasicContent() {
@@ -59,8 +58,8 @@ export function BasicContent() {
             onClick={() => {
               openModal(
                 'Class and Race information',
-                isMobile!,
                 <ModalCharacterDetails />,
+                isMobile!,
               );
             }}
           >
