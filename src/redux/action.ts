@@ -59,6 +59,10 @@ export interface PrintAction {
   type: 'PRINT_DATA';
 }
 
+export interface LoadAction {
+  type: 'IS_LOADING';
+}
+
 export type ActionTypes =
   | SetNameAction
   | SetClassAction
@@ -71,4 +75,5 @@ export type ActionTypes =
   | SetZoomAction
   | SetPreviewPaperColourAction
   | SetTextColourAction
-  | PrintAction;
+  | PrintAction
+  | LoadAction;

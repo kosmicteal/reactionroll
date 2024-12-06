@@ -11,6 +11,7 @@ import { IconPlus } from '@tabler/icons-react';
 import { styling } from '../style';
 import { openModal } from '../components/modalComponents/AutoUpdateModal';
 import { ModalAddSection } from '../components/modalComponents/ModalAddSection';
+import { CreatePageGenericSkeleton } from '../components/uiComponents/CreatePageGenericSkeleton';
 
 export function CreatePageGeneric() {
   const currentZoomSetting = reduxSelector('SET_ZOOM') as number;
@@ -24,6 +25,7 @@ export function CreatePageGeneric() {
 
   const isMobile = useMediaQuery('(max-width: 50em)');
   const isPrinting = reduxSelector('PRINT_DATA') as boolean;
+  const isLoading = reduxSelector('IS_LOADING') as boolean;
 
   const currentPageColour = reduxSelector('SET_PREVIEW_PAPER_COLOUR') as string;
   const currentTextColour = reduxSelector('SET_TEXT_COLOUR') as string;
@@ -49,20 +51,31 @@ export function CreatePageGeneric() {
         zoomPage={zoomPage}
         containerTheme={containerTheme}
       >
-        <BasicContent />
+        {!isLoading ? (
+          <>
+            <BasicContent />
+            <Button
+              className={cx(styling.hideOnPrint)}
+              leftSection={<IconPlus size={14} />}
+              variant="default"
+              onClick={() => {
+                openModal(
+                  'Add new section',
+                  <ModalAddSection />,
+                  isMobile!,
+                  true,
+                );
+              }}
+            >
+              Add section
+            </Button>
+          </>
+        ) : (
+          <CreatePageGenericSkeleton />
+        )}
         {/* put BasicContent inside PageContent, then put PageContent 
         and button into UIcontent and put it here, the one printed is 
         PageContent which gets the values*/}
-        <Button
-          className={cx(styling.hideOnPrint)}
-          leftSection={<IconPlus size={14} />}
-          variant="default"
-          onClick={() => {
-            openModal('Add new section', <ModalAddSection />, isMobile!, true);
-          }}
-        >
-          Add section
-        </Button>
       </ResponsiveContainer>
 
       {isPrinting && <RenderAndPrint />}

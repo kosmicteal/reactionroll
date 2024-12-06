@@ -4,6 +4,7 @@ import { GlobalState } from './state.interface';
 export const initialState: GlobalState = {
   appLocalData: {
     printData: false,
+    loadData: false,
     zoomPercentage: 1,
     previewPaperColour: undefined,
     textColour: undefined,
@@ -110,6 +111,15 @@ export function reducer(
         appLocalData: {
           ...state.appLocalData,
           printData: !state.appLocalData.printData,
+        },
+      };
+    }
+    case 'IS_LOADING': {
+      return {
+        ...state,
+        appLocalData: {
+          ...state.appLocalData,
+          loadData: !state.appLocalData.loadData,
         },
       };
     }
