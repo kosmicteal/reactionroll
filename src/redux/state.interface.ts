@@ -4,6 +4,7 @@ export interface GlobalState {
 }
 export interface AppData {
   printData: boolean;
+  loadData: boolean;
   zoomPercentage: number;
   previewPaperColour: string | undefined;
   textColour: string | undefined;

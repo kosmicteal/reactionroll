@@ -4,6 +4,7 @@ import { GlobalState } from './state.interface';
 export const initialState: GlobalState = {
   appLocalData: {
     printData: false,
+    loadData: false,
     zoomPercentage: 1,
     previewPaperColour: undefined,
     textColour: undefined,
@@ -113,6 +114,15 @@ export function reducer(
         },
       };
     }
+    case 'IS_LOADING': {
+      return {
+        ...state,
+        appLocalData: {
+          ...state.appLocalData,
+          loadData: !state.appLocalData.loadData,
+        },
+      };
+    }
     case 'SET_ZOOM': {
       return {
         ...state,
@@ -142,6 +152,12 @@ export function reducer(
           ...state.appLocalData,
           textColour: checkColourReset,
         },
+      };
+    }
+    case 'ACTION_CHARACTER_VALUES': {
+      return {
+        ...state,
+        characterData: action.payload,
       };
     }
     default: {

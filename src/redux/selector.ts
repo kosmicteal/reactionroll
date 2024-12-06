@@ -11,9 +11,9 @@ export function reduxSelector(actionType: ActionTypes['type']) {
       return useSelector((state: GlobalState) => state.characterData.campaign);
     }
     case 'SET_CLASS': {
-      return useSelector(
-        (state: GlobalState) => state.characterData.details.class,
-      );
+      return useSelector((state: GlobalState) => {
+        return state.characterData.details.class;
+      });
     }
     case 'SET_SUBCLASS': {
       return useSelector(
@@ -35,11 +35,14 @@ export function reduxSelector(actionType: ActionTypes['type']) {
         (state: GlobalState) => state.characterData.details.spellDC,
       );
     }
-    case 'GET_CHARACTER_VALUES': {
+    case 'ACTION_CHARACTER_VALUES': {
       return useSelector((state: GlobalState) => state.characterData);
     }
     case 'PRINT_DATA': {
       return useSelector((state: GlobalState) => state.appLocalData.printData);
+    }
+    case 'IS_LOADING': {
+      return useSelector((state: GlobalState) => state.appLocalData.loadData);
     }
     case 'SET_PREVIEW_PAPER_COLOUR': {
       return useSelector(
