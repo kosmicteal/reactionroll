@@ -1,7 +1,7 @@
 import { AppShell, Button, Container, Flex } from '@mantine/core';
 import './MainPage.css';
 import { css, cx } from '@emotion/css';
-import { BasicContent } from '../components/BasicContent';
+import { BasicContent } from '../components/pageComponents/pageGeneric/BasicContent';
 import { Zoom } from '../components/Zoom';
 import { reduxSelector } from '../redux/selector';
 import { ResponsiveContainer } from '../components/ResponsiveContainer';

@@ -6,18 +6,23 @@ import {
   Text,
   NumberInput,
   Divider,
+  Grid,
 } from '@mantine/core';
 import { useDispatch } from 'react-redux';
-import { GlobalDispatch } from '../main';
-import { reduxSelector } from '../redux/selector';
-import { styling } from '../style';
+import { GlobalDispatch } from '../../../main';
+import { reduxSelector } from '../../../redux/selector';
+import { styling } from '../../../style';
 import { cx } from '@emotion/css';
-import { ModalCharacterDetails } from './modalComponents/ModalCharacterDetails';
-import { openModal } from './modalComponents/AutoUpdateModal';
+import { ModalCharacterDetails } from '../../modalComponents/ModalCharacterDetails';
+import { openModal } from '../../modalComponents/AutoUpdateModal';
 import { useMediaQuery } from '@mantine/hooks';
-import { concatSelector } from '../utils/concatSelectors';
+import { concatSelector } from '../../../utils/concatSelectors';
 import { IconShieldHeart, IconWand } from '@tabler/icons-react';
-import { CharacterData } from '../redux/state.interface';
+import {
+  CharacterData,
+  CharacterSection,
+  CharacterSectionColumn,
+} from '../../../redux/state.interface';
 
 export function BasicContent() {
   const dispatch: GlobalDispatch = useDispatch();
@@ -112,6 +117,20 @@ export function BasicContent() {
         </Stack>
       </Flex>
       <Divider size="md" my="md" />
+      {values.sections?.map((section: CharacterSection) => {
+        return (
+          <Grid key={crypto.randomUUID()}>
+            {section.columns.map((column: CharacterSectionColumn) => {
+              return (
+                <Grid.Col key={crypto.randomUUID()} span={column.span || 12}>
+                  <div>{column.title}</div>
+                  <div>{column.textContent}</div>
+                </Grid.Col>
+              );
+            })}
+          </Grid>
+        );
+      })}
     </>
   );
 }

@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { BasicContent } from '../components/BasicContent';
+import { BasicContent } from '../components/pageComponents/pageGeneric/BasicContent';
 import computedStyleToInlineStyle from 'computed-style-to-inline-style';
 import { useReactToPrint } from 'react-to-print';
 import { useDispatch } from 'react-redux';
