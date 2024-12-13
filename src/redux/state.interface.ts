@@ -25,10 +25,12 @@ export interface CharacterDetails {
 }
 
 export interface CharacterSection {
+  sectionId: string;
   columns: CharacterSectionColumn[];
 }
 
 export interface CharacterSectionColumn {
+  columnId: string;
   title: string;
   textContent: string;
   span?: number;

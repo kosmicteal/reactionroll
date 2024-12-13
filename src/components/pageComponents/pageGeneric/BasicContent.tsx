@@ -7,6 +7,9 @@ import {
   NumberInput,
   Divider,
   Grid,
+  HoverCard,
+  ActionIcon,
+  Group,
 } from '@mantine/core';
 import { useDispatch } from 'react-redux';
 import { GlobalDispatch } from '../../../main';
@@ -17,7 +20,13 @@ import { ModalCharacterDetails } from '../../modalComponents/ModalCharacterDetai
 import { openModal } from '../../modalComponents/AutoUpdateModal';
 import { useMediaQuery } from '@mantine/hooks';
 import { concatSelector } from '../../../utils/concatSelectors';
-import { IconShieldHeart, IconWand } from '@tabler/icons-react';
+import {
+  IconArrowBigDown,
+  IconArrowBigUp,
+  IconShieldHeart,
+  IconTrash,
+  IconWand,
+} from '@tabler/icons-react';
 import {
   CharacterData,
   CharacterSection,
@@ -35,6 +44,14 @@ export function BasicContent() {
     dispatch({
       type: actionName,
       payload: target,
+    });
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  function handleSectionUpdate(payload: any) {
+    dispatch({
+      type: 'UPDATE_COLUMN_SECTION',
+      payload,
     });
   }
 
@@ -119,16 +136,86 @@ export function BasicContent() {
       <Divider size="md" my="md" />
       {values.sections?.map((section: CharacterSection) => {
         return (
-          <Grid key={crypto.randomUUID()}>
-            {section.columns.map((column: CharacterSectionColumn) => {
-              return (
-                <Grid.Col key={crypto.randomUUID()} span={column.span || 12}>
-                  <div>{column.title}</div>
-                  <div>{column.textContent}</div>
-                </Grid.Col>
-              );
-            })}
-          </Grid>
+          <div key={crypto.randomUUID()}>
+            <HoverCard
+              shadow="md"
+              position="top-end"
+              transitionProps={{ transition: 'fade-up' }}
+            >
+              <HoverCard.Target>
+                <Grid key={crypto.randomUUID()}>
+                  {section.columns.map(
+                    (column: CharacterSectionColumn, idx: number) => {
+                      return (
+                        <Grid.Col
+                          key={crypto.randomUUID()}
+                          span={column.span || 12}
+                          className={
+                            idx < section.columns.length - 1
+                              ? cx(styling.gridBorder)
+                              : ''
+                          }
+                        >
+                          <Input
+                            defaultValue={column.title}
+                            variant="unstyled"
+                            size="c-sm"
+                            radius="xs"
+                            placeholder="Section title"
+                            onBlur={e => {
+                              handleSectionUpdate({
+                                sectionId: section.sectionId,
+                                columnId: column.columnId,
+                                value: {
+                                  title: e.target.value,
+                                },
+                              });
+                            }}
+                          />
+                          <div>{column.textContent}</div>
+                        </Grid.Col>
+                      );
+                    },
+                  )}
+                </Grid>
+              </HoverCard.Target>
+              <HoverCard.Dropdown>
+                <Group gap="xs">
+                  <ActionIcon
+                    variant="outline"
+                    color="red"
+                    size="md"
+                    aria-label="Settings"
+                    onClick={() =>
+                      dispatch({
+                        type: 'REMOVE_COLUMN_SECTION',
+                        payload: section.sectionId,
+                      })
+                    }
+                  >
+                    <IconTrash
+                      style={{ width: '70%', height: '70%' }}
+                      stroke={1.5}
+                    />
+                  </ActionIcon>
+                  <ActionIcon variant="outline" size="md" aria-label="Settings">
+                    <IconArrowBigUp
+                      style={{ width: '70%', height: '70%' }}
+                      stroke={1.5}
+                    />
+                  </ActionIcon>
+                  <ActionIcon variant="outline" size="md" aria-label="Settings">
+                    <IconArrowBigDown
+                      style={{ width: '70%', height: '70%' }}
+                      stroke={1.5}
+                    />
+                  </ActionIcon>
+                </Group>
+              </HoverCard.Dropdown>
+            </HoverCard>
+
+            <Divider size="md" my="md" />
+          </div>
         );
       })}
     </>

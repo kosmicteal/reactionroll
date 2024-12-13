@@ -1,5 +1,5 @@
-import { ActionTypes } from './action';
-import { GlobalState } from './state.interface';
+import { ActionTypes, anyObject } from './action';
+import { CharacterSection, GlobalState } from './state.interface';
 
 export const initialState: GlobalState = {
   appLocalData: {
@@ -21,6 +21,105 @@ export const initialState: GlobalState = {
     },
   },
 };
+
+function addSectionToState(
+  state: GlobalState,
+  newSection: CharacterSection,
+): GlobalState {
+  if (state.characterData.sections) {
+    return {
+      ...state,
+      characterData: {
+        ...state.characterData,
+        sections: [...state.characterData.sections, newSection],
+      },
+    };
+  } else {
+    return {
+      ...state,
+      characterData: {
+        ...state.characterData,
+        sections: [newSection],
+      },
+    };
+  }
+}
+
+function removeSectionFromState(
+  state: GlobalState,
+  payload: string,
+): GlobalState {
+  const availableSections = state.characterData.sections!;
+
+  let updatedSections: CharacterSection[] | undefined =
+    availableSections.filter(section => section.sectionId !== payload);
+
+  if (updatedSections.length === 0) updatedSections = undefined;
+
+  return {
+    ...state,
+    characterData: {
+      ...state.characterData,
+      sections: updatedSections,
+    },
+  };
+}
+
+function updateSectionFromState(
+  state: GlobalState,
+  payload: { sectionId: string; columnId: string; value: anyObject },
+): GlobalState {
+  console.log(payload);
+  const availableSections = state.characterData.sections!;
+
+  const sectionIndex: number = availableSections.findIndex(
+    section => section.sectionId === payload.sectionId,
+  );
+  console.log(sectionIndex, availableSections[sectionIndex]);
+  const columnIndex: number = availableSections[sectionIndex].columns.findIndex(
+    columns => columns.columnId === payload.columnId,
+  );
+  console.log(
+    columnIndex,
+    availableSections[sectionIndex].columns[columnIndex],
+  );
+
+  availableSections[sectionIndex].columns[columnIndex] = {
+    ...availableSections[sectionIndex].columns[columnIndex],
+    ...payload.value,
+  };
+
+  console.log(
+    'new object',
+    availableSections[sectionIndex].columns[columnIndex],
+  );
+
+  return {
+    ...state,
+    characterData: {
+      ...state.characterData,
+      sections: availableSections,
+    },
+  };
+}
+
+// const todosReducer = produce((draft, action) => {
+//   switch (action.type) {
+//       case "toggle":
+//           const todo = draft.find(todo => todo.id === action.id)
+//           todo.done = !todo.done
+//           break
+//       case "add":
+//           draft.push({
+//               id: action.id,
+//               title: "A new todo",
+//               done: false
+//           })
+//           break
+//       default:
+//           break
+//   }
+// })
 
 export function reducer(
   state = initialState,
@@ -159,6 +258,47 @@ export function reducer(
         ...state,
         characterData: action.payload,
       };
+    }
+    case 'ADD_SINGLE_COLUMN_SECTION': {
+      const newSection: CharacterSection = {
+        sectionId: crypto.randomUUID(),
+        columns: [
+          {
+            columnId: crypto.randomUUID(),
+            title: '',
+            textContent: 'newContent',
+          },
+        ],
+      };
+
+      return addSectionToState(state, newSection);
+    }
+    case 'ADD_MULTIPLE_COLUMN_SECTION': {
+      const newSection: CharacterSection = {
+        sectionId: crypto.randomUUID(),
+        columns: [
+          {
+            columnId: crypto.randomUUID(),
+            title: '',
+            textContent: 'newContent',
+            span: 6,
+          },
+          {
+            columnId: crypto.randomUUID(),
+            title: '',
+            textContent: 'newContent',
+            span: 6,
+          },
+        ],
+      };
+
+      return addSectionToState(state, newSection);
+    }
+    case 'REMOVE_COLUMN_SECTION': {
+      return removeSectionFromState(state, action.payload);
+    }
+    case 'UPDATE_COLUMN_SECTION': {
+      return updateSectionFromState(state, action.payload);
     }
     default: {
       return state;

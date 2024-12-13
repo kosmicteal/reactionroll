@@ -118,4 +118,11 @@ export const styling = {
       }
     }
   `,
+  gridBorder: css`
+    border-right: 3px var(--mantine-color-default-border) solid;
+  `,
+  floatContextMenu: css`
+    overflow: hidden;
+    background: red;
+  `,
 };
