@@ -1,6 +1,9 @@
-import { reduxSelector } from '../redux/selector';
+import { reduxSelector, reduxSelectorType } from '../redux/slicer';
 
-export function concatSelector(selectors: string[], sections: string[]) {
+export function concatSelector(
+  selectors: reduxSelectorType[],
+  sections: string[],
+) {
   let concatSelectorResult: string = '';
   let concatSelectorHasData: boolean = false;
 

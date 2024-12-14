@@ -11,9 +11,8 @@ import {
   ActionIcon,
   Group,
 } from '@mantine/core';
-import { useDispatch } from 'react-redux';
-import { GlobalDispatch } from '../../../main';
-import { reduxSelector } from '../../../redux/selector';
+import { reduxStore } from '../../../main';
+import { reduxActionType, reduxSelector } from '../../../redux/slicer';
 import { styling } from '../../../style';
 import { cx } from '@emotion/css';
 import { ModalCharacterDetails } from '../../modalComponents/ModalCharacterDetails';
@@ -32,31 +31,35 @@ import {
   CharacterSection,
   CharacterSectionColumn,
 } from '../../../redux/state.interface';
+import { reduxSlice } from '../../../redux/slicer';
 
 export function BasicContent() {
-  const dispatch: GlobalDispatch = useDispatch();
-  const isMobile = useMediaQuery('(max-width: 50em)');
-  const values: CharacterData = reduxSelector(
-    'ACTION_CHARACTER_VALUES',
-  ) as CharacterData;
+  const { selectCharacterValues, selectClass, selectSubclass, selectRace } =
+    reduxSlice.selectors;
+  const {
+    setName,
+    setCampaign,
+    setSpellDC,
+    setArmorAC,
+    setUpdateSectionValue,
+    setRemoveSection,
+  } = reduxSlice.actions;
+  const { dispatch } = reduxStore;
 
-  function handleOnBlur(actionName: string, target: string) {
-    dispatch({
-      type: actionName,
-      payload: target,
-    });
+  const isMobile = useMediaQuery('(max-width: 50em)');
+  const values: CharacterData = reduxSelector(selectCharacterValues);
+
+  function handleOnBlur(actionName: reduxActionType, target: string) {
+    dispatch(actionName(target));
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   function handleSectionUpdate(payload: any) {
-    dispatch({
-      type: 'UPDATE_COLUMN_SECTION',
-      payload,
-    });
+    dispatch(setUpdateSectionValue(payload));
   }
 
   const { concatSelectorHasData, concatSelectorResult } = concatSelector(
-    ['SET_CLASS', 'SET_SUBCLASS', 'SET_RACE'],
+    [selectClass, selectSubclass, selectRace],
     ['$0', ' ($0)', ' - $0'],
   );
 
@@ -71,7 +74,7 @@ export function BasicContent() {
             radius="xs"
             placeholder="Character Name"
             onBlur={e => {
-              handleOnBlur('SET_NAME', e.target.value);
+              handleOnBlur(setName, e.target.value);
             }}
           />
           <UnstyledButton
@@ -106,7 +109,7 @@ export function BasicContent() {
             radius="xs"
             placeholder="Campaign"
             onBlur={e => {
-              handleOnBlur('SET_CAMPAIGN', e.target.value);
+              handleOnBlur(setCampaign, e.target.value);
             }}
           />
           <Flex gap="xl">
@@ -117,7 +120,7 @@ export function BasicContent() {
               placeholder="DC"
               hideControls
               onBlur={e => {
-                handleOnBlur('SET_SPELLDC', e.target.value);
+                handleOnBlur(setSpellDC, e.target.value);
               }}
             />
             <NumberInput
@@ -127,7 +130,7 @@ export function BasicContent() {
               placeholder="AC"
               hideControls
               onBlur={e => {
-                handleOnBlur('SET_ARMORAC', e.target.value);
+                handleOnBlur(setArmorAC, e.target.value);
               }}
             />
           </Flex>
@@ -187,10 +190,7 @@ export function BasicContent() {
                     size="md"
                     aria-label="Settings"
                     onClick={() =>
-                      dispatch({
-                        type: 'REMOVE_COLUMN_SECTION',
-                        payload: section.sectionId,
-                      })
+                      dispatch(setRemoveSection(section.sectionId))
                     }
                   >
                     <IconTrash

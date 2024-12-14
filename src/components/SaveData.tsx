@@ -1,11 +1,11 @@
 import { Button } from '@mantine/core';
 import { IconDownload } from '@tabler/icons-react';
 import save from 'save-file';
-import { reduxSelector } from '../redux/selector';
+import { reduxSelectorOld } from '../redux/selector';
 import { CharacterData } from '../redux/state.interface';
 
 export function SaveData() {
-  const characterValues = reduxSelector(
+  const characterValues = reduxSelectorOld(
     'ACTION_CHARACTER_VALUES',
   ) as CharacterData;
 

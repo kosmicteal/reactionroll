@@ -2,11 +2,11 @@ import { Code, Flex, NavLink, Paper } from '@mantine/core';
 import { IconChevronRight, IconUser } from '@tabler/icons-react';
 import { LoadData } from '../LoadData';
 import { SaveData } from '../SaveData';
-import { reduxSelector } from '../../redux/selector';
+import { reduxSelectorOld } from '../../redux/selector';
 import { CharacterData } from '../../redux/state.interface';
 
 export function CharacterInformation() {
-  const characterValues = reduxSelector(
+  const characterValues = reduxSelectorOld(
     'ACTION_CHARACTER_VALUES',
   ) as CharacterData;
 

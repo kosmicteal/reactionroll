@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { GlobalState } from './state.interface';
 import { ActionTypes } from './action';
 
-export function reduxSelector(actionType: ActionTypes['type']) {
+export function reduxSelectorOld(actionType: ActionTypes['type']) {
   switch (actionType) {
     case 'SET_NAME': {
       return useSelector((state: GlobalState) => state.characterData.name);

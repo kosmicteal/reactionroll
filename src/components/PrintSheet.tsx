@@ -1,19 +1,23 @@
 import { ActionIcon, Tooltip } from '@mantine/core';
 import { IconPrinter } from '@tabler/icons-react';
-import { reduxSelector } from '../redux/selector';
-import { GlobalDispatch } from '../main';
-import { useDispatch } from 'react-redux';
+
 import { cx } from '@emotion/css';
 import { styling } from '../style';
+import { reduxSelector, reduxSlice } from '../redux/slicer';
+import { reduxStore } from '../main';
 
 export function PrintSheet() {
-  const dispatch: GlobalDispatch = useDispatch();
-  const isPrinting = reduxSelector('PRINT_DATA') as boolean;
+  const { selectPrintData } = reduxSlice.selectors;
+  const { appPrintData } = reduxSlice.actions;
+  const { dispatch } = reduxStore;
+
+  const isPrinting = reduxSelector(selectPrintData) as boolean;
+  console.log(isPrinting);
 
   return (
     <Tooltip label="Print sheet">
       <ActionIcon
-        onClick={() => dispatch({ type: 'PRINT_DATA' })}
+        onClick={() => dispatch(appPrintData())}
         variant={isPrinting ? 'light' : 'filled'}
         size="lg"
         aria-label="Print sheet"
