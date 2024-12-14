@@ -1,14 +1,17 @@
 import { Button, Flex, Stack } from '@mantine/core';
 import { IconColumns1, IconColumns2 } from '@tabler/icons-react';
-import { useDispatch } from 'react-redux';
-import { GlobalDispatch } from '../../main';
+
 import { modals } from '@mantine/modals';
+import { reduxActionTypeNoPayload, reduxSlice } from '../../redux/slicer';
+import { reduxStore } from '../../main';
 
 export function ModalAddSection() {
-  const dispatch: GlobalDispatch = useDispatch();
+  const { setAddSingleColumnSection, setAddMultipleColumnSection } =
+    reduxSlice.actions;
+  const { dispatch } = reduxStore;
 
-  function handleClick(dispatchName: string) {
-    dispatch({ type: dispatchName });
+  function handleClick(dispatchName: reduxActionTypeNoPayload) {
+    dispatch(dispatchName());
     modals.closeAll();
   }
 
@@ -19,7 +22,7 @@ export function ModalAddSection() {
           w={'100%'}
           h={'6em'}
           onClick={() => {
-            handleClick('ADD_SINGLE_COLUMN_SECTION');
+            handleClick(setAddSingleColumnSection);
           }}
         >
           <Stack align="center" justify="center" gap="md">
@@ -30,7 +33,7 @@ export function ModalAddSection() {
         <Button
           w={'100%'}
           h={'6em'}
-          onClick={() => handleClick('ADD_MULTIPLE_COLUMN_SECTION')}
+          onClick={() => handleClick(setAddMultipleColumnSection)}
         >
           <Stack align="center" justify="center" gap="md">
             <IconColumns2 size={25} />

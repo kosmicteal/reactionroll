@@ -1,7 +1,5 @@
 import { Slider } from '@mantine/core';
-import { reduxSelectorOld } from '../redux/selector';
-import { useDispatch } from 'react-redux';
-import { GlobalDispatch, reduxStore } from '../main';
+import { reduxStore } from '../main';
 import { reduxSelector, reduxSlice } from '../redux/slicer';
 
 export function Zoom() {
@@ -12,9 +10,7 @@ export function Zoom() {
   const currentValue = reduxSelector(selectZoom) as number;
 
   function handleOnChange(value: number) {
-    if (value !== currentValue) {
-      dispatch(appSetZoom(value));
-    }
+    dispatch(appSetZoom(value));
   }
 
   return (

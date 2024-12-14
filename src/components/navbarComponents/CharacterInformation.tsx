@@ -2,13 +2,10 @@ import { Code, Flex, NavLink, Paper } from '@mantine/core';
 import { IconChevronRight, IconUser } from '@tabler/icons-react';
 import { LoadData } from '../LoadData';
 import { SaveData } from '../SaveData';
-import { reduxSelectorOld } from '../../redux/selector';
-import { CharacterData } from '../../redux/state.interface';
+import { reduxSelector, reduxSlice } from '../../redux/slicer';
 
 export function CharacterInformation() {
-  const characterValues = reduxSelectorOld(
-    'ACTION_CHARACTER_VALUES',
-  ) as CharacterData;
+  const { selectCharacterValues } = reduxSlice.selectors;
 
   return (
     <NavLink
@@ -29,7 +26,7 @@ export function CharacterInformation() {
       </Flex>
       <Paper shadow="xs" mr="lg" mt="md" mb="md">
         <Code block ta={'left'} h={'20em'} mah={'20em'}>
-          {JSON.stringify(characterValues, null, 2)}
+          {JSON.stringify(reduxSelector(selectCharacterValues), null, 2)}
         </Code>
       </Paper>
     </NavLink>

@@ -2,17 +2,19 @@ import { useEffect, useRef } from 'react';
 import { BasicContent } from '../components/pageComponents/pageGeneric/BasicContent';
 import computedStyleToInlineStyle from 'computed-style-to-inline-style';
 import { useReactToPrint } from 'react-to-print';
-import { useDispatch } from 'react-redux';
-import { GlobalDispatch } from '../main';
+import { reduxStore } from '../main';
+import { reduxSlice } from '../redux/slicer';
 
 export function RenderAndPrint() {
   const contentRef = useRef<HTMLDivElement>(null);
-  const dispatch: GlobalDispatch = useDispatch();
+  const { appPrintData } = reduxSlice.actions;
+  const { dispatch } = reduxStore;
 
   const handlePrint = useReactToPrint({
+    documentTitle: 'reactionroll_print',
     contentRef,
     onAfterPrint() {
-      dispatch({ type: 'PRINT_DATA' });
+      dispatch(appPrintData());
     },
   });
 

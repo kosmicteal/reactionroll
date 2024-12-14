@@ -1,9 +1,33 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ActionCreatorWithPayload, createSlice } from '@reduxjs/toolkit';
-import { initialState } from './reducer';
+import {
+  ActionCreatorWithoutPayload,
+  ActionCreatorWithPayload,
+  createSlice,
+} from '@reduxjs/toolkit';
 import { CharacterSection, GlobalState } from './state.interface';
 import { useSelector } from 'react-redux';
 import { Selector } from 'react-redux';
+
+export const initialState: GlobalState = {
+  appLocalData: {
+    printData: false,
+    loadData: false,
+    zoomPercentage: 1,
+    previewPaperColour: undefined,
+    textColour: undefined,
+  },
+  characterData: {
+    name: '',
+    campaign: '',
+    details: {
+      class: '',
+      subclass: '',
+      race: '',
+      spellDC: undefined,
+      armorAC: undefined,
+    },
+  },
+};
 
 function newRowSection(columnNumber: number) {
   const columns = [];
@@ -92,7 +116,7 @@ export const reduxSlice = createSlice({
         );
       if (updatedSections.length === 0) updatedSections = undefined;
 
-      state.characterData.sections = availableSections;
+      state.characterData.sections = updatedSections;
     },
     setUpdateSectionValue: (state, action) => {
       const availableSections = state.characterData.sections!;
@@ -107,7 +131,7 @@ export const reduxSlice = createSlice({
 
       state.characterData.sections![sectionIndex].columns[columnIndex] = {
         ...state.characterData.sections![sectionIndex].columns[columnIndex],
-        ...action.payload,
+        ...action.payload.value,
       };
     },
   },
@@ -138,6 +162,7 @@ export type reduxSelectorType = Selector<
 };
 
 export type reduxActionType = ActionCreatorWithPayload<any, string>;
+export type reduxActionTypeNoPayload = ActionCreatorWithoutPayload<string>;
 
 export function reduxSelector(func: reduxSelectorType) {
   return useSelector((state: { reduxSlice: GlobalState }) => func(state));
