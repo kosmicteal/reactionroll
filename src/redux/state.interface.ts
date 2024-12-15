@@ -1,3 +1,8 @@
+export interface anyObject {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  [key: string]: any;
+}
+
 export interface GlobalState {
   appLocalData: AppData;
   characterData: CharacterData;

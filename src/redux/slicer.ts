@@ -36,7 +36,7 @@ function newRowSection(columnNumber: number) {
     columns.push({
       columnId: crypto.randomUUID(),
       title: '',
-      textContent: 'newContent',
+      textContent: '',
       span: columnSpan,
     });
   }

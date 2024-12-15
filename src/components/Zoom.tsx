@@ -15,6 +15,7 @@ export function Zoom() {
 
   return (
     <Slider
+      m="xs"
       w="300px"
       color="blue"
       size="lg"

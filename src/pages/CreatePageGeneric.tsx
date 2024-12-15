@@ -89,8 +89,9 @@ export function CreatePageGeneric() {
       {isPrinting && <RenderAndPrint />}
 
       <AppShell.Footer>
-        <Container fluid p="lg">
-          <Flex justify={'end'}>
+        <Container fluid p="xs">
+          <Flex justify={'space-between'} align="center">
+            <Flex id="editor-component" ml={'0.25rem'} gap="md"></Flex>
             <Zoom />
           </Flex>
         </Container>

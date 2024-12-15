@@ -118,11 +118,57 @@ export const styling = {
       }
     }
   `,
+  characterSection: css`
+    padding-top: 0 !important;
+  `,
   gridBorder: css`
     border-right: 3px var(--mantine-color-default-border) solid;
   `,
   floatContextMenu: css`
     overflow: hidden;
     background: red;
+  `,
+  richTextEditor: css`
+    text-align: start;
+    border: none !important;
+    * .tiptap {
+      padding: 0 !important;
+    }
+    * .tiptap ul {
+      vertical-align: top;
+    }
+    * .tiptap th {
+      transition: border 0.4s ease-in;
+      padding: 5px;
+      background-color: var(--mantine-color-default-border);
+      border: 1px var(--mantine-color-dimmed) solid;
+    }
+    * .tiptap td {
+      transition: border 0.4s ease-in;
+      padding: 5px;
+      border: 1px var(--mantine-color-dimmed) solid;
+    }
+    * .tiptap th.column-resize-dragging {
+      border-right: 4px var(--mantine-color-anchor) solid;
+    }
+    * .tiptap td.column-resize-dragging {
+      border-right: 4px var(--mantine-color-anchor) solid;
+    }
+    * .tiptap th:has(.column-resize-handle) {
+      border-right: 4px var(--mantine-color-anchor) solid;
+    }
+    * .tiptap td:has(.column-resize-handle) {
+      border-right: 4px var(--mantine-color-anchor) solid;
+    }
+    * .tiptap th:has(.column-resize-handle) p {
+      margin: 0 !important;
+    }
+    * .tiptap td:has(.column-resize-handle) p {
+      margin: 0 !important;
+    }
+    * .tiptap.resize-cursor {
+      cursor: ew-resize;
+      cursor: col-resize;
+    }
   `,
 };
