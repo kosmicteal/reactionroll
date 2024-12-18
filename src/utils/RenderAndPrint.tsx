@@ -27,8 +27,6 @@ export function RenderAndPrint() {
         'border-bottom',
         'border-left',
         'border-right',
-        'background',
-        'background-color',
       ],
     });
     handlePrint();

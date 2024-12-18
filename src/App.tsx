@@ -5,6 +5,8 @@ import { PrintSheet } from './components/PrintSheet';
 import { ChangeTheme } from './components/ChangeTheme';
 import { PreviewPageColor } from './components/navbarComponents/PreviewPageColor';
 import { CharacterInformation } from './components/navbarComponents/CharacterInformation';
+import { cx } from '@emotion/css';
+import { styling } from './style';
 // import { reduxSelector } from './redux/selector';
 // import { FullScreenLoader } from './components/uiComponents/FullScreenLoader';
 
@@ -61,7 +63,7 @@ export function App() {
         </Flex>
       </AppShell.Header>
       {!isStartScreen && (
-        <AppShell.Navbar>
+        <AppShell.Navbar className={cx(styling.navBar)}>
           <PreviewPageColor />
           <CharacterInformation />
         </AppShell.Navbar>

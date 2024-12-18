@@ -135,7 +135,28 @@ export const styling = {
       padding: 0 !important;
     }
     * .tiptap ul {
-      vertical-align: top;
+      padding: 0 !important;
+      word-break: break-word !important;
+    }
+    * .tiptap li {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: top;
+    }
+    * .tiptap li::before {
+      content: '• ';
+      min-width: 6%;
+      font-size: 1.5em;
+      height: 1em;
+      text-align: start;
+      line-height: 1.1em;
+    }
+    * .tiptap li > p {
+      max-width: 94%;
+    }
+    * .tiptap li > ul {
+      width: 100%;
+      padding-left: 2em !important;
     }
     * .tiptap th {
       transition: border 0.4s ease-in;
@@ -170,5 +191,9 @@ export const styling = {
       cursor: ew-resize;
       cursor: col-resize;
     }
+  `,
+  navBar: css`
+    background-color: rgba(var(--mantine-color-body), 0.5) !important;
+    backdrop-filter: blur(5px) !important;
   `,
 };
