@@ -56,16 +56,11 @@ export const styling = {
   paperSize: css`
     width: 52em;
     padding: 2em 3em;
+    max-height: calc(52em * sqrt(2));
     aspect-ratio: 1 / sqrt(2);
     @media (max-width: ${breakpoints.xl}) {
       width: 100%;
     }
-  `,
-
-  paperPrint: css`
-    transform: scale(0.5);
-    transform-origin: top center;
-    margin-top: 5px;
   `,
 
   itemFitContent: css`
@@ -118,7 +113,12 @@ export const styling = {
     padding-top: 0 !important;
   `,
   gridBorder: css`
-    border-right: 3px var(--mantine-color-default-border) solid;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border-right: calc(0.1875rem * var(--mantine-scale))
+      var(--mantine-color-default-border) solid;
+    margin: 0 0.5rem;
   `,
   floatContextMenu: css`
     overflow: hidden;
@@ -148,7 +148,7 @@ export const styling = {
       line-height: 1.1em;
     }
     * .tiptap li > p {
-      max-width: 94%;
+      max-width: 90%;
     }
     * .tiptap li > ul {
       width: 100%;

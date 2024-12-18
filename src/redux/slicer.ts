@@ -31,13 +31,11 @@ export const initialState: GlobalState = {
 
 function newRowSection(columnNumber: number) {
   const columns = [];
-  const columnSpan = columnNumber > 1 ? 12 / columnNumber : undefined;
   for (let idx = 0; idx < columnNumber; idx++) {
     columns.push({
       columnId: crypto.randomUUID(),
       title: '',
       textContent: '',
-      span: columnSpan,
     });
   }
 

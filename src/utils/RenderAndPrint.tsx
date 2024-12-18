@@ -31,6 +31,7 @@ export function RenderAndPrint() {
         'border-bottom',
         'border-left',
         'border-right',
+        'box-sizing',
       ],
     });
     handlePrint();
