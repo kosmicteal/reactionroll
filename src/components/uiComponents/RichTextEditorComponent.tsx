@@ -11,6 +11,8 @@ import Table from '@tiptap/extension-table';
 import TableCell from '@tiptap/extension-table-cell';
 import TableHeader from '@tiptap/extension-table-header';
 import TableRow from '@tiptap/extension-table-row';
+import TextStyle from '@tiptap/extension-text-style';
+import { FontSize } from '../../utils/fontSizeTiptap';
 import { cx } from '@emotion/css';
 import { styling } from '../../style';
 import { createPortal } from 'react-dom';
@@ -27,6 +29,8 @@ import {
   RichTextEditorMergeOrSplitCell,
   RichTextEditorRemoveColumn,
   RichTextEditorRemoveRow,
+  RichTextEditorTextDecrease,
+  RichTextEditorTextIncrease,
   RichTextEditorToggleHeaderColumn,
   RichTextEditorToggleHeaderRow,
 } from './RichTextEditorControlComponents';
@@ -54,6 +58,8 @@ export function RichTextEditorComponent({
       TableRow,
       TableHeader,
       TableCell,
+      TextStyle,
+      FontSize,
       TextAlign.configure({ types: ['heading', 'paragraph'] }),
       Placeholder.configure({
         placeholder: 'Write your contents here.',
@@ -162,6 +168,8 @@ export function RichTextEditorComponent({
 
             <RichTextEditor.ControlsGroup>
               <RichTextEditorHeaderChoosing />
+              <RichTextEditorTextIncrease />
+              <RichTextEditorTextDecrease />
               <RichTextEditor.Subscript />
               <RichTextEditor.Superscript />
             </RichTextEditor.ControlsGroup>

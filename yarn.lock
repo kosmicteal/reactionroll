@@ -5341,6 +5341,7 @@ __metadata:
     "@tiptap/extension-table-header": "npm:^2.10.3"
     "@tiptap/extension-table-row": "npm:^2.10.3"
     "@tiptap/extension-text-align": "npm:^2.10.3"
+    "@tiptap/extension-text-style": "npm:^2.10.3"
     "@tiptap/extension-underline": "npm:^2.10.3"
     "@tiptap/pm": "npm:^2.10.3"
     "@tiptap/react": "npm:^2.10.3"

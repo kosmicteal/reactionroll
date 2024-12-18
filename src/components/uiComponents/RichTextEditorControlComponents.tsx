@@ -11,6 +11,8 @@ import {
   IconTableOff,
   IconTablePlus,
   IconTableRow,
+  IconTextDecrease,
+  IconTextIncrease,
 } from '@tabler/icons-react';
 
 export function RichTextEditorInsertTable() {
@@ -157,6 +159,44 @@ export function RichTextEditorToggleHeaderRow() {
       title="Toggle header row"
     >
       <IconTableRow stroke={2} size="1rem" />
+    </RichTextEditor.Control>
+  );
+}
+
+export function RichTextEditorTextIncrease() {
+  const { editor } = useRichTextEditorContext();
+  return (
+    <RichTextEditor.Control
+      onClick={() => {
+        const currentTextSize: string =
+          editor!.getAttributes('textStyle').fontSize || '1em';
+        const increasedSize: number =
+          parseFloat(currentTextSize.replace('em', '')) + 0.1;
+        editor!.chain().focus().setFontSize(`${increasedSize}em`).run();
+      }}
+      aria-label="Increase text size"
+      title="Increase text size"
+    >
+      <IconTextIncrease stroke={2} size="1rem" />
+    </RichTextEditor.Control>
+  );
+}
+
+export function RichTextEditorTextDecrease() {
+  const { editor } = useRichTextEditorContext();
+  return (
+    <RichTextEditor.Control
+      onClick={() => {
+        const currentTextSize: string =
+          editor!.getAttributes('textStyle').fontSize || '1em';
+        const decreasedSize: number =
+          parseFloat(currentTextSize.replace('em', '')) - 0.1;
+        editor!.chain().focus().setFontSize(`${decreasedSize}em`).run();
+      }}
+      aria-label="Decrease text size"
+      title="Decrease text size"
+    >
+      <IconTextDecrease stroke={2} size="1rem" />
     </RichTextEditor.Control>
   );
 }

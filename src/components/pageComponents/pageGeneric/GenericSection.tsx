@@ -150,7 +150,7 @@ export function GenericSection({ section }: { section: CharacterSection }) {
         </HoverCard.Dropdown>
       </HoverCard>
 
-      <Divider size="md" my="md" />
+      <Divider size="md" my="xs" />
     </>
   );
 }

@@ -114,7 +114,7 @@ export function BasicContent() {
           </Flex>
         </Stack>
       </Flex>
-      <Divider size="md" my="md" />
+      <Divider size="md" my="xs" />
       {values.sections?.map((section: CharacterSection) => {
         return <GenericSection key={crypto.randomUUID()} section={section} />;
       })}

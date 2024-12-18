@@ -153,6 +153,7 @@ export const styling = {
     * .tiptap li > ul {
       width: 100%;
       padding-left: 2em !important;
+      margin: 0;
     }
     * .tiptap th {
       transition: border 0.4s ease-in;
