@@ -11,6 +11,8 @@ export function RenderAndPrint() {
   const { dispatch } = reduxStore;
 
   const handlePrint = useReactToPrint({
+    preserveAfterPrint: true,
+    pageStyle: '@media print { html { zoom: 95% } }',
     documentTitle: 'reactionroll_print',
     contentRef,
     onAfterPrint() {

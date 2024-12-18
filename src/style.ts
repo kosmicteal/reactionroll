@@ -63,13 +63,9 @@ export const styling = {
   `,
 
   paperPrint: css`
-    @media print {
-      @page {
-        size: auto;
-        margin: 10mm;
-      }
-      width: 100%;
-    }
+    transform: scale(0.5);
+    transform-origin: top center;
+    margin-top: 5px;
   `,
 
   itemFitContent: css`
