@@ -27,7 +27,7 @@ export function CreatePageGeneric() {
     transform: scale(${currentZoomSetting}, ${currentZoomSetting});
     margin-top: ${currentZoomSetting * 40 - 40}em;
     margin-bottom: calc(
-      ${currentZoomSetting * 42 - 42}em + (var(--mantine-spacing-lg))
+      ${currentZoomSetting * 45 - 42}em + (var(--mantine-spacing-lg))
     );
   `;
 

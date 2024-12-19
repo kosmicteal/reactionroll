@@ -54,6 +54,21 @@ const theme = createTheme({
   components: {
     Input: Input.extend({ classNames: classes }),
   },
+  colors: {
+    'reactroll-blue': [
+      '#e7faff',
+      '#d6f0f9',
+      '#acdff0',
+      '#80cee8',
+      '#5dbfe1',
+      '#48b5dd',
+      '#3ab1dc',
+      '#2b9bc4',
+      '#1a8ab0',
+      '#00789c',
+    ],
+  },
+  primaryColor: 'reactroll-blue',
 });
 
 createRoot(document.getElementById('root')!).render(

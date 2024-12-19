@@ -17,6 +17,9 @@ const textSize = {
 };
 
 export const styling = {
+  smallLogo: css`
+    width: 15em;
+  `,
   printOptions: css`
     @page {
       size: auto;
@@ -184,13 +187,19 @@ export const styling = {
     * .tiptap td:has(.column-resize-handle) p {
       margin: 0 !important;
     }
+    * .tiptap th.selectedCell {
+      background-color: var(--mantine-primary-color-light-hover);
+    }
+    * .tiptap td.selectedCell {
+      background-color: var(--mantine-primary-color-light-hover);
+    }
     * .tiptap.resize-cursor {
       cursor: ew-resize;
       cursor: col-resize;
     }
   `,
   navBar: css`
-    background-color: rgba(var(--mantine-color-body), 0.5) !important;
+    background-color: var(--mantine-color-body-blur) !important;
     backdrop-filter: blur(5px) !important;
   `,
 };

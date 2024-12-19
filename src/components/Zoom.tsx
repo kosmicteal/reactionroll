@@ -17,7 +17,6 @@ export function Zoom() {
     <Slider
       m="xs"
       w="300px"
-      color="blue"
       size="lg"
       radius="md"
       value={currentValue}
