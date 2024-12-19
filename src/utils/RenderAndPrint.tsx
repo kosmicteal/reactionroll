@@ -14,7 +14,8 @@ export function RenderAndPrint() {
   const characterName = reduxSelector(selectName);
 
   const handlePrint = useReactToPrint({
-    pageStyle: '@media print { html { zoom: 90% } }',
+    pageStyle:
+      '@media print {  html {    zoom: 90%;  }  body {    background-image: none !important;  }}',
     documentTitle: `reActionRoll_${characterName}_print`,
     contentRef,
     onAfterPrint() {

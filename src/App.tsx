@@ -8,7 +8,7 @@ import { CharacterInformation } from './components/navbarComponents/CharacterInf
 import { cx } from '@emotion/css';
 import { styling } from './style';
 import { version } from '../package.json';
-import appIcon from '../public/reactionroll_logoAlpha.png';
+import appIcon from '/reactionroll_logoAlpha.png';
 
 export function App() {
   const [mobileOpened, { toggle: toggleMobile }] = useDisclosure();

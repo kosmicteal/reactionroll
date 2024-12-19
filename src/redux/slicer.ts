@@ -7,6 +7,7 @@ import {
 import { CharacterSection, GlobalState } from './state.interface';
 import { useSelector } from 'react-redux';
 import { Selector } from 'react-redux';
+import { moveArrayItem } from '../utils/moveArrayItem';
 
 export const initialState: GlobalState = {
   appLocalData: {
@@ -131,6 +132,29 @@ export const reduxSlice = createSlice({
         ...state.characterData.sections![sectionIndex].columns[columnIndex],
         ...action.payload.value,
       };
+    },
+    moveSectionUp: (state, action) => {
+      const availableSections = state.characterData.sections!;
+      const sectionIndex: number = availableSections.findIndex(
+        section => section.sectionId === action.payload,
+      );
+
+      if (sectionIndex > 0) {
+        moveArrayItem(availableSections, sectionIndex, sectionIndex - 1);
+      }
+
+      state.characterData.sections = availableSections;
+    },
+    moveSectionDown: (state, action) => {
+      const availableSections = state.characterData.sections!;
+      const sectionIndex: number = availableSections.findIndex(
+        section => section.sectionId === action.payload,
+      );
+      if (sectionIndex < availableSections.length - 1) {
+        moveArrayItem(availableSections, sectionIndex, sectionIndex + 1);
+      }
+
+      state.characterData.sections = availableSections;
     },
   },
   selectors: {

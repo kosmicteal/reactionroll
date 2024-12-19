@@ -6,6 +6,7 @@ import {
   ActionIcon,
   Divider,
   Stack,
+  Tooltip,
 } from '@mantine/core';
 import {
   IconTrash,
@@ -24,10 +25,25 @@ import { RichTextEditorComponent } from '../../uiComponents/RichTextEditorCompon
 import { Container, Section, Bar } from '@column-resizer/react';
 import { Fragment, useRef } from 'react';
 
-export function GenericSection({ section }: { section: CharacterSection }) {
+export function GenericSection({
+  section,
+  index,
+  totalSections,
+}: {
+  section: CharacterSection;
+  index: number;
+  totalSections: number;
+}) {
   const ref = useRef<number[]>([]);
-  const { setUpdateSectionValue, setRemoveSection } = reduxSlice.actions;
+  const {
+    setUpdateSectionValue,
+    setRemoveSection,
+    moveSectionDown,
+    moveSectionUp,
+  } = reduxSlice.actions;
   const { dispatch } = reduxStore;
+  const isFirstSection = index === 0;
+  const isLastSection = index === totalSections - 1;
 
   function handleSectionUpdate(payload: anyObject) {
     dispatch(setUpdateSectionValue(payload));
@@ -125,27 +141,50 @@ export function GenericSection({ section }: { section: CharacterSection }) {
         </HoverCard.Target>
         <HoverCard.Dropdown>
           <Group gap="xs">
-            <ActionIcon
-              variant="outline"
-              color="red"
-              size="md"
-              aria-label="Settings"
-              onClick={() => dispatch(setRemoveSection(section.sectionId))}
-            >
-              <IconTrash style={{ width: '70%', height: '70%' }} stroke={1.5} />
-            </ActionIcon>
-            <ActionIcon variant="outline" size="md" aria-label="Settings">
-              <IconArrowBigUp
-                style={{ width: '70%', height: '70%' }}
-                stroke={1.5}
-              />
-            </ActionIcon>
-            <ActionIcon variant="outline" size="md" aria-label="Settings">
-              <IconArrowBigDown
-                style={{ width: '70%', height: '70%' }}
-                stroke={1.5}
-              />
-            </ActionIcon>
+            <Tooltip label="Remove section">
+              <ActionIcon
+                variant="outline"
+                color="red"
+                size="md"
+                aria-label="Remove section"
+                onClick={() => dispatch(setRemoveSection(section.sectionId))}
+              >
+                <IconTrash
+                  style={{ width: '70%', height: '70%' }}
+                  stroke={1.5}
+                />
+              </ActionIcon>
+            </Tooltip>
+            <Tooltip label="Move section up">
+              <ActionIcon
+                data-disabled={isFirstSection}
+                disabled={isFirstSection}
+                variant="outline"
+                size="md"
+                aria-label="Move section up"
+                onClick={() => dispatch(moveSectionUp(section.sectionId))}
+              >
+                <IconArrowBigUp
+                  style={{ width: '70%', height: '70%' }}
+                  stroke={1.5}
+                />
+              </ActionIcon>
+            </Tooltip>
+            <Tooltip label="Move section down">
+              <ActionIcon
+                data-disabled={isLastSection}
+                disabled={isLastSection}
+                variant="outline"
+                size="md"
+                aria-label="Move section down"
+                onClick={() => dispatch(moveSectionDown(section.sectionId))}
+              >
+                <IconArrowBigDown
+                  style={{ width: '70%', height: '70%' }}
+                  stroke={1.5}
+                />
+              </ActionIcon>
+            </Tooltip>
           </Group>
         </HoverCard.Dropdown>
       </HoverCard>
