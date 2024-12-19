@@ -1,12 +1,14 @@
-import { AppShell, Burger, Flex, Group } from '@mantine/core';
+import { AppShell, Burger, Flex, Group, Text } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { Outlet, useLocation } from 'react-router-dom';
 import { PrintSheet } from './components/PrintSheet';
 import { ChangeTheme } from './components/ChangeTheme';
 import { PreviewPageColor } from './components/navbarComponents/PreviewPageColor';
 import { CharacterInformation } from './components/navbarComponents/CharacterInformation';
-// import { reduxSelector } from './redux/selector';
-// import { FullScreenLoader } from './components/uiComponents/FullScreenLoader';
+import { cx } from '@emotion/css';
+import { styling } from './style';
+import { version } from '../package.json';
+import appIcon from '/reactionroll_logoAlpha.png';
 
 export function App() {
   const [mobileOpened, { toggle: toggleMobile }] = useDisclosure();
@@ -52,7 +54,10 @@ export function App() {
                 />
               </>
             )}
-            ReActionRoll (alpha)
+            <Flex align="end" gap="xs">
+              <img src={appIcon} className={cx(styling.smallLogo)} />
+              <Text size="xs"> v{version}</Text>
+            </Flex>
           </Group>
           <Group h="100%" px="md">
             {!isStartScreen && <PrintSheet />}
@@ -61,7 +66,7 @@ export function App() {
         </Flex>
       </AppShell.Header>
       {!isStartScreen && (
-        <AppShell.Navbar>
+        <AppShell.Navbar className={cx(styling.navBar)}>
           <PreviewPageColor />
           <CharacterInformation />
         </AppShell.Navbar>

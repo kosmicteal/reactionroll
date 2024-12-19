@@ -1,13 +1,8 @@
-import { useState } from 'react';
-import reactLogo from '../assets/react.svg';
-import viteLogo from '/vite.svg';
 import './MainPage.css';
 import { Button } from '@mantine/core';
 import { Link } from 'react-router-dom';
 
 export function MainPage() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
       {/* <div>
@@ -27,9 +22,7 @@ export function MainPage() {
           Edit <code>src/App.tsx</code> and save to test HMR
         </p> */}
       <Link to="/create">
-        <Button onClick={() => setCount(count => count + 1)}>
-          Create new DnD sheet
-        </Button>
+        <Button>Create new DnD sheet</Button>
       </Link>
       {/* </div>
       <p className="read-the-docs">

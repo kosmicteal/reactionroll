@@ -1,9 +1,8 @@
 import { AppShell, Button, Container, Flex } from '@mantine/core';
 import './MainPage.css';
 import { css, cx } from '@emotion/css';
-import { BasicContent } from '../components/BasicContent';
+import { BasicContent } from '../components/pageComponents/pageGeneric/BasicContent';
 import { Zoom } from '../components/Zoom';
-import { reduxSelector } from '../redux/selector';
 import { ResponsiveContainer } from '../components/ResponsiveContainer';
 import { useMediaQuery } from '@mantine/hooks';
 import { RenderAndPrint } from '../utils/RenderAndPrint';
@@ -12,23 +11,32 @@ import { styling } from '../style';
 import { openModal } from '../components/modalComponents/AutoUpdateModal';
 import { ModalAddSection } from '../components/modalComponents/ModalAddSection';
 import { CreatePageGenericSkeleton } from '../components/uiComponents/CreatePageGenericSkeleton';
+import { reduxSelector, reduxSlice } from '../redux/slicer';
 
 export function CreatePageGeneric() {
-  const currentZoomSetting = reduxSelector('SET_ZOOM') as number;
+  const {
+    selectZoom,
+    selectPrintData,
+    selectIsLoading,
+    selectPreviewPaperColour,
+    selectTextColour,
+  } = reduxSlice.selectors;
+
+  const currentZoomSetting = reduxSelector(selectZoom) as number;
   const zoomPage = css`
     transform: scale(${currentZoomSetting}, ${currentZoomSetting});
     margin-top: ${currentZoomSetting * 40 - 40}em;
     margin-bottom: calc(
-      ${currentZoomSetting * 42 - 42}em + (var(--mantine-spacing-lg))
+      ${currentZoomSetting * 45 - 42}em + (var(--mantine-spacing-lg))
     );
   `;
 
   const isMobile = useMediaQuery('(max-width: 50em)');
-  const isPrinting = reduxSelector('PRINT_DATA') as boolean;
-  const isLoading = reduxSelector('IS_LOADING') as boolean;
+  const isPrinting = reduxSelector(selectPrintData) as boolean;
+  const isLoading = reduxSelector(selectIsLoading) as boolean;
 
-  const currentPageColour = reduxSelector('SET_PREVIEW_PAPER_COLOUR') as string;
-  const currentTextColour = reduxSelector('SET_TEXT_COLOUR') as string;
+  const currentPageColour = reduxSelector(selectPreviewPaperColour) as string;
+  const currentTextColour = reduxSelector(selectTextColour) as string;
   const paperBackground = currentPageColour
     ? css`
         background-color: ${currentPageColour} !important;
@@ -81,8 +89,9 @@ export function CreatePageGeneric() {
       {isPrinting && <RenderAndPrint />}
 
       <AppShell.Footer>
-        <Container fluid p="lg">
-          <Flex justify={'end'}>
+        <Container fluid p="xs">
+          <Flex justify={'space-between'} align="center">
+            <Flex id="editor-component" ml={'0.25rem'} gap="md"></Flex>
             <Zoom />
           </Flex>
         </Container>

@@ -1,10 +1,11 @@
 import { ColorInput, NavLink } from '@mantine/core';
 import { IconChevronRight, IconWallpaper } from '@tabler/icons-react';
-import { useDispatch } from 'react-redux';
-import { GlobalDispatch } from '../../main';
+import { reduxStore } from '../../main';
+import { reduxSlice } from '../../redux/slicer';
 
 export function PreviewPageColor() {
-  const dispatch: GlobalDispatch = useDispatch();
+  const { appSetPreviewPaperColour, appSetTextColor } = reduxSlice.actions;
+  const { dispatch } = reduxStore;
 
   return (
     <NavLink
@@ -36,9 +37,7 @@ export function PreviewPageColor() {
           '#f7d8f4',
           '#fffdf0',
         ]}
-        onChangeEnd={value =>
-          dispatch({ type: 'SET_PREVIEW_PAPER_COLOUR', payload: value })
-        }
+        onChangeEnd={value => dispatch(appSetPreviewPaperColour(value))}
       />
       <ColorInput
         format="hex"
@@ -56,9 +55,7 @@ export function PreviewPageColor() {
           '#f7d8f4',
           '#fffdf0',
         ]}
-        onChangeEnd={value =>
-          dispatch({ type: 'SET_TEXT_COLOUR', payload: value })
-        }
+        onChangeEnd={value => dispatch(appSetTextColor(value))}
       />
     </NavLink>
   );

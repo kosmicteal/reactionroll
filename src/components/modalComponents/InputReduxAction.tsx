@@ -1,29 +1,30 @@
 import { TextInput } from '@mantine/core';
-import { useDispatch } from 'react-redux';
-import { GlobalDispatch } from '../../main';
-import { reduxSelector } from '../../redux/selector';
-import { ActionTypes } from '../../redux/action';
+import {
+  reduxActionType,
+  reduxSelector,
+  reduxSelectorType,
+} from '../../redux/slicer';
+import { reduxStore } from '../../main';
 
 export function InputReduxAction({
   placeholder,
+  selector,
   action,
 }: {
   placeholder: string;
-  action: ActionTypes['type'];
+  selector: reduxSelectorType;
+  action: reduxActionType;
 }) {
-  const dispatch: GlobalDispatch = useDispatch();
+  const { dispatch } = reduxStore;
 
-  function handleOnBlur(actionName: string, target: string) {
-    dispatch({
-      type: actionName,
-      payload: target,
-    });
+  function handleOnBlur(actionName: reduxActionType, target: string) {
+    dispatch(actionName(target));
   }
 
   return (
     <TextInput
       placeholder={placeholder}
-      defaultValue={reduxSelector(action)!.toString()}
+      defaultValue={reduxSelector(selector)}
       onBlur={e => {
         handleOnBlur(action, e.target.value);
       }}

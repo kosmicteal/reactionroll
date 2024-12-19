@@ -1,23 +1,27 @@
 import { Button } from '@mantine/core';
 import { IconDownload } from '@tabler/icons-react';
-import save from 'save-file';
-import { reduxSelector } from '../redux/selector';
+import { saveAs } from 'file-saver';
 import { CharacterData } from '../redux/state.interface';
+import { reduxSelector, reduxSlice } from '../redux/slicer';
 
 export function SaveData() {
-  const characterValues = reduxSelector(
-    'ACTION_CHARACTER_VALUES',
-  ) as CharacterData;
+  const { selectCharacterValues } = reduxSlice.selectors;
+
+  const characterValues = reduxSelector(selectCharacterValues) as CharacterData;
 
   function treatSaveData(dataValue: CharacterData) {
     return { meta: { version: '0.0.0' }, ...dataValue };
   }
 
   async function saveFile() {
-    await save(
-      JSON.stringify(treatSaveData(characterValues)),
+    const file = new File(
+      [JSON.stringify(treatSaveData(characterValues))],
       `reActionRoll_${characterValues.name}.json`,
+      {
+        type: 'application/json;charset=utf-8',
+      },
     );
+    saveAs(file);
   }
   return (
     <Button

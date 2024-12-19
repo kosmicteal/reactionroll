@@ -17,6 +17,9 @@ const textSize = {
 };
 
 export const styling = {
+  smallLogo: css`
+    width: 15em;
+  `,
   printOptions: css`
     @page {
       size: auto;
@@ -56,18 +59,9 @@ export const styling = {
   paperSize: css`
     width: 52em;
     padding: 2em 3em;
+    max-height: calc(52em * sqrt(2));
     aspect-ratio: 1 / sqrt(2);
     @media (max-width: ${breakpoints.xl}) {
-      width: 100%;
-    }
-  `,
-
-  paperPrint: css`
-    @media print {
-      @page {
-        size: auto;
-        margin: 10mm;
-      }
       width: 100%;
     }
   `,
@@ -117,5 +111,95 @@ export const styling = {
         display: none !important;
       }
     }
+  `,
+  characterSection: css`
+    padding-top: 0 !important;
+  `,
+  gridBorder: css`
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border-right: calc(0.1875rem * var(--mantine-scale))
+      var(--mantine-color-default-border) solid;
+    margin: 0 0.5rem;
+  `,
+  floatContextMenu: css`
+    overflow: hidden;
+    background: red;
+  `,
+  richTextEditor: css`
+    text-align: start;
+    border: none !important;
+    * .tiptap {
+      padding: 0 !important;
+    }
+    * .tiptap ul {
+      padding: 0 !important;
+      word-break: break-word !important;
+    }
+    * .tiptap li {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: top;
+    }
+    * .tiptap li::before {
+      content: '• ';
+      min-width: 6%;
+      font-size: 1.5em;
+      height: 1em;
+      text-align: start;
+      line-height: 1.1em;
+    }
+    * .tiptap li > p {
+      max-width: 90%;
+    }
+    * .tiptap li > ul {
+      width: 100%;
+      padding-left: 2em !important;
+      margin: 0;
+    }
+    * .tiptap th {
+      transition: border 0.4s ease-in;
+      padding: 5px;
+      background-color: var(--mantine-color-default-border);
+      border: 1px var(--mantine-color-dimmed) solid;
+    }
+    * .tiptap td {
+      transition: border 0.4s ease-in;
+      padding: 5px;
+      border: 1px var(--mantine-color-dimmed) solid;
+    }
+    * .tiptap th.column-resize-dragging {
+      border-right: 4px var(--mantine-color-anchor) solid;
+    }
+    * .tiptap td.column-resize-dragging {
+      border-right: 4px var(--mantine-color-anchor) solid;
+    }
+    * .tiptap th:has(.column-resize-handle) {
+      border-right: 4px var(--mantine-color-anchor) solid;
+    }
+    * .tiptap td:has(.column-resize-handle) {
+      border-right: 4px var(--mantine-color-anchor) solid;
+    }
+    * .tiptap th:has(.column-resize-handle) p {
+      margin: 0 !important;
+    }
+    * .tiptap td:has(.column-resize-handle) p {
+      margin: 0 !important;
+    }
+    * .tiptap th.selectedCell {
+      background-color: var(--mantine-primary-color-light-hover);
+    }
+    * .tiptap td.selectedCell {
+      background-color: var(--mantine-primary-color-light-hover);
+    }
+    * .tiptap.resize-cursor {
+      cursor: ew-resize;
+      cursor: col-resize;
+    }
+  `,
+  navBar: css`
+    background-color: var(--mantine-color-body-blur) !important;
+    backdrop-filter: blur(5px) !important;
   `,
 };

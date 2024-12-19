@@ -1,21 +1,22 @@
 import { Button, FileButton } from '@mantine/core';
 import { IconUpload } from '@tabler/icons-react';
-import { GlobalDispatch } from '../main';
-import { useDispatch } from 'react-redux';
+import { reduxSlice } from '../redux/slicer';
+import { reduxStore } from '../main';
 
 export function LoadData() {
-  const dispatch: GlobalDispatch = useDispatch();
+  const { appIsLoading, setCharacterValues } = reduxSlice.actions;
+  const { dispatch } = reduxStore;
 
   function setFile(value: File) {
-    dispatch({ type: 'IS_LOADING' });
+    dispatch(appIsLoading());
     const reader = new FileReader();
     reader.onload = function (e) {
       if (e.target) {
         const readResult = e.target.result?.toString();
         if (readResult) {
           const parseResult = treatLoadData(readResult);
-          dispatch({ type: 'ACTION_CHARACTER_VALUES', payload: parseResult });
-          dispatch({ type: 'IS_LOADING' });
+          dispatch(setCharacterValues(parseResult));
+          dispatch(appIsLoading());
         }
       }
     };
