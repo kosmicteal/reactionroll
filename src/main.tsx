@@ -55,7 +55,7 @@ const theme = createTheme({
     Input: Input.extend({ classNames: classes }),
   },
   colors: {
-    'reactroll-blue': [
+    'reactionroll-blue': [
       '#e7faff',
       '#d6f0f9',
       '#acdff0',
@@ -68,7 +68,7 @@ const theme = createTheme({
       '#00789c',
     ],
   },
-  primaryColor: 'reactroll-blue',
+  primaryColor: 'reactionroll-blue',
 });
 
 createRoot(document.getElementById('root')!).render(

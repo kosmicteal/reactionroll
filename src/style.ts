@@ -32,6 +32,10 @@ export const styling = {
   smallLogo: css`
     width: 15em;
   `,
+  bigLogo: css`
+    width: 100%;
+    padding: 2em;
+  `,
   printOptions: css`
     @page {
       size: auto;

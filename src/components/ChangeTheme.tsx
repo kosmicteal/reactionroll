@@ -17,6 +17,7 @@ export function ChangeTheme() {
   return (
     <Tooltip label="Toggle skin theme">
       <ActionIcon
+        mt="0.25em"
         onClick={() =>
           setColorScheme(computedColorScheme === 'light' ? 'dark' : 'light')
         }
