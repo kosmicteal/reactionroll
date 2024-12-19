@@ -17,6 +17,18 @@ const textSize = {
 };
 
 export const styling = {
+  rteButtonCustomStyleDisabled: css`
+    html[data-mantine-color-scheme='light'] &[data-disabled] {
+      background-color: var(--mantine-color-gray-1) !important;
+      color: var(--mantine-color-gray-5) !important;
+      cursor: not-allowed !important;
+    }
+    html[data-mantine-color-scheme='dark'] &[data-disabled] {
+      background-color: var(--mantine-color-dark-5) !important;
+      color: var(--mantine-color-dark-3) !important;
+      cursor: not-allowed !important;
+    }
+  `,
   smallLogo: css`
     width: 15em;
   `,

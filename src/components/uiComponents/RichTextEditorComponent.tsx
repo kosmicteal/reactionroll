@@ -27,12 +27,14 @@ import {
   RichTextEditorDeleteTable,
   RichTextEditorInsertTable,
   RichTextEditorMergeOrSplitCell,
+  RichTextEditorRedo,
   RichTextEditorRemoveColumn,
   RichTextEditorRemoveRow,
   RichTextEditorTextDecrease,
   RichTextEditorTextIncrease,
   RichTextEditorToggleHeaderColumn,
   RichTextEditorToggleHeaderRow,
+  RichTextEditorUndo,
 } from './RichTextEditorControlComponents';
 
 interface RichTextEditorProps {
@@ -153,8 +155,8 @@ export function RichTextEditorComponent({
         createPortal(
           <>
             <RichTextEditor.ControlsGroup>
-              <RichTextEditor.Undo />
-              <RichTextEditor.Redo />
+              <RichTextEditorUndo />
+              <RichTextEditorRedo />
             </RichTextEditor.ControlsGroup>
 
             <RichTextEditor.ControlsGroup>

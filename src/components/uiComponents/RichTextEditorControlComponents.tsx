@@ -1,5 +1,8 @@
+import { cx } from '@emotion/css';
 import { useRichTextEditorContext, RichTextEditor } from '@mantine/tiptap';
 import {
+  IconArrowBackUp,
+  IconArrowForwardUp,
   IconColumnInsertLeft,
   IconColumnInsertRight,
   IconColumnRemove,
@@ -14,6 +17,7 @@ import {
   IconTextDecrease,
   IconTextIncrease,
 } from '@tabler/icons-react';
+import { styling } from '../../style';
 
 export function RichTextEditorInsertTable() {
   const { editor } = useRichTextEditorContext();
@@ -197,6 +201,46 @@ export function RichTextEditorTextDecrease() {
       title="Decrease text size"
     >
       <IconTextDecrease stroke={2} size="1rem" />
+    </RichTextEditor.Control>
+  );
+}
+
+export function RichTextEditorUndo() {
+  const { editor } = useRichTextEditorContext();
+  return (
+    <RichTextEditor.Control
+      className={cx(styling.rteButtonCustomStyleDisabled)}
+      disabled={!editor!.can().undo()}
+      data-disabled={!editor!.can().undo()}
+      onClick={() => {
+        if (editor!.can().undo()) {
+          editor!.chain().focus().undo().run();
+        }
+      }}
+      aria-label="Undo"
+      title="Undo"
+    >
+      <IconArrowBackUp stroke={1.5} size="1.25rem" />
+    </RichTextEditor.Control>
+  );
+}
+
+export function RichTextEditorRedo() {
+  const { editor } = useRichTextEditorContext();
+  return (
+    <RichTextEditor.Control
+      className={cx(styling.rteButtonCustomStyleDisabled)}
+      disabled={!editor!.can().redo()}
+      data-disabled={!editor!.can().redo()}
+      onClick={() => {
+        if (editor!.can().redo()) {
+          editor!.chain().focus().redo().run();
+        }
+      }}
+      aria-label="Redo"
+      title="Redo"
+    >
+      <IconArrowForwardUp stroke={1.5} size="1.25rem" />
     </RichTextEditor.Control>
   );
 }
