@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.16.5](https://github.com/kosmicteal/roll-for-init/compare/v0.16.4...v0.16.5) (2024-12-19)
+
+
+### Features
+
+* **richTextEditor:** add shortcut help ([fdc477e](https://github.com/kosmicteal/roll-for-init/commit/fdc477ee88f65a4988650c5796168147622bbe89))
+
 ### 0.16.4 (2024-12-19)
 
 Initial test using `standard-version` to keep track of the changes done.
