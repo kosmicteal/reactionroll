@@ -28,11 +28,13 @@ export const openModal = (
   children: ReactNode,
   isMobile: boolean,
   isFocus?: boolean,
-): void =>
+  size?: string,
+) =>
   modals.openContextModal({
     modal: isFocus ? 'fullfocus' : 'autoupdate',
     title,
     centered: true,
+    size,
     fullScreen: isMobile,
     overlayProps: {
       backgroundOpacity: 0.55,

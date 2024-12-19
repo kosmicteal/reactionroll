@@ -9,3 +9,16 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* Force styling on Rich Text editor's disabled buttons */
+:where([data-mantine-color-scheme='light']) .m_c2207da6:where([data-disabled]) {
+  background-color: var(--mantine-color-gray-1) !important;
+  color: var(--mantine-color-gray-5) !important;
+  cursor: not-allowed !important;
+}
+
+:where([data-mantine-color-scheme='dark']) .m_c2207da6:where([data-disabled]) {
+  background-color: var(--mantine-color-dark-5) !important;
+  color: var(--mantine-color-dark-3) !important;
+  cursor: not-allowed !important;
+}
