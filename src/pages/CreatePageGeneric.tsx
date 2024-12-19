@@ -1,4 +1,4 @@
-import { AppShell, Button, Container, Flex } from '@mantine/core';
+import { AppShell, Container, Flex } from '@mantine/core';
 import './MainPage.css';
 import { css, cx } from '@emotion/css';
 import { BasicContent } from '../components/pageComponents/pageGeneric/BasicContent';
@@ -6,12 +6,9 @@ import { Zoom } from '../components/Zoom';
 import { ResponsiveContainer } from '../components/ResponsiveContainer';
 import { useMediaQuery } from '@mantine/hooks';
 import { RenderAndPrint } from '../utils/RenderAndPrint';
-import { IconPlus } from '@tabler/icons-react';
-import { styling } from '../style';
-import { openModal } from '../components/modalComponents/AutoUpdateModal';
-import { ModalAddSection } from '../components/modalComponents/ModalAddSection';
 import { CreatePageGenericSkeleton } from '../components/uiComponents/CreatePageGenericSkeleton';
 import { reduxSelector, reduxSlice } from '../redux/slicer';
+import { AddGenericSectionButton } from '../components/uiComponents/AddGenericSectionButton';
 
 export function CreatePageGeneric() {
   const {
@@ -60,24 +57,10 @@ export function CreatePageGeneric() {
         containerTheme={containerTheme}
       >
         {!isLoading ? (
-          <>
+          <div id="content">
             <BasicContent />
-            <Button
-              className={cx(styling.hideOnPrint)}
-              leftSection={<IconPlus size={14} />}
-              variant="default"
-              onClick={() => {
-                openModal(
-                  'Add new section',
-                  <ModalAddSection />,
-                  isMobile!,
-                  true,
-                );
-              }}
-            >
-              Add section
-            </Button>
-          </>
+            <AddGenericSectionButton />
+          </div>
         ) : (
           <CreatePageGenericSkeleton />
         )}

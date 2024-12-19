@@ -7,16 +7,21 @@ import { reduxSelector, reduxSlice } from '../redux/slicer';
 import { reduxStore } from '../main';
 
 export function PrintSheet() {
-  const { selectPrintData } = reduxSlice.selectors;
+  const { selectPrintData, selectIsOverflowing } = reduxSlice.selectors;
   const { appPrintData } = reduxSlice.actions;
   const { dispatch } = reduxStore;
 
   const isPrinting = reduxSelector(selectPrintData) as boolean;
-  console.log(isPrinting);
+  const isOverflowing = reduxSelector(selectIsOverflowing) as boolean;
 
   return (
-    <Tooltip label="Print sheet">
+    <Tooltip
+      label={
+        isOverflowing ? 'Cannot print with overflowing content!' : 'Print sheet'
+      }
+    >
       <ActionIcon
+        disabled={isOverflowing}
         onClick={() => dispatch(appPrintData())}
         variant={isPrinting ? 'light' : 'filled'}
         size="lg"

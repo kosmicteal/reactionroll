@@ -13,6 +13,7 @@ export interface AppData {
   zoomPercentage: number;
   previewPaperColour?: string;
   textColour?: string;
+  isOverflowing: boolean;
 }
 export interface CharacterData {
   name: string;

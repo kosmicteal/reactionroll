@@ -25,9 +25,9 @@ export function ResponsiveContainer({
         containerTheme,
         zoomPage,
       )}
-      data-mantine-color-scheme="light"
       withBorder
       shadow="md"
+      id="canvas"
     >
       {children}
     </Paper>

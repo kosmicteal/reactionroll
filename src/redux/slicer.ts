@@ -8,6 +8,7 @@ import { CharacterSection, GlobalState } from './state.interface';
 import { useSelector } from 'react-redux';
 import { Selector } from 'react-redux';
 import { moveArrayItem } from '../utils/moveArrayItem';
+import { checkContentOverflow } from '../utils/checkContentOverflow';
 
 export const initialState: GlobalState = {
   appLocalData: {
@@ -16,6 +17,7 @@ export const initialState: GlobalState = {
     zoomPercentage: 1,
     previewPaperColour: undefined,
     textColour: undefined,
+    isOverflowing: false,
   },
   characterData: {
     name: '',
@@ -98,6 +100,7 @@ export const reduxSlice = createSlice({
       } else {
         state.characterData.sections = [newSection];
       }
+      state.appLocalData.isOverflowing = checkContentOverflow();
     },
     setAddMultipleColumnSection: state => {
       const newSection: CharacterSection = newRowSection(2);
@@ -106,6 +109,7 @@ export const reduxSlice = createSlice({
       } else {
         state.characterData.sections = [newSection];
       }
+      state.appLocalData.isOverflowing = checkContentOverflow();
     },
     setRemoveSection: (state, action) => {
       const availableSections = state.characterData.sections!;
@@ -116,6 +120,7 @@ export const reduxSlice = createSlice({
       if (updatedSections.length === 0) updatedSections = undefined;
 
       state.characterData.sections = updatedSections;
+      state.appLocalData.isOverflowing = checkContentOverflow();
     },
     setUpdateSectionValue: (state, action) => {
       const availableSections = state.characterData.sections!;
@@ -132,6 +137,7 @@ export const reduxSlice = createSlice({
         ...state.characterData.sections![sectionIndex].columns[columnIndex],
         ...action.payload.value,
       };
+      state.appLocalData.isOverflowing = checkContentOverflow();
     },
     moveSectionUp: (state, action) => {
       const availableSections = state.characterData.sections!;
@@ -171,6 +177,7 @@ export const reduxSlice = createSlice({
     selectPreviewPaperColour: state => state.appLocalData.previewPaperColour,
     selectTextColour: state => state.appLocalData.textColour,
     selectZoom: state => state.appLocalData.zoomPercentage,
+    selectIsOverflowing: state => state.appLocalData.isOverflowing,
   },
 });
 

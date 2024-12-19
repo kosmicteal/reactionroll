@@ -71,7 +71,6 @@ export function GenericSection({
         },
       });
     });
-    console.log(ref.current);
   }
 
   const sectionElements: JSX.Element[] = section.columns.map(

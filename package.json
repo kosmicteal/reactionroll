@@ -36,6 +36,7 @@
     "@tiptap/react": "^2.10.3",
     "@tiptap/starter-kit": "^2.10.3",
     "computed-style-to-inline-style": "^4.0.0",
+    "detect-element-overflow": "^1.4.2",
     "file-saver": "^2.0.5",
     "immer": "^10.1.1",
     "react": "^18.3.1",
