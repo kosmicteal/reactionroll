@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.16.6](https://github.com/kosmicteal/roll-for-init/compare/v0.16.5...v0.16.6) (2024-12-19)
+
+
+### Bug Fixes
+
+* **richTextEditor:** fix style error on disabled buttons ([a671b56](https://github.com/kosmicteal/roll-for-init/commit/a671b56da0800bfca6bff2faa8edf6769bf713d1))
+
 ### [0.16.5](https://github.com/kosmicteal/roll-for-init/compare/v0.16.4...v0.16.5) (2024-12-19)
 
 
