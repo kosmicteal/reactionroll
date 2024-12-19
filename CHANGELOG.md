@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.16.8](https://github.com/kosmicteal/roll-for-init/compare/v0.16.7...v0.16.8) (2024-12-19)
+
+
+### Features
+
+* **app:** add start page ([dba3324](https://github.com/kosmicteal/roll-for-init/commit/dba3324b0dc888853234f85fa8ad68211e9dc1f9))
+
 ### [0.16.7](https://github.com/kosmicteal/roll-for-init/compare/v0.16.6...v0.16.7) (2024-12-19)
 
 
