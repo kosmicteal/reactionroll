@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.16.9](https://github.com/kosmicteal/roll-for-init/compare/v0.16.8...v0.16.9) (2024-12-20)
+
+
+### Bug Fixes
+
+* **richTextEditor:** fix regression regarding rich text editor shortcut modal ([d99b7b8](https://github.com/kosmicteal/roll-for-init/commit/d99b7b8f4636cceb1a992d618e2955c17f47a3c2))
+
 ### [0.16.8](https://github.com/kosmicteal/roll-for-init/compare/v0.16.7...v0.16.8) (2024-12-19)
 
 
