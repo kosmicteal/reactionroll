@@ -1,4 +1,4 @@
-import { RichTextEditor, useRichTextEditorContext } from '@mantine/tiptap';
+import { RichTextEditor } from '@mantine/tiptap';
 import { useEditor } from '@tiptap/react';
 import Highlight from '@tiptap/extension-highlight';
 import StarterKit from '@tiptap/starter-kit';
@@ -36,6 +36,8 @@ import {
   RichTextEditorToggleHeaderRow,
   RichTextEditorUndo,
 } from './RichTextEditorControlComponents';
+import { ModalRichTextEditorShortcuts } from '../modalComponents/ModalRichTextEditorShortcuts';
+import { openModal } from '../modalComponents/AutoUpdateModal';
 
 interface RichTextEditorProps {
   value: string;
@@ -133,10 +135,17 @@ export function RichTextEditorComponent({
   }
 
   function RichTextEditorHelpButton() {
-    const { editor } = useRichTextEditorContext();
     return (
       <RichTextEditor.Control
-        onClick={() => editor?.commands.insertContent('⭐')}
+        onClick={() =>
+          openModal(
+            'Text editor shortcuts',
+            <ModalRichTextEditorShortcuts />,
+            false,
+            true,
+            'xl',
+          )
+        }
         aria-label="Show rich text editor shortcuts"
         title="Show rich text editor shortcuts"
       >
