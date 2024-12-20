@@ -36,6 +36,9 @@ import {
   RichTextEditorToggleHeaderRow,
   RichTextEditorUndo,
 } from './RichTextEditorControlComponents';
+
+import { useTranslation } from 'react-i18next';
+import { richTextEditorLabelsHelper } from '../../utils/richTextEditorLabelsHelper';
 import { ModalRichTextEditorShortcuts } from '../modalComponents/ModalRichTextEditorShortcuts';
 import { openModal } from '../modalComponents/AutoUpdateModal';
 
@@ -48,6 +51,8 @@ export function RichTextEditorComponent({
   value,
   onBlur,
 }: RichTextEditorProps) {
+  const { t, ready } = useTranslation();
+
   const [isFocused, setIsFocused] = useState(false);
   const editor = useEditor({
     extensions: [
@@ -66,7 +71,7 @@ export function RichTextEditorComponent({
       FontSize,
       TextAlign.configure({ types: ['heading', 'paragraph'] }),
       Placeholder.configure({
-        placeholder: 'Write your contents here.',
+        placeholder: t('RichTextEditorComponent.placeholder'),
       }),
     ],
     content: value,
@@ -83,7 +88,10 @@ export function RichTextEditorComponent({
     return (
       <Popover position="top" withArrow shadow="md">
         <Popover.Target>
-          <RichTextEditor.Control aria-label="Heading" title="Heading">
+          <RichTextEditor.Control
+            aria-label={t('RichTextEditorComponent.control.heading')}
+            title={t('RichTextEditorComponent.control.heading')}
+          >
             <IconHeading stroke={2} size="1rem" />
           </RichTextEditor.Control>
         </Popover.Target>
@@ -103,7 +111,10 @@ export function RichTextEditorComponent({
     return (
       <Popover position="top" withArrow shadow="md">
         <Popover.Target>
-          <RichTextEditor.Control aria-label="Table" title="Table">
+          <RichTextEditor.Control
+            aria-label={t('RichTextEditorComponent.control.table')}
+            title={t('RichTextEditorComponent.control.table')}
+          >
             <IconTable stroke={2} size="1rem" />
           </RichTextEditor.Control>
         </Popover.Target>
@@ -155,59 +166,62 @@ export function RichTextEditorComponent({
   }
 
   return (
-    <RichTextEditor
-      editor={editor}
-      className={cx(styling.richTextEditor)}
-      variant="subtle"
-    >
-      {isFocused &&
-        createPortal(
-          <>
-            <RichTextEditor.ControlsGroup>
-              <RichTextEditorUndo />
-              <RichTextEditorRedo />
-            </RichTextEditor.ControlsGroup>
+    ready && (
+      <RichTextEditor
+        editor={editor}
+        labels={richTextEditorLabelsHelper()}
+        className={cx(styling.richTextEditor)}
+        variant="subtle"
+      >
+        {isFocused &&
+          createPortal(
+            <>
+              <RichTextEditor.ControlsGroup>
+                <RichTextEditorUndo />
+                <RichTextEditorRedo />
+              </RichTextEditor.ControlsGroup>
 
-            <RichTextEditor.ControlsGroup>
-              <RichTextEditor.Bold />
-              <RichTextEditor.Italic />
-              <RichTextEditor.Underline />
-              <RichTextEditor.Strikethrough />
-              <RichTextEditor.ClearFormatting />
-              <RichTextEditor.Highlight />
-            </RichTextEditor.ControlsGroup>
+              <RichTextEditor.ControlsGroup>
+                <RichTextEditor.Bold />
+                <RichTextEditor.Italic />
+                <RichTextEditor.Underline />
+                <RichTextEditor.Strikethrough />
+                <RichTextEditor.ClearFormatting />
+                <RichTextEditor.Highlight />
+              </RichTextEditor.ControlsGroup>
 
-            <RichTextEditor.ControlsGroup>
-              <RichTextEditorHeaderChoosing />
-              <RichTextEditorTextIncrease />
-              <RichTextEditorTextDecrease />
-              <RichTextEditor.Subscript />
-              <RichTextEditor.Superscript />
-            </RichTextEditor.ControlsGroup>
+              <RichTextEditor.ControlsGroup>
+                <RichTextEditorHeaderChoosing />
+                <RichTextEditorTextIncrease />
+                <RichTextEditorTextDecrease />
+                <RichTextEditor.Subscript />
+                <RichTextEditor.Superscript />
+              </RichTextEditor.ControlsGroup>
 
-            <RichTextEditor.ControlsGroup>
-              <RichTextEditor.BulletList />
-              <RichTextEditor.OrderedList />
-              <RichTextEditorTable />
-              <RichTextEditor.Blockquote />
-              <RichTextEditor.Hr />
-            </RichTextEditor.ControlsGroup>
+              <RichTextEditor.ControlsGroup>
+                <RichTextEditor.BulletList />
+                <RichTextEditor.OrderedList />
+                <RichTextEditorTable />
+                <RichTextEditor.Blockquote />
+                <RichTextEditor.Hr />
+              </RichTextEditor.ControlsGroup>
 
-            <RichTextEditor.ControlsGroup>
-              <RichTextEditor.AlignLeft />
-              <RichTextEditor.AlignCenter />
-              <RichTextEditor.AlignRight />
-              <RichTextEditor.AlignJustify />
-            </RichTextEditor.ControlsGroup>
+              <RichTextEditor.ControlsGroup>
+                <RichTextEditor.AlignLeft />
+                <RichTextEditor.AlignCenter />
+                <RichTextEditor.AlignRight />
+                <RichTextEditor.AlignJustify />
+              </RichTextEditor.ControlsGroup>
 
-            <RichTextEditor.ControlsGroup>
-              <RichTextEditorHelpButton />
-            </RichTextEditor.ControlsGroup>
-          </>,
-          document.getElementById('editor-component')!,
-        )}
+              <RichTextEditor.ControlsGroup>
+                <RichTextEditorHelpButton />
+              </RichTextEditor.ControlsGroup>
+            </>,
+            document.getElementById('editor-component')!,
+          )}
 
-      <RichTextEditor.Content />
-    </RichTextEditor>
+        <RichTextEditor.Content />
+      </RichTextEditor>
+    )
   );
 }

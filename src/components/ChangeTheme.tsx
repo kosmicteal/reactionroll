@@ -7,6 +7,7 @@ import {
 import { IconMoon, IconSun } from '@tabler/icons-react';
 import { cx } from '@emotion/css';
 import { styling } from '../style';
+import { useTranslation } from 'react-i18next';
 
 export function ChangeTheme() {
   const { setColorScheme } = useMantineColorScheme();
@@ -14,23 +15,26 @@ export function ChangeTheme() {
     getInitialValueInEffect: true,
   });
 
+  const { t, ready } = useTranslation();
+
   return (
-    <Tooltip label="Toggle skin theme">
-      <ActionIcon
-        mt="0.25em"
-        onClick={() =>
-          setColorScheme(computedColorScheme === 'light' ? 'dark' : 'light')
-        }
-        variant="default"
-        size="lg"
-        aria-label="Toggle skin theme"
-      >
-        {computedColorScheme === 'dark' ? (
-          <IconSun className={cx(styling.iconSize)} stroke={1.5} />
-        ) : (
-          <IconMoon className={cx(styling.iconSize)} stroke={1.5} />
-        )}
-      </ActionIcon>
-    </Tooltip>
+    ready && (
+      <Tooltip label={t('ChangeTheme.tooltip')}>
+        <ActionIcon
+          onClick={() =>
+            setColorScheme(computedColorScheme === 'light' ? 'dark' : 'light')
+          }
+          variant="default"
+          size="lg"
+          aria-label={t('ChangeTheme.tooltip')}
+        >
+          {computedColorScheme === 'dark' ? (
+            <IconSun className={cx(styling.iconSize)} stroke={1.5} />
+          ) : (
+            <IconMoon className={cx(styling.iconSize)} stroke={1.5} />
+          )}
+        </ActionIcon>
+      </Tooltip>
+    )
   );
 }

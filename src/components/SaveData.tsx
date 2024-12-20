@@ -3,6 +3,8 @@ import { IconDownload } from '@tabler/icons-react';
 import { saveAs } from 'file-saver';
 import { CharacterData } from '../redux/state.interface';
 import { reduxSelector, reduxSlice } from '../redux/slicer';
+import { version as appVersion } from '../../package.json';
+import { useTranslation } from 'react-i18next';
 
 export function SaveData() {
   const { selectCharacterValues } = reduxSlice.selectors;
@@ -10,7 +12,7 @@ export function SaveData() {
   const characterValues = reduxSelector(selectCharacterValues) as CharacterData;
 
   function treatSaveData(dataValue: CharacterData) {
-    return { meta: { version: '0.0.0' }, ...dataValue };
+    return { meta: { version: appVersion }, ...dataValue };
   }
 
   async function saveFile() {
@@ -23,14 +25,18 @@ export function SaveData() {
     );
     saveAs(file);
   }
+  const { t, ready } = useTranslation();
+
   return (
-    <Button
-      onClick={() => {
-        saveFile();
-      }}
-      leftSection={<IconDownload size={14} />}
-    >
-      Save data
-    </Button>
+    ready && (
+      <Button
+        onClick={() => {
+          saveFile();
+        }}
+        leftSection={<IconDownload size={14} />}
+      >
+        {t('SaveData.button')}
+      </Button>
+    )
   );
 }

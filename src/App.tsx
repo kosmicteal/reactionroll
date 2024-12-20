@@ -1,6 +1,6 @@
 import { AppShell, Burger, Flex, Group, Text } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { Outlet, useLocation } from 'react-router-dom';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 import { PrintSheet } from './components/PrintSheet';
 import { ChangeTheme } from './components/ChangeTheme';
 import { PreviewPageColor } from './components/navbarComponents/PreviewPageColor';
@@ -9,14 +9,14 @@ import { cx } from '@emotion/css';
 import { styling } from './style';
 import { version } from '../package.json';
 import appIcon from '/reactionroll_logoAlpha.png';
+import { ChangeLanguage } from './components/ChangeLanguage';
 
 export function App() {
   const [mobileOpened, { toggle: toggleMobile }] = useDisclosure();
   const [desktopOpened, { toggle: toggleDesktop }] = useDisclosure(false);
 
   const location = useLocation();
-  const isStartScreen = location.pathname === '/';
-  // const isLoading = reduxSelector('IS_LOADING') as boolean;
+  const isEditorScreen = location.pathname === '/create';
 
   return (
     <AppShell
@@ -28,7 +28,6 @@ export function App() {
       }}
       padding="xl"
     >
-      {/* {isLoading && <FullScreenLoader />} */}
       <AppShell.Header>
         <Flex
           h="100%"
@@ -38,7 +37,7 @@ export function App() {
           wrap="wrap"
         >
           <Group h="100%" px="md">
-            {!isStartScreen && (
+            {isEditorScreen && (
               <>
                 <Burger
                   opened={mobileOpened}
@@ -55,17 +54,20 @@ export function App() {
               </>
             )}
             <Flex align="end" gap="xs">
-              <img src={appIcon} className={cx(styling.smallLogo)} />
+              <Link to="/" className={cx(styling.smallLogo)}>
+                <img src={appIcon} className={cx(styling.smallLogo)} />
+              </Link>
               <Text size="xs"> v{version}</Text>
             </Flex>
           </Group>
           <Group h="100%" px="md">
-            {!isStartScreen && <PrintSheet />}
+            {isEditorScreen && <PrintSheet />}
+            <ChangeLanguage />
             <ChangeTheme />
           </Group>
         </Flex>
       </AppShell.Header>
-      {!isStartScreen && (
+      {isEditorScreen && (
         <AppShell.Navbar className={cx(styling.navBar)}>
           <PreviewPageColor />
           <CharacterInformation />

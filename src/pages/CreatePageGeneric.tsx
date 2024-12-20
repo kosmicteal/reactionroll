@@ -1,5 +1,4 @@
 import { AppShell, Container, Flex } from '@mantine/core';
-import './MainPage.css';
 import { css, cx } from '@emotion/css';
 import { BasicContent } from '../components/pageComponents/pageGeneric/BasicContent';
 import { Zoom } from '../components/Zoom';
@@ -9,7 +8,6 @@ import { RenderAndPrint } from '../utils/RenderAndPrint';
 import { CreatePageGenericSkeleton } from '../components/uiComponents/CreatePageGenericSkeleton';
 import { reduxSelector, reduxSlice } from '../redux/slicer';
 import { AddGenericSectionButton } from '../components/uiComponents/AddGenericSectionButton';
-import { ChangeTheme } from '../components/ChangeTheme';
 import { SendFeedback } from '../components/SendFeedback';
 
 export function CreatePageGeneric() {
@@ -66,9 +64,6 @@ export function CreatePageGeneric() {
         ) : (
           <CreatePageGenericSkeleton />
         )}
-        {/* put BasicContent inside PageContent, then put PageContent 
-        and button into UIcontent and put it here, the one printed is 
-        PageContent which gets the values*/}
       </ResponsiveContainer>
 
       {isPrinting && <RenderAndPrint />}
@@ -78,7 +73,6 @@ export function CreatePageGeneric() {
           <Flex justify={'space-between'} align="center">
             <Flex id="editor-component" ms={'0.25rem'} gap="md"></Flex>
             <Flex me={'0.25rem'} gap="md">
-              {' '}
               <Zoom />
               <SendFeedback />
             </Flex>
