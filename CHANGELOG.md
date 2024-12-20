@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.20.8](https://github.com/kosmicteal/reactionroll/compare/v0.20.7...v0.20.8) (2024-12-20)
+
+
+### Bug Fixes
+
+* **i18n:** add missing translations ([ee38eda](https://github.com/kosmicteal/reactionroll/commit/ee38edad4c68157ea0e9f8f8e138c3ccb9a2619e))
+
 ### [0.20.7](https://github.com/kosmicteal/reactionroll/compare/v0.16.8...v0.20.7) (2024-12-20)
 
 
