@@ -40,7 +40,7 @@ import {
 import { useTranslation } from 'react-i18next';
 import { richTextEditorLabelsHelper } from '../../utils/richTextEditorLabelsHelper';
 import { ModalRichTextEditorShortcuts } from '../modalComponents/ModalRichTextEditorShortcuts';
-import { openModal } from '../modalComponents/AutoUpdateModal';
+import { openModal } from '../modalComponents/ModalWrappers';
 
 interface RichTextEditorProps {
   value: string;
@@ -150,15 +150,15 @@ export function RichTextEditorComponent({
       <RichTextEditor.Control
         onClick={() =>
           openModal(
-            'Text editor shortcuts',
+            t('RichTextEditorComponent.shortcutModal.title'),
             <ModalRichTextEditorShortcuts />,
             false,
             true,
             'xl',
           )
         }
-        aria-label="Show rich text editor shortcuts"
-        title="Show rich text editor shortcuts"
+        aria-label={t('RichTextEditorComponent.control.shortcuts')}
+        title={t('RichTextEditorComponent.control.shortcuts')}
       >
         <IconHelp stroke={1.5} size="1rem" />
       </RichTextEditor.Control>

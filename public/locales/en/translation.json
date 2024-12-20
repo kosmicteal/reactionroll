@@ -115,7 +115,27 @@
             "subscriptControlLabel": "Subscript",
             "superscriptControlLabel": "Superscript",
             "unsetColorControlLabel": "Unset color",
-            "hrControlLabel": "Horizontal line"
+            "hrControlLabel": "Horizontal line",
+            "shortcuts": "Show rich text editor shortcuts"
+        },
+        "shortcutModal": {
+            "title": "Text editor shortcuts",
+            "keyboardWarning": "If you are using a Mac-based keyboard, use <kbd>⌘</kbd> instead of <kbd>Ctrl</kbd>. ",
+            "disclaimer": "This app uses <anchor>Tiptap's editor</anchor> as a base.",
+            "general": "General",
+            "text": "Text format and selection",
+            "paragraph": "Paragraph formatting",
+            "command": "Command",
+            "shortcut": "Shortcut",
+            "copy": "Copy",
+            "cut": "Cut",
+            "paste": "Paste",
+            "pasteNoFormat": "Paste without formatting",
+            "lineBreak": "Add a line break",
+            "selectAll": "Select all",
+            "extend": "Extend selection",
+            "applyNormal": "Apply normal text style",
+            "applyHeader": "Apply heading style (number)"
         }
     },
     "ChangeLanguage": {
