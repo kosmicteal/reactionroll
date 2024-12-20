@@ -1,14 +1,17 @@
 {
-  "name": "roll-for-init",
+  "name": "reactionroll",
   "private": true,
   "version": "0.20.8",
+  "homepage": "https://kosmicteal.github.io/reactionroll",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "release": "standard-version"
+    "release": "standard-version",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@column-resizer/react": "^1.3.1",
