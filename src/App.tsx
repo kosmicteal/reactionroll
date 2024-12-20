@@ -9,6 +9,7 @@ import { cx } from '@emotion/css';
 import { styling } from './style';
 import { version } from '../package.json';
 import appIcon from '/reactionroll_logoAlpha.png';
+import { ChangeLanguage } from './components/ChangeLanguage';
 
 export function App() {
   const [mobileOpened, { toggle: toggleMobile }] = useDisclosure();
@@ -61,6 +62,7 @@ export function App() {
           </Group>
           <Group h="100%" px="md">
             {!isStartScreen && <PrintSheet />}
+            <ChangeLanguage />
             <ChangeTheme />
           </Group>
         </Flex>

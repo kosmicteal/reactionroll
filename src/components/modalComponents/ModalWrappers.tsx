@@ -1,21 +1,27 @@
 import { Flex, Button } from '@mantine/core';
 import { ContextModalProps, modals } from '@mantine/modals';
 import { PropsWithChildren, ReactNode } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export const AutoUpdateModal = ({
   context,
   id,
   innerProps,
-}: ContextModalProps<{ modalBody: PropsWithChildren }>) => (
-  <>
-    {innerProps.modalBody.children}
-    <Flex>
-      <Button fullWidth mt="md" onClick={() => context.closeModal(id)}>
-        Close modal
-      </Button>
-    </Flex>
-  </>
-);
+}: ContextModalProps<{ modalBody: PropsWithChildren }>) => {
+  const { t, ready } = useTranslation();
+  return (
+    ready && (
+      <>
+        {innerProps.modalBody.children}
+        <Flex>
+          <Button fullWidth mt="md" onClick={() => context.closeModal(id)}>
+            {t('ModalWrappers.autoUpdateModal.closeModal')}
+          </Button>
+        </Flex>
+      </>
+    )
+  );
+};
 
 export const FullFocusModal = ({
   innerProps,

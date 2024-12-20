@@ -2,6 +2,7 @@ import { Button, FileButton } from '@mantine/core';
 import { IconUpload } from '@tabler/icons-react';
 import { reduxSlice } from '../redux/slicer';
 import { reduxStore } from '../main';
+import { useTranslation } from 'react-i18next';
 
 export function LoadData() {
   const { appIsLoading, setCharacterValues } = reduxSlice.actions;
@@ -28,16 +29,20 @@ export function LoadData() {
     delete parseResult['meta'];
     return parseResult;
   }
+  const { t, ready } = useTranslation();
+
   return (
-    <FileButton
-      onChange={payload => setFile(payload!)}
-      accept="application/json"
-    >
-      {props => (
-        <Button {...props} leftSection={<IconUpload size={14} />}>
-          Load data
-        </Button>
-      )}
-    </FileButton>
+    ready && (
+      <FileButton
+        onChange={payload => setFile(payload!)}
+        accept="application/json"
+      >
+        {props => (
+          <Button {...props} leftSection={<IconUpload size={14} />}>
+            {t('LoadData.button')}
+          </Button>
+        )}
+      </FileButton>
+    )
   );
 }

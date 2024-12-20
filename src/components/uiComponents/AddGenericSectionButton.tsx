@@ -3,9 +3,10 @@ import { Button } from '@mantine/core';
 import { IconPlus } from '@tabler/icons-react';
 import { styling } from '../../style';
 import { ModalAddSection } from '../modalComponents/ModalAddSection';
-import { openModal } from '../modalComponents/AutoUpdateModal';
+import { openModal } from '../modalComponents/ModalWrappers';
 import { reduxSlice, reduxSelector } from '../../redux/slicer';
 import { useMediaQuery } from '@mantine/hooks';
+import { useTranslation } from 'react-i18next';
 
 export function AddGenericSectionButton() {
   const { selectIsOverflowing } = reduxSlice.selectors;
@@ -13,18 +14,27 @@ export function AddGenericSectionButton() {
   const isOverflowing = reduxSelector(selectIsOverflowing) as boolean;
   const isMobile = useMediaQuery('(max-width: 50em)');
 
+  const { t, ready } = useTranslation();
+
   return (
-    <Button
-      mb="xs"
-      disabled={isOverflowing}
-      className={cx(styling.hideOnPrint)}
-      leftSection={<IconPlus size={14} />}
-      variant="default"
-      onClick={() => {
-        openModal('Add new section', <ModalAddSection />, isMobile!, true);
-      }}
-    >
-      Add section
-    </Button>
+    ready && (
+      <Button
+        mb="xs"
+        disabled={isOverflowing}
+        className={cx(styling.hideOnPrint)}
+        leftSection={<IconPlus size={14} />}
+        variant="default"
+        onClick={() => {
+          openModal(
+            t('ModalAddSection.title'),
+            <ModalAddSection />,
+            isMobile!,
+            true,
+          );
+        }}
+      >
+        {t('AddGenericSectionButton.button')}
+      </Button>
+    )
   );
 }

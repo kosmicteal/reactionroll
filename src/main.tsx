@@ -5,11 +5,12 @@ import './index.css';
 import '@mantine/tiptap/styles.css';
 import '@mantine/core/styles.css';
 import classes from './main.module.css';
+import './i18n.ts';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import { createTheme, Input, MantineProvider } from '@mantine/core';
-import { MainPage } from './pages/MainPage.tsx';
+import { LandingPage } from './pages/LandingPage.tsx';
 import { CreatePageGeneric } from './pages/CreatePageGeneric.tsx';
 import { Provider as ReactProvider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
@@ -17,7 +18,7 @@ import { ModalsProvider } from '@mantine/modals';
 import {
   AutoUpdateModal,
   FullFocusModal,
-} from './components/modalComponents/AutoUpdateModal.tsx';
+} from './components/modalComponents/ModalWrappers.tsx';
 import { reduxSlice } from './redux/slicer.ts';
 
 export const reduxStore = configureStore({
@@ -33,7 +34,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: '',
-        element: <MainPage />,
+        element: <LandingPage />,
       },
       {
         path: '/create',

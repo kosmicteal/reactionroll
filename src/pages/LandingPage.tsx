@@ -1,4 +1,4 @@
-import './MainPage.css';
+import './LandingPage.css';
 import {
   Button,
   Flex,
@@ -13,54 +13,41 @@ import { Link } from 'react-router-dom';
 import appIcon from '/reactionroll_logoAlpha.png';
 import { cx } from '@emotion/css';
 import { styling } from '../style';
-
-export function MainPage() {
+import { Trans, useTranslation } from 'react-i18next';
+function LandingTitle() {
+  const { ready } = useTranslation();
   return (
-    <>
+    ready && (
+      <Trans i18nKey="LandingPage.slogan">
+        0
+        <Text inherit span c="reactionroll-blue">
+          1
+        </Text>
+        2
+      </Trans>
+    )
+  );
+}
+
+export function LandingPage() {
+  const { t, ready } = useTranslation();
+  return (
+    ready && (
       <Paper shadow="md" withBorder p="xl">
         <img src={appIcon} className={cx(styling.bigLogo)} />
         <Title order={1} fw={900} variant="gradient">
-          Your actions in{' '}
-          <Text inherit span c="reactionroll-blue">
-            less than 3 seconds
-          </Text>
-          .
+          <LandingTitle />
         </Title>
         <SimpleGrid cols={2} m="xl" spacing="xl">
-          <Text ta="justify">
-            <p>
-              Have you ever had a character that has such a high level you no
-              longer remember all their actions? Maybe it has been more than 2
-              years since you initially did their character sheet.
-            </p>
-            <p>
-              This problem can now be solved easily! With{' '}
-              <Text fw={700} span c="reactionroll-blue">
-                reActionroll
-              </Text>
-              , you can now easily do a summary of your sheet that you can print
-              next to you as a helper. You can also save it for future
-              modifications if needed!
-            </p>
-
-            <p>
-              I am currently taking this as a hobby project so updates might
-              come randomly from time to time. Feel free to report any bug or
-              suggestion on its Github repository and I will tackle them when
-              time allows me to do so.
-            </p>
-
-            <p>
-              This page has been done with React, Redux and other Open Source
-              technologies. Detailed information about this project can be found
-              on the &#34;About&#34; page.
-            </p>
-
-            <p>
-              All product and company names are trademarks or registered
-              trademarks of their respective copyright holders. No copyright has
-              been infringed with this application.
-            </p>
+          <Text component="div" ta="justify">
+            <Trans
+              t={t}
+              i18nKey="LandingPage.description"
+              components={{
+                focusText: <Text fw={700} span c="reactionroll-blue" />,
+                p: <p />,
+              }}
+            />
           </Text>
           <Stack
             bg="var(--mantine-color-body)"
@@ -70,7 +57,7 @@ export function MainPage() {
           >
             <Paper shadow="md" withBorder p="md">
               <Title ta="left" order={3} mb="md">
-                Create new sheet
+                {t('LandingPage.sidePanel.newSheetPanel.title')}
               </Title>
               <Flex
                 gap="md"
@@ -80,13 +67,15 @@ export function MainPage() {
                 wrap="wrap"
               >
                 <Link to="/create">
-                  <Button w="20em">Start</Button>
+                  <Button w="20em">
+                    {t('LandingPage.sidePanel.newSheetPanel.start')}
+                  </Button>
                 </Link>
               </Flex>
             </Paper>
             <Paper shadow="md" withBorder p="md">
               <Title ta="left" order={3} mb="md">
-                Help
+                {t('LandingPage.sidePanel.helpPanel.title')}
               </Title>
               <Grid justify="center" align="stretch">
                 <Grid.Col span={6}>
@@ -98,12 +87,14 @@ export function MainPage() {
                     rel="noopener noreferrer"
                     variant="light"
                   >
-                    Watch tutorial
+                    {t('LandingPage.sidePanel.helpPanel.watchTutorial')}
                   </Button>
                 </Grid.Col>
                 <Grid.Col span={6}>
                   <Link to="/about">
-                    <Button variant="light">About this page</Button>
+                    <Button variant="light">
+                      {t('LandingPage.sidePanel.helpPanel.about')}
+                    </Button>
                   </Link>
                 </Grid.Col>
                 <Grid.Col span={6}>
@@ -114,7 +105,7 @@ export function MainPage() {
                     rel="noopener noreferrer"
                     variant="light"
                   >
-                    Github repo
+                    {t('LandingPage.sidePanel.helpPanel.github')}
                   </Button>
                 </Grid.Col>
                 <Grid.Col span={6}>
@@ -125,7 +116,7 @@ export function MainPage() {
                     rel="noopener noreferrer"
                     variant="light"
                   >
-                    Main website
+                    {t('LandingPage.sidePanel.helpPanel.mainWebsite')}
                   </Button>
                 </Grid.Col>
               </Grid>
@@ -133,26 +124,6 @@ export function MainPage() {
           </Stack>
         </SimpleGrid>
       </Paper>
-      {/* <div>
-        <a href="https://vitejs.dev">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <Button onClick={() => setCount(count => count + 1)}>
-          count is {count}
-        </Button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p> */}
-      {/* </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p> */}
-    </>
+    )
   );
 }
