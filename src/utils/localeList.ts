@@ -15,12 +15,12 @@ export const LOCALE_LIST: I18NLanguageObject[] = [
     langCode: 'ca',
     nativeName: 'Català',
   },
-  {
-    langCode: 'gl',
-    nativeName: 'Galego',
-  },
-  {
-    langCode: 'eu',
-    nativeName: 'Euskara',
-  },
+  // {
+  //   langCode: 'gl',
+  //   nativeName: 'Galego',
+  // },
+  // {
+  //   langCode: 'eu',
+  //   nativeName: 'Euskara',
+  // },
 ];

@@ -1,5 +1,4 @@
 import { AppShell, Container, Flex } from '@mantine/core';
-import './LandingPage.css';
 import { css, cx } from '@emotion/css';
 import { BasicContent } from '../components/pageComponents/pageGeneric/BasicContent';
 import { Zoom } from '../components/Zoom';

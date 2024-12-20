@@ -30,7 +30,7 @@ export const styling = {
     }
   `,
   smallLogo: css`
-    width: 15em;
+    height: 2.3em;
   `,
   bigLogo: css`
     width: 100%;

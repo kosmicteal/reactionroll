@@ -20,6 +20,7 @@ import {
   FullFocusModal,
 } from './components/modalComponents/ModalWrappers.tsx';
 import { reduxSlice } from './redux/slicer.ts';
+import { AboutPage } from './pages/AboutPage.tsx';
 
 export const reduxStore = configureStore({
   reducer: {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: '/create',
         element: <CreatePageGeneric />,
+      },
+      {
+        path: '/about',
+        element: <AboutPage />,
       },
     ],
   },

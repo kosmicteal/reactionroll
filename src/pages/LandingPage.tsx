@@ -1,4 +1,3 @@
-import './LandingPage.css';
 import {
   Button,
   Flex,
