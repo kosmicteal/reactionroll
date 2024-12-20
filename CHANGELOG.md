@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [0.16.9](https://github.com/kosmicteal/reactionroll/compare/v0.16.8...v0.16.9) (2024-12-20)
+### [0.20.7](https://github.com/kosmicteal/reactionroll/compare/v0.16.8...v0.20.7) (2024-12-20)
 
 
 ### Features
@@ -15,14 +15,27 @@ All notable changes to this project will be documented in this file. See [standa
 
 * **richTextEditor:** fix regression regarding rich text editor shortcut modal ([d99b7b8](https://github.com/kosmicteal/reactionroll/commit/d99b7b8f4636cceb1a992d618e2955c17f47a3c2))
 
-### [0.16.8](https://github.com/kosmicteal/roll-for-init/compare/v0.16.7...v0.16.8) (2024-12-19)
+### [0.20.6](https://github.com/kosmicteal/reactionroll/compare/v0.16.8...v0.16.9) (2024-12-20)
+
+
+### Features
+
+* **app:** add about page ([987d4f5](https://github.com/kosmicteal/reactionroll/commit/987d4f5af25d385f36edfd2e3d90e4abdbd2db0e))
+* **i18n:** add english base i18n ([5add31c](https://github.com/kosmicteal/reactionroll/commit/5add31c81cc4c220465997a8cfa22abbf244a076))
+
+
+### Bug Fixes
+
+* **richTextEditor:** fix regression regarding rich text editor shortcut modal ([d99b7b8](https://github.com/kosmicteal/reactionroll/commit/d99b7b8f4636cceb1a992d618e2955c17f47a3c2))
+
+### [0.18.6](https://github.com/kosmicteal/roll-for-init/compare/v0.16.7...v0.16.8) (2024-12-19)
 
 
 ### Features
 
 * **app:** add start page ([dba3324](https://github.com/kosmicteal/roll-for-init/commit/dba3324b0dc888853234f85fa8ad68211e9dc1f9))
 
-### [0.16.7](https://github.com/kosmicteal/roll-for-init/compare/v0.16.6...v0.16.7) (2024-12-19)
+### [0.17.6](https://github.com/kosmicteal/roll-for-init/compare/v0.16.6...v0.16.7) (2024-12-19)
 
 
 ### Features
