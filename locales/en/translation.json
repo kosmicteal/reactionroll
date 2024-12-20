@@ -1,0 +1,160 @@
+{
+    "LandingPage": {
+        "slogan": "Your actions in <1>less than 3 seconds</1>.",
+        "description": "<p>Have you ever had a character that has such a high level you no longer remember all their actions? Maybe it has been more than 2 years since you initially did their character sheet.</p><p>This problem can now be solved easily! With <focusText>reActionroll</focusText>, you can now easily do a summary of your sheet that you can print next to you as a helper. You can also save it for future modifications if needed!</p><p>I am currently taking this as a hobby project so updates might come randomly from time to time. Feel free to report any bug or suggestion on its Github repository and I will tackle them when time allows me to do so.</p><p>This page has been done with React, Redux and other Open Source technologies. Detailed information about this project can be found on the About page.</p><p>All product and company names are trademarks or registered trademarks of their respective copyright holders. No copyright has been infringed with this application.</p>",
+        "sidePanel": {
+            "newSheetPanel": {
+                "title": "Create new sheet",
+                "start": "Start"
+            },
+            "helpPanel": {
+                "title": "Help",
+                "watchTutorial": "Watch tutorial",
+                "about": "About this page",
+                "github": "Github repo",
+                "mainWebsite": "Main website"
+            }
+        }
+    },
+    "AboutPage": {
+        "aboutMeTitle": "About me",
+        "bio": "I'm KosmicTeal, a Full Stack developer (with affinity on Frontend) with Swiss-knife experience on various programming languages, both desktop and web-based development. Aside from this and as a hobby, I'm also an illustrator artist, 3D model creator and TTRPG player.",
+        "button": "Check my website here!",
+        "techStack": "Tech Stack used on this website",
+        "openLink": "Open website in a new tab"
+    },
+    "_CommonTranslations": {
+        "class": "Class",
+        "subclass": "Subclass",
+        "race": "Race",
+        "characterName": "Character name",
+        "campaign": "Campaign",
+        "DC": "DC",
+        "AC": "AC"
+    },
+    "ModalWrappers": {
+        "autoUpdateModal": {
+            "closeModal": "Close modal"
+        }
+    },
+    "ModalAddSection": {
+        "title": "Add new section",
+        "addSingleSection": "Add single section",
+        "addColumnSection": "Add column section"
+    },
+    "ModalRichTextEditorShortcuts": {
+        "tbd": "tbd"
+    },
+    "CharacterInformation": {
+        "title": "Character information"
+    },
+    "PreviewPageColor": {
+        "title": "Preview page color",
+        "pageColor": "Preview page background color",
+        "textColor": "Text color",
+        "colorInputPlaceholder": "None, use #FFFFFF to reset"
+    },
+    "BasicContent": {
+        "classRaceInfo": "Class and Race information",
+        "classRaceInfoPlaceholder": "Character Class (Subclass) - Complete Race"
+    },
+    "GenericSection": {
+        "sectionTitlePlaceholder": "Section title",
+        "removeSection": "Remove section",
+        "moveSectionUp": "Move section up",
+        "moveSectionDown": "Move section down"
+    },
+    "AddGenericSectionButton": {
+        "button": "Add section"
+    },
+    "RichTextEditorComponent": {
+        "placeholder": "Write your content here.",
+        "control": {
+            "heading": "Heading",
+            "table": "Table",
+            "shortcutModal": "tbd",
+            "insertTable": "Insert table",
+            "addColumnBefore": "Add column before",
+            "addColumnAfter": "Add column after",
+            "deleteColumn": "Delete column",
+            "addRowBefore": "Add row before",
+            "addRowAfter": "Add row after",
+            "deleteRow": "Delete row",
+            "deleteTable": "Delete table",
+            "toggleCellMerge": "Toggle cell merge",
+            "toggleHeaderColumn": "Toggle header column",
+            "toggleHeaderRow": "Toggle header row",
+            "increaseTextSize": "Increase text size",
+            "decreaseTextSize": "Decrease text size",
+            "undo": "Undo",
+            "redo": "Redo",
+            "linkControlLabel": "Link",
+            "colorPickerControlLabel": "Text color",
+            "highlightControlLabel": "Highlight text",
+            "boldControlLabel": "Bold",
+            "italicControlLabel": "Italic",
+            "underlineControlLabel": "Underline",
+            "strikeControlLabel": "Strikethrough",
+            "clearFormattingControlLabel": "Clear formatting",
+            "unlinkControlLabel": "Remove link",
+            "bulletListControlLabel": "Bullet list",
+            "orderedListControlLabel": "Ordered list",
+            "h1ControlLabel": "Heading 1",
+            "h2ControlLabel": "Heading 2",
+            "h3ControlLabel": "Heading 3",
+            "h4ControlLabel": "Heading 4",
+            "h5ControlLabel": "Heading 5",
+            "h6ControlLabel": "Heading 6",
+            "blockquoteControlLabel": "Blockquote",
+            "alignLeftControlLabel": "Align text: left",
+            "alignCenterControlLabel": "Align text: center",
+            "alignRightControlLabel": "Align text: right",
+            "alignJustifyControlLabel": "Align text: justify",
+            "codeControlLabel": "Code",
+            "codeBlockControlLabel": "Code block",
+            "subscriptControlLabel": "Subscript",
+            "superscriptControlLabel": "Superscript",
+            "unsetColorControlLabel": "Unset color",
+            "hrControlLabel": "Horizontal line",
+            "shortcuts": "Show rich text editor shortcuts"
+        },
+        "shortcutModal": {
+            "title": "Text editor shortcuts",
+            "keyboardWarning": "If you are using a Mac-based keyboard, use <kbd>⌘</kbd> instead of <kbd>Ctrl</kbd>. ",
+            "disclaimer": "This app uses <anchor>Tiptap's editor</anchor> as a base.",
+            "general": "General",
+            "text": "Text format and selection",
+            "paragraph": "Paragraph formatting",
+            "command": "Command",
+            "shortcut": "Shortcut",
+            "copy": "Copy",
+            "cut": "Cut",
+            "paste": "Paste",
+            "pasteNoFormat": "Paste without formatting",
+            "lineBreak": "Add a line break",
+            "selectAll": "Select all",
+            "extend": "Extend selection",
+            "applyNormal": "Apply normal text style",
+            "applyHeader": "Apply heading style (number)"
+        }
+    },
+    "ChangeLanguage": {
+        "tooltip": "Change language"
+    },
+    "ChangeTheme": {
+        "tooltip": "Toggle skin theme"
+    },
+    "LoadData": {
+        "button": "Load data"
+    },
+    "PrintSheet": {
+        "tooltip": "Print sheet",
+        "cannotPrint": "Cannot print with overflowing content!"
+    },
+    "SaveData": {
+        "button": "Save data"
+    },
+    "SendFeedback": {
+        "tooltip": "Send feedback on Github"
+    }
+}
