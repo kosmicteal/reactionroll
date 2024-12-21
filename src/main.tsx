@@ -4,6 +4,7 @@ import { App } from './App.tsx';
 import './index.css';
 import '@mantine/tiptap/styles.css';
 import '@mantine/core/styles.css';
+import 'mantine-contextmenu/styles.css';
 import classes from './main.module.css';
 import './i18n.ts';
 
@@ -21,6 +22,7 @@ import {
 } from './components/modalComponents/ModalWrappers.tsx';
 import { reduxSlice } from './redux/slicer.ts';
 import { AboutPage } from './pages/AboutPage.tsx';
+import { ContextMenuProvider } from 'mantine-contextmenu';
 
 export const reduxStore = configureStore({
   reducer: {
@@ -81,11 +83,13 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ReactProvider store={reduxStore}>
       <MantineProvider defaultColorScheme="auto" theme={theme}>
-        <ModalsProvider
-          modals={{ autoupdate: AutoUpdateModal, fullfocus: FullFocusModal }}
-        >
-          <RouterProvider router={router} />
-        </ModalsProvider>
+        <ContextMenuProvider>
+          <ModalsProvider
+            modals={{ autoupdate: AutoUpdateModal, fullfocus: FullFocusModal }}
+          >
+            <RouterProvider router={router} />
+          </ModalsProvider>
+        </ContextMenuProvider>
       </MantineProvider>
     </ReactProvider>
   </StrictMode>,
