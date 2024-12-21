@@ -74,7 +74,7 @@ export function RichTextEditorComponent({
         className={cx(styling.richTextEditor)}
         variant="subtle"
       >
-        {isFocused && (
+        {isFocused && isMobile && (
           <RichTextEditor.Toolbar sticky>
             <RichTextEditorToolbarElements isMobile />
           </RichTextEditor.Toolbar>

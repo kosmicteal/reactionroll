@@ -85,6 +85,8 @@ export function LandingPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     variant="light"
+                    //TODO: Add tutorial
+                    disabled
                   >
                     {t('LandingPage.sidePanel.helpPanel.watchTutorial')}
                   </Button>
