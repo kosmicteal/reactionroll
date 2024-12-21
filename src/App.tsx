@@ -1,4 +1,4 @@
-import { AppShell, Burger, em, Flex, Group, Text } from '@mantine/core';
+import { AppShell, Burger, Flex, Group, Text } from '@mantine/core';
 import { useDisclosure, useMediaQuery } from '@mantine/hooks';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import { PrintSheet } from './components/PrintSheet';
@@ -18,7 +18,7 @@ export function App() {
 
   const location = useLocation();
   const isEditorScreen = location.pathname === '/reactionroll/create';
-  const isMobile = useMediaQuery(`(max-width: ${em(750)})`);
+  const isMobile = useMediaQuery('(max-width: 50em)');
 
   return (
     <AppShell
