@@ -1,7 +1,7 @@
 {
   "name": "reactionroll",
   "private": true,
-  "version": "0.20.8",
+  "version": "0.21.9",
   "homepage": "https://kosmicteal.github.io/reactionroll",
   "type": "module",
   "scripts": {

@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.21.9](https://github.com/kosmicteal/reactionroll/compare/v0.20.8...v0.21.9) (2024-12-21)
+
+
+### Features
+
+* **mobile:** improve mobile compatibility ([0b5d16d](https://github.com/kosmicteal/reactionroll/commit/0b5d16da52f4322ace9452380f0dc9542c285612))
+
+
+### Bug Fixes
+
+* add disable buttons on unused buttons, fix rich text editor toolbar and package.json ([844fa60](https://github.com/kosmicteal/reactionroll/commit/844fa607eb64c3a3ab8a8a5a503eed0d5d9fd877))
+
 ### [0.20.8](https://github.com/kosmicteal/reactionroll/compare/v0.20.7...v0.20.8) (2024-12-20)
 
 
