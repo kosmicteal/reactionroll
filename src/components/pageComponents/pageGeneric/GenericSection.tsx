@@ -1,18 +1,5 @@
 import { cx } from '@emotion/css';
-import {
-  HoverCard,
-  Input,
-  ActionIcon,
-  Divider,
-  Stack,
-  Tooltip,
-  Flex,
-} from '@mantine/core';
-import {
-  IconTrash,
-  IconArrowBigUp,
-  IconArrowBigDown,
-} from '@tabler/icons-react';
+import { HoverCard, Input, Divider, Stack } from '@mantine/core';
 import {
   anyObject,
   CharacterSection,
@@ -26,6 +13,7 @@ import { Container, Section, Bar } from '@column-resizer/react';
 import { Fragment, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useMediaQuery } from '@mantine/hooks';
+import { SectionCRUDGroup } from './SectionCRUDGroup';
 
 export function GenericSection({
   section,
@@ -37,12 +25,7 @@ export function GenericSection({
   totalSections: number;
 }) {
   const ref = useRef<number[]>([]);
-  const {
-    setUpdateSectionValue,
-    setRemoveSection,
-    moveSectionDown,
-    moveSectionUp,
-  } = reduxSlice.actions;
+  const { setUpdateSectionValue } = reduxSlice.actions;
   const { dispatch } = reduxStore;
   const isFirstSection = index === 0;
   const isLastSection = index === totalSections - 1;
@@ -123,6 +106,7 @@ export function GenericSection({
           {idx < section.columns.length - 1 && (
             <Bar
               onMouseUp={onDragEnd}
+              onTouchEnd={onDragEnd}
               size={3}
               className={cx(styling.gridBorder)}
               style={{ cursor: 'col-resize' }}
@@ -132,59 +116,6 @@ export function GenericSection({
       );
     },
   );
-
-  function SectionCRUDGroup({ isMobile = false }: { isMobile?: boolean }) {
-    const buttonSize = isMobile ? 'xl' : 'md';
-    return (
-      <Flex
-        gap="xs"
-        direction={isMobile ? 'column' : 'row'}
-        className={cx(styling.noPrint)}
-      >
-        <Tooltip label={t('GenericSection.removeSection')}>
-          <ActionIcon
-            variant="outline"
-            color="red"
-            size={buttonSize}
-            aria-label={t('GenericSection.removeSection')}
-            onClick={() => dispatch(setRemoveSection(section.sectionId))}
-          >
-            <IconTrash style={{ width: '70%', height: '70%' }} stroke={1.5} />
-          </ActionIcon>
-        </Tooltip>
-        <Tooltip label={t('GenericSection.moveSectionUp')}>
-          <ActionIcon
-            data-disabled={isFirstSection}
-            disabled={isFirstSection}
-            variant="outline"
-            size={buttonSize}
-            aria-label={t('GenericSection.moveSectionUp')}
-            onClick={() => dispatch(moveSectionUp(section.sectionId))}
-          >
-            <IconArrowBigUp
-              style={{ width: '70%', height: '70%' }}
-              stroke={1.5}
-            />
-          </ActionIcon>
-        </Tooltip>
-        <Tooltip label={t('GenericSection.moveSectionDown')}>
-          <ActionIcon
-            data-disabled={isLastSection}
-            disabled={isLastSection}
-            variant="outline"
-            size={buttonSize}
-            aria-label={t('GenericSection.moveSectionDown')}
-            onClick={() => dispatch(moveSectionDown(section.sectionId))}
-          >
-            <IconArrowBigDown
-              style={{ width: '70%', height: '70%' }}
-              stroke={1.5}
-            />
-          </ActionIcon>
-        </Tooltip>
-      </Flex>
-    );
-  }
 
   return (
     ready && (
@@ -197,16 +128,27 @@ export function GenericSection({
         >
           <HoverCard.Target>
             <Container
-              onTouchEnd={() => console.log('touchend')}
               key={crypto.randomUUID()}
+              className={cx(styling.fullWidth)}
             >
               {sectionElements}
-              {isMobile && <SectionCRUDGroup isMobile />}
+              {isMobile && (
+                <SectionCRUDGroup
+                  isMobile
+                  isFirstSection={isFirstSection}
+                  isLastSection={isLastSection}
+                  sectionId={section.sectionId}
+                />
+              )}
             </Container>
           </HoverCard.Target>
           {!isMobile && (
             <HoverCard.Dropdown>
-              <SectionCRUDGroup />
+              <SectionCRUDGroup
+                isFirstSection={isFirstSection}
+                isLastSection={isLastSection}
+                sectionId={section.sectionId}
+              />
             </HoverCard.Dropdown>
           )}
         </HoverCard>

@@ -44,6 +44,9 @@ export const styling = {
     width: 100%;
     padding: 2em;
   `,
+  fullWidth: css`
+    width: 100%;
+  `,
   printOptions: css`
     @page {
       size: auto;
