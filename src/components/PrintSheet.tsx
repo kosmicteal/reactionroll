@@ -7,7 +7,7 @@ import { reduxSelector, reduxSlice } from '../redux/slicer';
 import { reduxStore } from '../main';
 import { useTranslation } from 'react-i18next';
 
-export function PrintSheet() {
+export function PrintSheet({ isDisabled = false }: { isDisabled: boolean }) {
   const { selectPrintData, selectIsOverflowing } = reduxSlice.selectors;
   const { appPrintData } = reduxSlice.actions;
   const { dispatch } = reduxStore;
@@ -25,7 +25,8 @@ export function PrintSheet() {
         }
       >
         <ActionIcon
-          disabled={isOverflowing}
+          disabled={isOverflowing || isDisabled}
+          aria-disabled={isOverflowing || isDisabled}
           onClick={() => dispatch(appPrintData())}
           variant={isPrinting ? 'light' : 'filled'}
           size="lg"

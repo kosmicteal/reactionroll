@@ -17,18 +17,19 @@ export function WorkspaceActions() {
         active
         defaultOpened
       >
-        <Paper shadow="sm" withBorder p="md" my="md" me="md">
+        <Paper shadow="sm" withBorder p="md" my="md" me="md" opacity="0.5">
           <Stack>
             <Flex justify="space-between" align="center">
               <Text>{t('PrintSheet.tooltip')}</Text>
-              <PrintSheet />
+              <PrintSheet isDisabled />
             </Flex>
             <Stack gap="0.5em">
               <Text size="xs" ta="left" fw={700} c="reactionroll-blue">
-                {t('PrintSheet.printLimitationWarning')}
+                {t('PrintSheet.printLimitationDisabled')}
+                {/* {t('PrintSheet.printLimitationWarning')} */}
               </Text>
               <Text size="xs" ta="left">
-                {t('PrintSheet.printLimitationWarningHelp')}
+                {/* {t('PrintSheet.printLimitationWarningHelp')} */}
               </Text>
             </Stack>
           </Stack>
