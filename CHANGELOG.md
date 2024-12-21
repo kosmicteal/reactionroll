@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.21.14](https://github.com/kosmicteal/reactionroll/compare/v0.21.13...v0.21.14) (2024-12-21)
+
+
+### Bug Fixes
+
+* **richTextEditor:** fix background color not following preview page color ([3bcc1ae](https://github.com/kosmicteal/reactionroll/commit/3bcc1ae895c1f556d2a6ed4fce8ac55592d0ff70))
+
 ### [0.21.13](https://github.com/kosmicteal/reactionroll/compare/v0.21.12...v0.21.13) (2024-12-21)
 
 
