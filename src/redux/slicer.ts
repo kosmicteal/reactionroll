@@ -4,7 +4,11 @@ import {
   ActionCreatorWithPayload,
   createSlice,
 } from '@reduxjs/toolkit';
-import { CharacterSection, GlobalState } from './state.interface';
+import {
+  CharacterSection,
+  CharacterSectionColumn,
+  GlobalState,
+} from './state.interface';
 import { useSelector } from 'react-redux';
 import { Selector } from 'react-redux';
 import { moveArrayItem } from '../utils/moveArrayItem';
@@ -39,6 +43,7 @@ function newRowSection(columnNumber: number) {
       columnId: crypto.randomUUID(),
       title: '',
       textContent: '',
+      span: 50,
     });
   }
 
@@ -103,6 +108,7 @@ export const reduxSlice = createSlice({
       state.appLocalData.isOverflowing = checkContentOverflow();
     },
     setAddMultipleColumnSection: state => {
+      //TO BE DEPRECATED
       const newSection: CharacterSection = newRowSection(2);
       if (state.characterData.sections) {
         state.characterData.sections.push(newSection);
@@ -139,7 +145,7 @@ export const reduxSlice = createSlice({
       };
       state.appLocalData.isOverflowing = checkContentOverflow();
     },
-    moveSectionUp: (state, action) => {
+    setMoveSectionUp: (state, action) => {
       const availableSections = state.characterData.sections!;
       const sectionIndex: number = availableSections.findIndex(
         section => section.sectionId === action.payload,
@@ -151,7 +157,7 @@ export const reduxSlice = createSlice({
 
       state.characterData.sections = availableSections;
     },
-    moveSectionDown: (state, action) => {
+    setMoveSectionDown: (state, action) => {
       const availableSections = state.characterData.sections!;
       const sectionIndex: number = availableSections.findIndex(
         section => section.sectionId === action.payload,
@@ -161,6 +167,101 @@ export const reduxSlice = createSlice({
       }
 
       state.characterData.sections = availableSections;
+    },
+    setMoveColumnLeft: (state, action) => {
+      const availableSections = state.characterData.sections!;
+      const sectionIndex: number = availableSections.findIndex(
+        section => section.sectionId === action.payload.sectionId,
+      );
+      const availableColumns =
+        state.characterData.sections![sectionIndex].columns;
+      const columnIndex: number = availableSections[
+        sectionIndex
+      ].columns.findIndex(
+        columns => columns.columnId === action.payload.columnId,
+      );
+
+      if (columnIndex > 0) {
+        moveArrayItem(availableColumns, columnIndex, columnIndex - 1);
+      }
+
+      state.characterData.sections![sectionIndex].columns = availableColumns;
+    },
+    setMoveColumnRight: (state, action) => {
+      const availableSections = state.characterData.sections!;
+      const sectionIndex: number = availableSections.findIndex(
+        section => section.sectionId === action.payload.sectionId,
+      );
+      const availableColumns =
+        state.characterData.sections![sectionIndex].columns;
+      const columnIndex: number = availableSections[
+        sectionIndex
+      ].columns.findIndex(
+        columns => columns.columnId === action.payload.columnId,
+      );
+
+      if (columnIndex < availableColumns.length - 1) {
+        moveArrayItem(availableColumns, columnIndex, columnIndex + 1);
+      }
+
+      state.characterData.sections![sectionIndex].columns = availableColumns;
+    },
+    setAddColumnLeft: (state, action) => {
+      const availableSections = state.characterData.sections!;
+      const sectionIndex: number = availableSections.findIndex(
+        section => section.sectionId === action.payload.sectionId,
+      );
+      const availableColumns =
+        state.characterData.sections![sectionIndex].columns;
+      const columnIndex: number = availableSections[
+        sectionIndex
+      ].columns.findIndex(
+        columns => columns.columnId === action.payload.columnId,
+      );
+
+      availableColumns.splice(columnIndex - 1, 0, {
+        columnId: crypto.randomUUID(),
+        title: '',
+        textContent: '',
+        span: 50,
+      });
+
+      state.characterData.sections![sectionIndex].columns = availableColumns;
+    },
+    setAddColumnRight: (state, action) => {
+      const availableSections = state.characterData.sections!;
+      const sectionIndex: number = availableSections.findIndex(
+        section => section.sectionId === action.payload.sectionId,
+      );
+      const availableColumns =
+        state.characterData.sections![sectionIndex].columns;
+      const columnIndex: number = availableSections[
+        sectionIndex
+      ].columns.findIndex(
+        columns => columns.columnId === action.payload.columnId,
+      );
+
+      availableColumns.splice(columnIndex + 1, 0, {
+        columnId: crypto.randomUUID(),
+        title: '',
+        textContent: '',
+        span: 50,
+      });
+
+      state.characterData.sections![sectionIndex].columns = availableColumns;
+    },
+    setRemoveColumn: (state, action) => {
+      const availableSections = state.characterData.sections!;
+      const sectionIndex: number = availableSections.findIndex(
+        section => section.sectionId === action.payload.sectionId,
+      );
+      const availableColumns =
+        state.characterData.sections![sectionIndex].columns;
+      const updatedColumns: CharacterSectionColumn[] = availableColumns.filter(
+        columns => columns.columnId !== action.payload.columnId,
+      );
+
+      state.characterData.sections![sectionIndex].columns = updatedColumns;
     },
   },
   selectors: {

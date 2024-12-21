@@ -2,17 +2,16 @@ import { cx } from '@emotion/css';
 import { Button } from '@mantine/core';
 import { IconPlus } from '@tabler/icons-react';
 import { styling } from '../../style';
-import { ModalAddSection } from '../modalComponents/ModalAddSection';
-import { openModal } from '../modalComponents/ModalWrappers';
 import { reduxSlice, reduxSelector } from '../../redux/slicer';
-import { useMediaQuery } from '@mantine/hooks';
 import { useTranslation } from 'react-i18next';
+import { reduxStore } from '../../main';
 
 export function AddGenericSectionButton() {
   const { selectIsOverflowing } = reduxSlice.selectors;
+  const { setAddSingleColumnSection } = reduxSlice.actions;
+  const { dispatch } = reduxStore;
 
   const isOverflowing = reduxSelector(selectIsOverflowing) as boolean;
-  const isMobile = useMediaQuery('(max-width: 50em)');
 
   const { t, ready } = useTranslation();
 
@@ -24,14 +23,7 @@ export function AddGenericSectionButton() {
         className={cx(styling.hideOnPrint)}
         leftSection={<IconPlus size={14} />}
         variant="default"
-        onClick={() => {
-          openModal(
-            t('ModalAddSection.title'),
-            <ModalAddSection />,
-            isMobile!,
-            true,
-          );
-        }}
+        onClick={() => dispatch(setAddSingleColumnSection())}
       >
         {t('AddGenericSectionButton.button')}
       </Button>
