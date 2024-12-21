@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.21.10](https://github.com/kosmicteal/reactionroll/compare/v0.21.9...v0.21.10) (2024-12-21)
+
+
+### Bug Fixes
+
+* add print warning on android ([e6833ea](https://github.com/kosmicteal/reactionroll/commit/e6833ea3e756f33107e711b1600a5af9ef461d16))
+* fix isDisabled optional parameter on PrintSheet ([c488872](https://github.com/kosmicteal/reactionroll/commit/c488872974ef9970b8879c972a76dfa3e01fe22a))
+
 ### [0.21.9](https://github.com/kosmicteal/reactionroll/compare/v0.20.8...v0.21.9) (2024-12-21)
 
 
