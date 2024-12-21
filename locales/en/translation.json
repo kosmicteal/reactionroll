@@ -154,6 +154,7 @@
         "tooltip": "Print sheet",
         "cannotPrint": "Cannot print with overflowing content!",
         "printLimitationWarning": "NOTE: Not available on Firefox Android or browsers embedded within an app (WebView).",
+        "printLimitationDisabled": "Printing on mobile is currently disabled due to a reported bug, awaiting for an upcoming dependency patch release.",
         "printLimitationWarningHelp": "If you're using one of those browsers, save your Character information and open it on another browser."
     },
     "SaveData": {
