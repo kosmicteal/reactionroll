@@ -65,7 +65,12 @@
         "sectionTitlePlaceholder": "Section title",
         "removeSection": "Remove section",
         "moveSectionUp": "Move section up",
-        "moveSectionDown": "Move section down"
+        "moveSectionDown": "Move section down",
+        "moveColumnLeft": "Move column left",
+        "moveColumnRight": "Move column right",
+        "addColumnBefore": "Add column before",
+        "addColumnAfter": "Add column after",
+        "deleteColumn": "Delete column"
     },
     "AddGenericSectionButton": {
         "button": "Add section"
