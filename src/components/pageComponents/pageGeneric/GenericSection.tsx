@@ -138,6 +138,7 @@ export function GenericSection({
           shadow="md"
           position="top-end"
           transitionProps={{ transition: 'fade-up' }}
+          closeDelay={150}
         >
           <HoverCard.Target>
             <Container key={crypto.randomUUID()}>{sectionElements}</Container>

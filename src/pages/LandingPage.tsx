@@ -26,7 +26,7 @@ export function LandingPage() {
 
   return (
     ready && (
-      <Paper shadow="md" withBorder p="xl">
+      <Paper shadow="md" withBorder p={isMobile ? 'xs' : 'xl'}>
         <img src={appIcon} className={cx(styling.bigLogo)} />
         <Title order={1} fw={900} variant="gradient">
           <LandingTitle />
