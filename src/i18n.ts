@@ -10,7 +10,10 @@ i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    debug: true,
+    backend: {
+      loadPath: '/reactionroll/locales/{{lng}}/{{ns}}.json',
+    },
+    debug: false,
     fallbackLng: 'en',
     supportedLngs: LOCALE_LIST.map(language => language.langCode),
   });

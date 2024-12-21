@@ -30,7 +30,7 @@ export const reduxStore = configureStore({
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/reactionroll',
     element: <App />,
     children: [
       {
@@ -38,11 +38,11 @@ const router = createBrowserRouter([
         element: <LandingPage />,
       },
       {
-        path: '/create',
+        path: '/reactionroll/create',
         element: <CreatePageGeneric />,
       },
       {
-        path: '/about',
+        path: '/reactionroll/about',
         element: <AboutPage />,
       },
     ],

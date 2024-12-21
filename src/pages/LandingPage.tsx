@@ -65,7 +65,7 @@ export function LandingPage() {
                 direction="row"
                 wrap="wrap"
               >
-                <Link to="/create">
+                <Link to="/reactionroll/create">
                   <Button w="20em">
                     {t('LandingPage.sidePanel.newSheetPanel.start')}
                   </Button>
@@ -90,7 +90,7 @@ export function LandingPage() {
                   </Button>
                 </Grid.Col>
                 <Grid.Col span={6}>
-                  <Link to="/about">
+                  <Link to="/reactionroll/about">
                     <Button variant="light">
                       {t('LandingPage.sidePanel.helpPanel.about')}
                     </Button>

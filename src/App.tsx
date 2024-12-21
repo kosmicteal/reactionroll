@@ -54,7 +54,7 @@ export function App() {
               </>
             )}
             <Flex align="end" gap="xs">
-              <Link to="/" className={cx(styling.smallLogo)}>
+              <Link to="/reactionroll" className={cx(styling.smallLogo)}>
                 <img src={appIcon} className={cx(styling.smallLogo)} />
               </Link>
               <Text size="xs"> v{version}</Text>

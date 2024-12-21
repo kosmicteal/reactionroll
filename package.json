@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "release": "standard-version",
-    "predeploy": "npm run build",
+    "predeploy": "yarn build",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
@@ -56,6 +56,7 @@
     "@eslint/js": "^9.13.0",
     "@types/file-saver": "^2",
     "@types/gh-pages": "^6",
+    "@types/node": "^22.10.2",
     "@types/react": "^18.3.10",
     "@types/react-dom": "^18.3.0",
     "@types/react-redux": "^7.1.34",
