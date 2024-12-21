@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.21.12](https://github.com/kosmicteal/reactionroll/compare/v0.21.11...v0.21.12) (2024-12-21)
+
+
+### Bug Fixes
+
+* improve landing page and mobile generic section hovercard delay ([69a82fc](https://github.com/kosmicteal/reactionroll/commit/69a82fcfadc27608afda4f8c380e168c6a5ec4bd))
+
 ### [0.21.11](https://github.com/kosmicteal/reactionroll/compare/v0.21.10...v0.21.11) (2024-12-21)
 
 
