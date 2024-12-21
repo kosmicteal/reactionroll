@@ -31,6 +31,9 @@ export const styling = {
   `,
   smallLogo: css`
     height: 2.3em;
+    @media only screen and (max-width: 767px) {
+      height: 2em;
+    }
   `,
   bigLogo: css`
     width: 100%;

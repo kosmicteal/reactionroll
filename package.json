@@ -6,12 +6,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "release": "standard-version",
-    "predeploy": "yarn build",
-    "deploy": "gh-pages -d dist"
+    "bump": "standard-version",
+    "build": "tsc -b && vite build",
+    "release": "gh-pages -d dist",
+    "deploy": "yarn bump && yarn build && yarn release"
   },
   "dependencies": {
     "@column-resizer/react": "^1.3.1",

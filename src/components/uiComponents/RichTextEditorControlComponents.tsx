@@ -6,10 +6,13 @@ import {
   IconColumnInsertLeft,
   IconColumnInsertRight,
   IconColumnRemove,
+  IconHeading,
+  IconHelp,
   IconLayoutBoardSplit,
   IconRowInsertBottom,
   IconRowInsertTop,
   IconRowRemove,
+  IconTable,
   IconTableColumn,
   IconTableOff,
   IconTablePlus,
@@ -19,8 +22,93 @@ import {
 } from '@tabler/icons-react';
 import { styling } from '../../style';
 import { useTranslation } from 'react-i18next';
+import { Popover, Flex } from '@mantine/core';
+import { t } from 'i18next';
+import { ModalRichTextEditorShortcuts } from '../modalComponents/ModalRichTextEditorShortcuts';
+import { openModal } from '../modalComponents/ModalWrappers';
 
-export function RichTextEditorInsertTable() {
+function RichTextEditorHeaderChoosing() {
+  return (
+    <Popover position="top" withArrow shadow="md">
+      <Popover.Target>
+        <RichTextEditor.Control
+          aria-label={t('RichTextEditorComponent.control.heading')}
+          title={t('RichTextEditorComponent.control.heading')}
+        >
+          <IconHeading stroke={2} size="1rem" />
+        </RichTextEditor.Control>
+      </Popover.Target>
+      <Popover.Dropdown>
+        <Flex>
+          <RichTextEditor.H1 />
+          <RichTextEditor.H2 />
+          <RichTextEditor.H3 />
+          <RichTextEditor.H4 />
+        </Flex>
+      </Popover.Dropdown>
+    </Popover>
+  );
+}
+
+function RichTextEditorTable() {
+  return (
+    <Popover position="top" withArrow shadow="md">
+      <Popover.Target>
+        <RichTextEditor.Control
+          aria-label={t('RichTextEditorComponent.control.table')}
+          title={t('RichTextEditorComponent.control.table')}
+        >
+          <IconTable stroke={2} size="1rem" />
+        </RichTextEditor.Control>
+      </Popover.Target>
+      <Popover.Dropdown>
+        <Flex gap="md">
+          <RichTextEditor.ControlsGroup>
+            <RichTextEditorInsertTable />
+            <RichTextEditorDeleteTable />
+          </RichTextEditor.ControlsGroup>
+          <RichTextEditor.ControlsGroup>
+            <RichTextEditorToggleHeaderColumn />
+            <RichTextEditorAddColumnBefore />
+            <RichTextEditorAddColumnAfter />
+            <RichTextEditorRemoveColumn />
+          </RichTextEditor.ControlsGroup>
+          <RichTextEditor.ControlsGroup>
+            <RichTextEditorToggleHeaderRow />
+            <RichTextEditorAddRowBefore />
+            <RichTextEditorAddRowAfter />
+            <RichTextEditorRemoveRow />
+          </RichTextEditor.ControlsGroup>
+          <RichTextEditor.ControlsGroup>
+            <RichTextEditorMergeOrSplitCell />
+          </RichTextEditor.ControlsGroup>
+        </Flex>
+      </Popover.Dropdown>
+    </Popover>
+  );
+}
+
+function RichTextEditorHelpButton() {
+  return (
+    <RichTextEditor.Control
+      onClick={() =>
+        openModal(
+          t('RichTextEditorComponent.shortcutModal.title'),
+          <ModalRichTextEditorShortcuts />,
+          false,
+          true,
+          'xl',
+        )
+      }
+      aria-label={t('RichTextEditorComponent.control.shortcuts')}
+      title={t('RichTextEditorComponent.control.shortcuts')}
+    >
+      <IconHelp stroke={1.5} size="1rem" />
+    </RichTextEditor.Control>
+  );
+}
+
+function RichTextEditorInsertTable() {
   const { editor } = useRichTextEditorContext();
   const { t, ready } = useTranslation();
 
@@ -43,7 +131,7 @@ export function RichTextEditorInsertTable() {
   );
 }
 
-export function RichTextEditorAddColumnBefore() {
+function RichTextEditorAddColumnBefore() {
   const { editor } = useRichTextEditorContext();
   const { t, ready } = useTranslation();
 
@@ -60,7 +148,7 @@ export function RichTextEditorAddColumnBefore() {
   );
 }
 
-export function RichTextEditorAddColumnAfter() {
+function RichTextEditorAddColumnAfter() {
   const { editor } = useRichTextEditorContext();
   const { t, ready } = useTranslation();
 
@@ -77,7 +165,7 @@ export function RichTextEditorAddColumnAfter() {
   );
 }
 
-export function RichTextEditorRemoveColumn() {
+function RichTextEditorRemoveColumn() {
   const { editor } = useRichTextEditorContext();
   const { t, ready } = useTranslation();
 
@@ -94,7 +182,7 @@ export function RichTextEditorRemoveColumn() {
   );
 }
 
-export function RichTextEditorAddRowBefore() {
+function RichTextEditorAddRowBefore() {
   const { editor } = useRichTextEditorContext();
   const { t, ready } = useTranslation();
 
@@ -111,7 +199,7 @@ export function RichTextEditorAddRowBefore() {
   );
 }
 
-export function RichTextEditorAddRowAfter() {
+function RichTextEditorAddRowAfter() {
   const { editor } = useRichTextEditorContext();
   const { t, ready } = useTranslation();
 
@@ -128,7 +216,7 @@ export function RichTextEditorAddRowAfter() {
   );
 }
 
-export function RichTextEditorRemoveRow() {
+function RichTextEditorRemoveRow() {
   const { editor } = useRichTextEditorContext();
   const { t, ready } = useTranslation();
 
@@ -145,7 +233,7 @@ export function RichTextEditorRemoveRow() {
   );
 }
 
-export function RichTextEditorDeleteTable() {
+function RichTextEditorDeleteTable() {
   const { editor } = useRichTextEditorContext();
   const { t, ready } = useTranslation();
 
@@ -161,7 +249,7 @@ export function RichTextEditorDeleteTable() {
     )
   );
 }
-export function RichTextEditorMergeOrSplitCell() {
+function RichTextEditorMergeOrSplitCell() {
   const { editor } = useRichTextEditorContext();
   const { t, ready } = useTranslation();
 
@@ -178,7 +266,7 @@ export function RichTextEditorMergeOrSplitCell() {
   );
 }
 
-export function RichTextEditorToggleHeaderColumn() {
+function RichTextEditorToggleHeaderColumn() {
   const { editor } = useRichTextEditorContext();
   const { t, ready } = useTranslation();
 
@@ -195,7 +283,7 @@ export function RichTextEditorToggleHeaderColumn() {
   );
 }
 
-export function RichTextEditorToggleHeaderRow() {
+function RichTextEditorToggleHeaderRow() {
   const { editor } = useRichTextEditorContext();
   const { t, ready } = useTranslation();
 
@@ -212,7 +300,7 @@ export function RichTextEditorToggleHeaderRow() {
   );
 }
 
-export function RichTextEditorTextIncrease() {
+function RichTextEditorTextIncrease() {
   const { editor } = useRichTextEditorContext();
   const { t, ready } = useTranslation();
 
@@ -235,7 +323,7 @@ export function RichTextEditorTextIncrease() {
   );
 }
 
-export function RichTextEditorTextDecrease() {
+function RichTextEditorTextDecrease() {
   const { editor } = useRichTextEditorContext();
   const { t, ready } = useTranslation();
 
@@ -258,7 +346,7 @@ export function RichTextEditorTextDecrease() {
   );
 }
 
-export function RichTextEditorUndo() {
+function RichTextEditorUndo() {
   const { editor } = useRichTextEditorContext();
   const { t, ready } = useTranslation();
 
@@ -282,7 +370,7 @@ export function RichTextEditorUndo() {
   );
 }
 
-export function RichTextEditorRedo() {
+function RichTextEditorRedo() {
   const { editor } = useRichTextEditorContext();
   const { t, ready } = useTranslation();
 
@@ -303,5 +391,58 @@ export function RichTextEditorRedo() {
         <IconArrowForwardUp stroke={1.5} size="1.25rem" />
       </RichTextEditor.Control>
     )
+  );
+}
+
+export function RichTextEditorToolbarElements({
+  isMobile = false,
+}: {
+  isMobile?: boolean;
+}) {
+  return (
+    <>
+      <RichTextEditor.ControlsGroup>
+        <RichTextEditorUndo />
+        <RichTextEditorRedo />
+      </RichTextEditor.ControlsGroup>
+
+      <RichTextEditor.ControlsGroup>
+        <RichTextEditor.Bold />
+        <RichTextEditor.Italic />
+        <RichTextEditor.Underline />
+        <RichTextEditor.Strikethrough />
+        <RichTextEditor.ClearFormatting />
+        <RichTextEditor.Highlight />
+      </RichTextEditor.ControlsGroup>
+
+      <RichTextEditor.ControlsGroup>
+        <RichTextEditorHeaderChoosing />
+        <RichTextEditorTextIncrease />
+        <RichTextEditorTextDecrease />
+        <RichTextEditor.Subscript />
+        <RichTextEditor.Superscript />
+      </RichTextEditor.ControlsGroup>
+
+      <RichTextEditor.ControlsGroup>
+        <RichTextEditor.BulletList />
+        <RichTextEditor.OrderedList />
+        <RichTextEditorTable />
+        <RichTextEditor.Blockquote />
+        <RichTextEditor.Hr />
+      </RichTextEditor.ControlsGroup>
+
+      <RichTextEditor.ControlsGroup>
+        <RichTextEditor.AlignLeft />
+        <RichTextEditor.AlignCenter />
+        <RichTextEditor.AlignRight />
+        <RichTextEditor.AlignJustify />
+      </RichTextEditor.ControlsGroup>
+
+      {!isMobile && (
+        <RichTextEditor.ControlsGroup>
+          <RichTextEditorHelpButton />
+        </RichTextEditor.ControlsGroup>
+      )}
+    </>
   );
 }

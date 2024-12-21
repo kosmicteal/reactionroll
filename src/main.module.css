@@ -55,14 +55,16 @@ div[class*='mantine-ColorInput-preview'] {
 }
 
 body {
-  background-image: url('/scrollbg.png');
-  animation: infiniteScrollBg 120s linear infinite;
-  @keyframes infiniteScrollBg {
-    0% {
-      background-position: 0% 0%;
-    }
-    100% {
-      background-position: 100% 100%;
+  @media only screen and (min-width: 767px) {
+    background-image: url('/scrollbg.png');
+    animation: infiniteScrollBg 120s linear infinite;
+    @keyframes infiniteScrollBg {
+      0% {
+        background-position: 0% 0%;
+      }
+      100% {
+        background-position: 100% 100%;
+      }
     }
   }
 }

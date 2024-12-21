@@ -1,5 +1,5 @@
-import { AppShell, Burger, Flex, Group, Text } from '@mantine/core';
-import { useDisclosure } from '@mantine/hooks';
+import { AppShell, Burger, em, Flex, Group, Text } from '@mantine/core';
+import { useDisclosure, useMediaQuery } from '@mantine/hooks';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import { PrintSheet } from './components/PrintSheet';
 import { ChangeTheme } from './components/ChangeTheme';
@@ -10,13 +10,15 @@ import { styling } from './style';
 import { version } from '../package.json';
 import appIcon from '/reactionroll_logoAlpha.png';
 import { ChangeLanguage } from './components/ChangeLanguage';
+import { WorkspaceActions } from './components/navbarComponents/WorkspaceActions';
 
 export function App() {
   const [mobileOpened, { toggle: toggleMobile }] = useDisclosure();
   const [desktopOpened, { toggle: toggleDesktop }] = useDisclosure(false);
 
   const location = useLocation();
-  const isEditorScreen = location.pathname === '/create';
+  const isEditorScreen = location.pathname === '/reactionroll/create';
+  const isMobile = useMediaQuery(`(max-width: ${em(750)})`);
 
   return (
     <AppShell
@@ -26,7 +28,7 @@ export function App() {
         breakpoint: 'sm',
         collapsed: { mobile: !mobileOpened, desktop: !desktopOpened },
       }}
-      padding="xl"
+      padding={isMobile ? '' : 'xl'}
     >
       <AppShell.Header>
         <Flex
@@ -36,7 +38,12 @@ export function App() {
           direction="row"
           wrap="wrap"
         >
-          <Group h="100%" px="md">
+          <Group
+            h="100%"
+            px="md"
+            w={isMobile ? '100%' : ''}
+            justify={isMobile ? 'space-between' : ''}
+          >
             {isEditorScreen && (
               <>
                 <Burger
@@ -57,19 +64,23 @@ export function App() {
               <Link to="/reactionroll" className={cx(styling.smallLogo)}>
                 <img src={appIcon} className={cx(styling.smallLogo)} />
               </Link>
-              <Text size="xs"> v{version}</Text>
+              {!isMobile && <Text size="xs"> v{version}</Text>}
             </Flex>
           </Group>
           <Group h="100%" px="md">
-            {isEditorScreen && <PrintSheet />}
-            <ChangeLanguage />
-            <ChangeTheme />
+            {!isMobile && (
+              <>
+                {isEditorScreen && <PrintSheet />}
+                <ChangeLanguage />
+                <ChangeTheme />
+              </>
+            )}
           </Group>
         </Flex>
       </AppShell.Header>
       {isEditorScreen && (
         <AppShell.Navbar className={cx(styling.navBar)}>
-          <PreviewPageColor />
+          {isMobile ? <WorkspaceActions /> : <PreviewPageColor />}
           <CharacterInformation />
         </AppShell.Navbar>
       )}

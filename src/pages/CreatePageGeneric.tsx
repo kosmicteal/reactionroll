@@ -1,4 +1,4 @@
-import { AppShell, Container, Flex } from '@mantine/core';
+import { AppShell, Container, Flex, Text } from '@mantine/core';
 import { css, cx } from '@emotion/css';
 import { BasicContent } from '../components/pageComponents/pageGeneric/BasicContent';
 import { Zoom } from '../components/Zoom';
@@ -9,6 +9,7 @@ import { CreatePageGenericSkeleton } from '../components/uiComponents/CreatePage
 import { reduxSelector, reduxSlice } from '../redux/slicer';
 import { AddGenericSectionButton } from '../components/uiComponents/AddGenericSectionButton';
 import { SendFeedback } from '../components/SendFeedback';
+import { version } from '../../package.json';
 
 export function CreatePageGeneric() {
   const {
@@ -19,6 +20,9 @@ export function CreatePageGeneric() {
     selectTextColour,
   } = reduxSlice.selectors;
 
+  const isMobile = useMediaQuery('(max-width: 50em)');
+  const isPrinting = reduxSelector(selectPrintData) as boolean;
+  const isLoading = reduxSelector(selectIsLoading) as boolean;
   const currentZoomSetting = reduxSelector(selectZoom) as number;
   const zoomPage = css`
     transform: scale(${currentZoomSetting}, ${currentZoomSetting});
@@ -27,10 +31,6 @@ export function CreatePageGeneric() {
       ${currentZoomSetting * 45 - 42}em + (var(--mantine-spacing-lg))
     );
   `;
-
-  const isMobile = useMediaQuery('(max-width: 50em)');
-  const isPrinting = reduxSelector(selectPrintData) as boolean;
-  const isLoading = reduxSelector(selectIsLoading) as boolean;
 
   const currentPageColour = reduxSelector(selectPreviewPaperColour) as string;
   const currentTextColour = reduxSelector(selectTextColour) as string;
@@ -71,9 +71,15 @@ export function CreatePageGeneric() {
       <AppShell.Footer>
         <Container fluid p="xs">
           <Flex justify={'space-between'} align="center">
-            <Flex id="editor-component" ms={'0.25rem'} gap="md"></Flex>
+            {!isMobile ? (
+              <Flex id="editor-component" ms={'0.25rem'} gap="md"></Flex>
+            ) : (
+              <Text size="xs" style={{ alignSelf: 'end' }}>
+                v{version}
+              </Text>
+            )}
             <Flex me={'0.25rem'} gap="md">
-              <Zoom />
+              {!isMobile && <Zoom />}
               <SendFeedback />
             </Flex>
           </Flex>

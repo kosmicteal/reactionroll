@@ -59,5 +59,9 @@ export const aboutDepsList = [
   { name: 'gh-pages', website: 'https://github.com/tschaub/gh-pages' },
   { name: 'yarn', website: 'https://yarnpkg.com/' },
   { name: 'vscode', website: 'https://code.visualstudio.com/' },
+  {
+    name: 'spa-github-pages',
+    website: 'https://github.com/rafgraph/spa-github-pages',
+  },
   { name: 'ubuntu', website: 'https://ubuntu.com/' },
 ];

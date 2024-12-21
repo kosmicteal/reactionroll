@@ -15,7 +15,9 @@ export function ResponsiveContainer({
   containerTheme?: string;
 }) {
   return isMobile ? (
-    <Container hiddenFrom="sm">{children}</Container>
+    <Container style={{ zoom: 0.6 }} hiddenFrom="sm">
+      {children}
+    </Container>
   ) : (
     <Paper
       visibleFrom="sm"
