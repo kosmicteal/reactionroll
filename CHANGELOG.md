@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.22.17](https://github.com/kosmicteal/reactionroll/compare/v0.21.16...v0.22.17) (2024-12-21)
+
+
+### Features
+
+* **sections:** allow addition, reorganization and removal of sections ([8b62378](https://github.com/kosmicteal/reactionroll/commit/8b623786ab3adc00c72fbcdf82eb166acf15c62e))
+
 ### [0.21.16](https://github.com/kosmicteal/reactionroll/compare/v0.21.15...v0.21.16) (2024-12-21)
 
 ### [0.21.15](https://github.com/kosmicteal/reactionroll/compare/v0.21.14...v0.21.15) (2024-12-21)
