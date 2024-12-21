@@ -29,6 +29,11 @@ export const aboutDepsList = [
     name: 'react-to-print',
     website: 'https://github.com/MatthewHerbst/react-to-print#readme',
   },
+  {
+    name: 'mantine-contextmenu',
+    website: 'https://icflorescu.github.io/mantine-contextmenu/',
+  },
+  { name: 'clsx', website: 'https://github.com/lukeed/clsx#readme' },
   { name: 'eslint', website: 'https://eslint.org' },
   {
     name: 'types',
