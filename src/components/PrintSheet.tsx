@@ -7,7 +7,7 @@ import { reduxSelector, reduxSlice } from '../redux/slicer';
 import { reduxStore } from '../main';
 import { useTranslation } from 'react-i18next';
 
-export function PrintSheet({ isDisabled = false }: { isDisabled: boolean }) {
+export function PrintSheet({ isDisabled = false }: { isDisabled?: boolean }) {
   const { selectPrintData, selectIsOverflowing } = reduxSlice.selectors;
   const { appPrintData } = reduxSlice.actions;
   const { dispatch } = reduxStore;
