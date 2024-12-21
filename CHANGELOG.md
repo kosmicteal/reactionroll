@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.21.13](https://github.com/kosmicteal/reactionroll/compare/v0.21.12...v0.21.13) (2024-12-21)
+
+
+### Bug Fixes
+
+* **mobile:** improve section crud on mobile devices ([116c8a7](https://github.com/kosmicteal/reactionroll/commit/116c8a7c5f346c7ae5b790c6c47e47aa92d10d04))
+
 ### [0.21.12](https://github.com/kosmicteal/reactionroll/compare/v0.21.11...v0.21.12) (2024-12-21)
 
 
