@@ -17,6 +17,11 @@ const textSize = {
 };
 
 export const styling = {
+  noPrint: css`
+    @media print {
+      display: none !important;
+    }
+  `,
   rteButtonCustomStyleDisabled: css`
     html[data-mantine-color-scheme='light'] &[data-disabled] {
       background-color: var(--mantine-color-gray-1) !important;

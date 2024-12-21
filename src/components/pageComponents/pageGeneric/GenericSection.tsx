@@ -2,11 +2,11 @@ import { cx } from '@emotion/css';
 import {
   HoverCard,
   Input,
-  Group,
   ActionIcon,
   Divider,
   Stack,
   Tooltip,
+  Flex,
 } from '@mantine/core';
 import {
   IconTrash,
@@ -25,6 +25,7 @@ import { RichTextEditorComponent } from '../../uiComponents/RichTextEditorCompon
 import { Container, Section, Bar } from '@column-resizer/react';
 import { Fragment, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useMediaQuery } from '@mantine/hooks';
 
 export function GenericSection({
   section,
@@ -45,6 +46,7 @@ export function GenericSection({
   const { dispatch } = reduxStore;
   const isFirstSection = index === 0;
   const isLastSection = index === totalSections - 1;
+  const isMobile = useMediaQuery('(max-width: 50em)');
 
   function handleSectionUpdate(payload: anyObject) {
     dispatch(setUpdateSectionValue(payload));
@@ -131,6 +133,59 @@ export function GenericSection({
     },
   );
 
+  function SectionCRUDGroup({ isMobile = false }: { isMobile?: boolean }) {
+    const buttonSize = isMobile ? 'xl' : 'md';
+    return (
+      <Flex
+        gap="xs"
+        direction={isMobile ? 'column' : 'row'}
+        className={cx(styling.noPrint)}
+      >
+        <Tooltip label={t('GenericSection.removeSection')}>
+          <ActionIcon
+            variant="outline"
+            color="red"
+            size={buttonSize}
+            aria-label={t('GenericSection.removeSection')}
+            onClick={() => dispatch(setRemoveSection(section.sectionId))}
+          >
+            <IconTrash style={{ width: '70%', height: '70%' }} stroke={1.5} />
+          </ActionIcon>
+        </Tooltip>
+        <Tooltip label={t('GenericSection.moveSectionUp')}>
+          <ActionIcon
+            data-disabled={isFirstSection}
+            disabled={isFirstSection}
+            variant="outline"
+            size={buttonSize}
+            aria-label={t('GenericSection.moveSectionUp')}
+            onClick={() => dispatch(moveSectionUp(section.sectionId))}
+          >
+            <IconArrowBigUp
+              style={{ width: '70%', height: '70%' }}
+              stroke={1.5}
+            />
+          </ActionIcon>
+        </Tooltip>
+        <Tooltip label={t('GenericSection.moveSectionDown')}>
+          <ActionIcon
+            data-disabled={isLastSection}
+            disabled={isLastSection}
+            variant="outline"
+            size={buttonSize}
+            aria-label={t('GenericSection.moveSectionDown')}
+            onClick={() => dispatch(moveSectionDown(section.sectionId))}
+          >
+            <IconArrowBigDown
+              style={{ width: '70%', height: '70%' }}
+              stroke={1.5}
+            />
+          </ActionIcon>
+        </Tooltip>
+      </Flex>
+    );
+  }
+
   return (
     ready && (
       <>
@@ -138,59 +193,22 @@ export function GenericSection({
           shadow="md"
           position="top-end"
           transitionProps={{ transition: 'fade-up' }}
-          closeDelay={150}
+          closeDelay={300}
         >
           <HoverCard.Target>
-            <Container key={crypto.randomUUID()}>{sectionElements}</Container>
+            <Container
+              onTouchEnd={() => console.log('touchend')}
+              key={crypto.randomUUID()}
+            >
+              {sectionElements}
+              {isMobile && <SectionCRUDGroup isMobile />}
+            </Container>
           </HoverCard.Target>
-          <HoverCard.Dropdown>
-            <Group gap="xs">
-              <Tooltip label={t('GenericSection.removeSection')}>
-                <ActionIcon
-                  variant="outline"
-                  color="red"
-                  size="md"
-                  aria-label={t('GenericSection.removeSection')}
-                  onClick={() => dispatch(setRemoveSection(section.sectionId))}
-                >
-                  <IconTrash
-                    style={{ width: '70%', height: '70%' }}
-                    stroke={1.5}
-                  />
-                </ActionIcon>
-              </Tooltip>
-              <Tooltip label={t('GenericSection.moveSectionUp')}>
-                <ActionIcon
-                  data-disabled={isFirstSection}
-                  disabled={isFirstSection}
-                  variant="outline"
-                  size="md"
-                  aria-label={t('GenericSection.moveSectionUp')}
-                  onClick={() => dispatch(moveSectionUp(section.sectionId))}
-                >
-                  <IconArrowBigUp
-                    style={{ width: '70%', height: '70%' }}
-                    stroke={1.5}
-                  />
-                </ActionIcon>
-              </Tooltip>
-              <Tooltip label={t('GenericSection.moveSectionDown')}>
-                <ActionIcon
-                  data-disabled={isLastSection}
-                  disabled={isLastSection}
-                  variant="outline"
-                  size="md"
-                  aria-label={t('GenericSection.moveSectionDown')}
-                  onClick={() => dispatch(moveSectionDown(section.sectionId))}
-                >
-                  <IconArrowBigDown
-                    style={{ width: '70%', height: '70%' }}
-                    stroke={1.5}
-                  />
-                </ActionIcon>
-              </Tooltip>
-            </Group>
-          </HoverCard.Dropdown>
+          {!isMobile && (
+            <HoverCard.Dropdown>
+              <SectionCRUDGroup />
+            </HoverCard.Dropdown>
+          )}
         </HoverCard>
 
         <Divider size="md" my="xs" />
