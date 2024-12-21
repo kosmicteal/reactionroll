@@ -48,6 +48,9 @@
     "CharacterInformation": {
         "title": "Character information"
     },
+    "WorkspaceActions": {
+        "title": "Workspace actions"
+    },
     "PreviewPageColor": {
         "title": "Preview page color",
         "pageColor": "Preview page background color",
@@ -149,7 +152,9 @@
     },
     "PrintSheet": {
         "tooltip": "Print sheet",
-        "cannotPrint": "Cannot print with overflowing content!"
+        "cannotPrint": "Cannot print with overflowing content!",
+        "printLimitationWarning": "NOTE: Not available on Firefox Android or browsers embedded within an app (WebView).",
+        "printLimitationWarningHelp": "If you're using one of those browsers, save your Character information and open it on another browser."
     },
     "SaveData": {
         "button": "Save data"
