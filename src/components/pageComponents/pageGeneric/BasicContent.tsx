@@ -124,7 +124,7 @@ export function BasicContent() {
         {values.sections?.map((section: CharacterSection, idx: number) => {
           return (
             <GenericSection
-              key={crypto.randomUUID()}
+              key={section.sectionId}
               section={section}
               index={idx}
               totalSections={values.sections?.length ?? 1}
