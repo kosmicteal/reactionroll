@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.21.11](https://github.com/kosmicteal/reactionroll/compare/v0.21.10...v0.21.11) (2024-12-21)
+
+
+### Bug Fixes
+
+* **mobile:** improve landing page visibility ([d369b28](https://github.com/kosmicteal/reactionroll/commit/d369b2859bda6acfe68c8e4da36a5cf211c59ba1))
+
 ### [0.21.10](https://github.com/kosmicteal/reactionroll/compare/v0.21.9...v0.21.10) (2024-12-21)
 
 
