@@ -154,6 +154,9 @@ export const styling = {
   richTextEditor: css`
     text-align: start;
     border: none !important;
+    & > div > div.mantine-RichTextEditor-content {
+      background-color: inherit !important;
+    }
     * .tiptap {
       padding: 0 !important;
     }
