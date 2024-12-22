@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.23.17](https://github.com/kosmicteal/reactionroll/compare/v0.22.17...v0.23.17) (2024-12-22)
+
+
+### Features
+
+* **landing:** add latest changelog view at landing page ([6674dbf](https://github.com/kosmicteal/reactionroll/commit/6674dbf2ebf6fd6bdddd89575266a37838345977))
+
 ### [0.22.17](https://github.com/kosmicteal/reactionroll/compare/v0.21.16...v0.22.17) (2024-12-21)
 
 
