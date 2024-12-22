@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.25.19](https://github.com/kosmicteal/reactionroll/compare/v0.24.19...v0.25.19) (2024-12-22)
+
+
+### Features
+
+* add spanish and catalan translations ([30d43e6](https://github.com/kosmicteal/reactionroll/commit/30d43e63fda7d43ed2a7429fdf569f8859bf789e))
+
 ### [0.24.19](https://github.com/kosmicteal/reactionroll/compare/v0.24.17...v0.24.19) (2024-12-22)
 
 
