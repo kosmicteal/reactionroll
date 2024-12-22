@@ -45,9 +45,6 @@
         "addSingleSection": "Add single section",
         "addColumnSection": "Add column section"
     },
-    "ModalRichTextEditorShortcuts": {
-        "tbd": "tbd"
-    },
     "CharacterInformation": {
         "title": "Character information"
     },
@@ -58,7 +55,7 @@
         "title": "Preview page color",
         "pageColor": "Preview page background color",
         "textColor": "Text color",
-        "colorInputPlaceholder": "None, use #FFFFFF to reset"
+        "colorInputPlaceholder": "None, use #FFFFFF00 to reset"
     },
     "BasicContent": {
         "classRaceInfo": "Class and Race information",
@@ -83,7 +80,6 @@
         "control": {
             "heading": "Heading",
             "table": "Table",
-            "shortcutModal": "tbd",
             "insertTable": "Insert table",
             "addColumnBefore": "Add column before",
             "addColumnAfter": "Add column after",
