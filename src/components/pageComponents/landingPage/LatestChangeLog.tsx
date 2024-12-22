@@ -24,7 +24,7 @@ export function LatestChangeLog() {
         gap="md"
         justify="left"
         align="left"
-        direction="row"
+        direction="column"
         wrap="wrap"
         ta="left"
       >

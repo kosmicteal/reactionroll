@@ -10,7 +10,6 @@
     "preview": "vite preview",
     "bump-auto": "standard-version && git push --follow-tags origin main",
     "bump-as": "standard-version --release-as \"$@\" && git push --follow-tags origin main",
-    "clc": "node ./copyLatestChangelog.js",
     "build": "tsc -b && vite build",
     "release": "gh-pages -d dist",
     "deploy": "tsc -b && yarn bump-auto && git push --follow-tags origin main && vite build && yarn release",
