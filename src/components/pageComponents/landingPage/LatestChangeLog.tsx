@@ -42,7 +42,7 @@ export function LatestChangeLog() {
             },
           }}
         >
-          {log}
+          {log === '' ? 'Patch bump to address small changes' : log}
         </Markdown>
       </Flex>
     </Paper>

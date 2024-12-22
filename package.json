@@ -8,7 +8,6 @@
     "dev": "vite",
     "lint": "eslint .",
     "preview": "vite preview",
-    "bump": "standard-version",
     "bump-auto": "standard-version && git push --follow-tags origin main",
     "bump-as": "standard-version --release-as \"$@\" && git push --follow-tags origin main",
     "clc": "node ./copyLatestChangelog.js",
