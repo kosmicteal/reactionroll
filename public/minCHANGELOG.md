@@ -1,3 +1,3 @@
 ### Bug Fixes
 
-* **landing:** update build process and add failsafe in case no patch notes exist in the last bump ([534b23c](https://github.com/kosmicteal/reactionroll/commit/534b23c8c9d78a0dd51a8ec792c57198c6db22c2))
+* **build:** fix build number not properly updating when deploying new version ([f165841](https://github.com/kosmicteal/reactionroll/commit/f165841be82f07687294020d42db16d3c15dbc19))

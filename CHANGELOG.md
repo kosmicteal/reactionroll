@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.24.19](https://github.com/kosmicteal/reactionroll/compare/v0.24.17...v0.24.19) (2024-12-22)
+
+
+### Bug Fixes
+
+* **build:** fix build number not properly updating when deploying new version ([f165841](https://github.com/kosmicteal/reactionroll/commit/f165841be82f07687294020d42db16d3c15dbc19))
+
 ### [0.24.17](https://github.com/kosmicteal/reactionroll/compare/v0.23.19...v0.24.17) (2024-12-22)
 
 
