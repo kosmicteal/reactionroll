@@ -3,6 +3,10 @@
         {
             "filename": "./public/minCHANGELOG.md",
             "type": "plain-text"
+        },
+        {
+            "filename": "./package.json",
+            "type": "json"
         }
     ]
 }
