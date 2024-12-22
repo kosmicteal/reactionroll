@@ -1,0 +1,170 @@
+{
+    "LandingPage": {
+        "slogan": "Les teves accions en <1>menys de 3 segons</1>.",
+        "description": "<p>Alguna vegada has tingut un personatge amb un nivell tan alt que ja no recordes totes les seves accions? Potser fa més de 2 anys que vas fer el seu full de personatges inicialment.</p><p>Aquest problema ara es pot resoldre fàcilment! Amb <focusText>reActionroll</focusText>, ara podeu fer fàcilment un resum del vostre full que podeu imprimir al vostre costat com a ajuda. També podeu desar-lo per a futures modificacions si fos necessari!</p><p>Actualment estic prenent això com un projecte de hobby, de manera que les actualitzacions poden arribar de tant en tant a l'atzar. </p><p>Aquesta pàgina s'ha fet amb React, Redux i altres tecnologies de Codi Obert. Podeu trobar informació detallada sobre aquest projecte a Sobre aquesta pàgina.</p><p>Tots els noms de productes i empreses són marques comercials o marques registrades dels seus respectius titulars dels drets d'autor. No s'ha infringit cap copyright amb aquesta aplicació.</p>",
+        "sidePanel": {
+            "newSheetPanel": {
+                "title": "Crea un full nou",
+                "start": "Comença"
+            },
+            "helpPanel": {
+                "title": "Ajuda",
+                "watchTutorial": "Mira el tutorial",
+                "about": "Sobre aquesta pàgina",
+                "github": "Repo de Github",
+                "mainWebsite": "Web principal"
+            }
+        }
+    },
+    "LatestChangeLog": {
+        "title": "Últim registre de canvis (anglès)"
+    },
+    "AboutPage": {
+        "aboutMeTitle": "Sobre mi",
+        "bio": "Sóc KosmicTeal, un desenvolupador de Full Stack (amb afinitat a Frontend) amb experiència de Swiss Knife en diversos llenguatges de programació, tant en desenvolupament d'escriptori com a web. A part d'això i com a hobby, també sóc il·lustrador, creador de models 3D i reproductor de TTRPG.",
+        "button": "Consulta el meu lloc web aquí!",
+        "techStack": "Tech Stack utilitzat en aquest lloc web",
+        "openLink": "Obre el lloc web en una pestanya nova"
+    },
+    "_CommonTranslations": {
+        "class": "Classe",
+        "subclass": "Subclasse",
+        "race": "Raça",
+        "characterName": "Nom del personatge",
+        "campaign": "Campanya",
+        "DC": "CD",
+        "AC": "CA"
+    },
+    "ModalWrappers": {
+        "autoUpdateModal": {
+            "closeModal": "Tancar modal"
+        }
+    },
+    "ModalAddSection": {
+        "title": "Afegeix una nova secció",
+        "addSingleSection": "Afegeix una secció única",
+        "addColumnSection": "Afegeix una secció de columna"
+    },
+    "CharacterInformation": {
+        "title": "Informació del personatge"
+    },
+    "WorkspaceActions": {
+        "title": "Accions disponibles"
+    },
+    "PreviewPageColor": {
+        "title": "Vista prèvia del color de la pàgina",
+        "pageColor": "Vista prèvia del color de fons de la pàgina",
+        "textColor": "Color del text",
+        "colorInputPlaceholder": "Cap, utilitzeu #FFFFFF00 per restablir"
+    },
+    "BasicContent": {
+        "classRaceInfo": "Informació sobre classes i races",
+        "classRaceInfoPlaceholder": "Classe del personatge (subclasse) - Raça completa"
+    },
+    "GenericSection": {
+        "sectionTitlePlaceholder": "Títol de la secció",
+        "removeSection": "Elimina la secció",
+        "moveSectionUp": "Mou la secció cap amunt",
+        "moveSectionDown": "Mou la secció cap avall",
+        "moveColumnLeft": "Mou la columna cap a l'esquerra",
+        "moveColumnRight": "Mou la columna cap a la dreta",
+        "addColumnBefore": "Afegeix una columna abans",
+        "addColumnAfter": "Afegeix una columna després",
+        "deleteColumn": "Suprimeix la columna"
+    },
+    "AddGenericSectionButton": {
+        "button": "Afegeix secció"
+    },
+    "RichTextEditorComponent": {
+        "placeholder": "Escriu el teu contingut aquí.",
+        "control": {
+            "heading": "Encapçalament",
+            "table": "Taula",
+            "insertTable": "Insereix taula",
+            "addColumnBefore": "Afegeix una columna abans",
+            "addColumnAfter": "Afegeix una columna després",
+            "deleteColumn": "Suprimeix la columna",
+            "addRowBefore": "Afegiu fila abans",
+            "addRowAfter": "Afegiu fila després",
+            "deleteRow": "Suprimeix la fila",
+            "deleteTable": "Suprimeix la taula",
+            "toggleCellMerge": "Commuta la combinació de cel·les",
+            "toggleHeaderColumn": "Canvia la columna de la capçalera",
+            "toggleHeaderRow": "Canvia fila de capçalera",
+            "increaseTextSize": "Augmenta la mida del text",
+            "decreaseTextSize": "Disminueix la mida del text",
+            "undo": "Desfer",
+            "redo": "Refer",
+            "linkControlLabel": "Enllaç",
+            "colorPickerControlLabel": "Color del text",
+            "highlightControlLabel": "Ressalta el text",
+            "boldControlLabel": "Negreta",
+            "italicControlLabel": "Cursiva",
+            "underlineControlLabel": "Subratlla",
+            "strikeControlLabel": "Tallat",
+            "clearFormattingControlLabel": "Format clar",
+            "unlinkControlLabel": "Elimina l'enllaç",
+            "bulletListControlLabel": "Llista amb vinyetes",
+            "orderedListControlLabel": "Llista ordenada",
+            "h1ControlLabel": "Títol 1",
+            "h2ControlLabel": "Títol 2",
+            "h3ControlLabel": "Títol 3",
+            "h4ControlLabel": "Títol 4",
+            "h5ControlLabel": "Títol 5",
+            "h6ControlLabel": "Títol 6",
+            "blockquoteControlLabel": "Bloc de cita",
+            "alignLeftControlLabel": "Alinea el text: a l'esquerra",
+            "alignCenterControlLabel": "Alinea el text: al centre",
+            "alignRightControlLabel": "Alinea el text: dreta",
+            "alignJustifyControlLabel": "Alinear el text: justificar",
+            "codeControlLabel": "Codi",
+            "codeBlockControlLabel": "Bloc de codi",
+            "subscriptControlLabel": "Subíndex",
+            "superscriptControlLabel": "Superíndex",
+            "unsetColorControlLabel": "Reiniciar color de text",
+            "hrControlLabel": "Línia horitzontal",
+            "shortcuts": "Mostra les dreceres de l'editor de text enriquit"
+        },
+        "shortcutModal": {
+            "title": "Dreceres de l'editor de text",
+            "keyboardWarning": "Si utilitzes un teclat basat en Mac, feu servir <kbd>⌘</kbd> en comptes de <kbd>Ctrl</kbd>. ",
+            "disclaimer": "Aquesta aplicació utilitza l'<anchor>Editor de Tiptap</anchor> com a base.",
+            "general": "General",
+            "text": "Format de text i selecció",
+            "paragraph": "Format de paràgraf",
+            "command": "Comandament",
+            "shortcut": "Drecera",
+            "copy": "Copiar",
+            "cut": "Tallar",
+            "paste": "Enganxar",
+            "pasteNoFormat": "Enganxa sense format",
+            "lineBreak": "Afegiu un salt de línia",
+            "selectAll": "Seleccioneu-ho tot",
+            "extend": "Ampliar la selecció",
+            "applyNormal": "Aplicar un estil de text normal",
+            "applyHeader": "Aplica l'estil d'encapçalament (número)"
+        }
+    },
+    "ChangeLanguage": {
+        "tooltip": "Canvia l'idioma"
+    },
+    "ChangeTheme": {
+        "tooltip": "Canvia el tema"
+    },
+    "LoadData": {
+        "button": "Carregar dades"
+    },
+    "PrintSheet": {
+        "tooltip": "Imprimir full",
+        "cannotPrint": "No es pot imprimir amb contingut desbordant!",
+        "printLimitationWarning": "NOTA: No disponible a Firefox Android o navegadors incrustats dins d'una aplicació (WebView).",
+        "printLimitationDisabled": "Actualment, la impressió al mòbil està desactivada a causa d'un error informat, a l'espera d'un proper llançament d'una actualització de una dependència.",
+        "printLimitationWarningHelp": "Si utilitzeu un d'aquests navegadors, deseu la informació del vostre personatge i obriu-lo en un altre navegador."
+    },
+    "SaveData": {
+        "button": "Guarda les dades"
+    },
+    "SendFeedback": {
+        "tooltip": "Envieu comentaris a Github"
+    }
+}

@@ -1,5 +1,170 @@
 {
     "LandingPage": {
-        "slogan": "Tus acciones en <1>menos de 3 segundos</1>."
+        "slogan": "Tus acciones en <1>menos de 3 segundos</1>.",
+        "description": "<p>¿Alguna vez has tenido un personaje que tiene un nivel tan alto que ya no recuerdas todas sus acciones? A lo mejor han pasado más de 2 años desde que hicistes su hoja de personaje.</p><p>¡Este problema ahora se puede resolver fácilmente! Con <focusText>reActionroll</focusText>, ahora puedes hacer fácilmente un resumen de tu hoja que puedes imprimir para tenerla como ayuda. Puedes y todo guardarla en un archivo para modificarla en un futuro!</p><p>Actualmente estoy tomando este proyecto como un hobby, por lo que las actualizaciones pueden llegar muy aleatoriamente. Siéntete libre de hacer report de cualquier bug o sugerencia que tengas en el repositorio de Github y las solucionaré conforme vea posible.</p><p>Esta página ha sido realizada con React, Redux y otras tecnologías Open Source. Puedes ver más detalles sobre esta aplicación en la página de Acerca de. </p><p>Todos los nombres de productos y empresas son marcas comerciales o marcas comerciales registradas de sus respectivos propietarios de sus derechos de autor. Ningún copyright ha sido infringido con esta aplicación.</p>",
+        "sidePanel": {
+            "newSheetPanel": {
+                "title": "Crear nueva hoja",
+                "start": "Comenzar"
+            },
+            "helpPanel": {
+                "title": "Ayuda",
+                "watchTutorial": "Ver tutorial",
+                "about": "Acerca de esta página",
+                "github": "Repo de Github",
+                "mainWebsite": "Sitio Web principal"
+            }
+        }
+    },
+    "LatestChangeLog": {
+        "title": "Último registro de cambios (inglés)"
+    },
+    "AboutPage": {
+        "aboutMeTitle": "Acerca de mí",
+        "bio": "Soy KosmicTeal, un desarrollador Full Stack (con afinidad en Frontend) con experiencia en varios lenguajes de programación, tanto de escritorio como web. Aparte de esto y como hobby, también soy un artista ilustrador, creador de modelos 3D y jugador de TTRPG.",
+        "button": "¡Consulta mi sitio web aquí!",
+        "techStack": "Tech Stack utilizado en este sitio web",
+        "openLink": "Abrir sitio web en una nueva pestaña"
+    },
+    "_CommonTranslations": {
+        "class": "Clase",
+        "subclass": "Subclase",
+        "race": "Raza",
+        "characterName": "Nombre del personaje",
+        "campaign": "Campaña",
+        "DC": "CD",
+        "AC": "CA"
+    },
+    "ModalWrappers": {
+        "autoUpdateModal": {
+            "closeModal": "Cerrar modal"
+        }
+    },
+    "ModalAddSection": {
+        "title": "Agregar nueva sección",
+        "addSingleSection": "Agregar una sola sección",
+        "addColumnSection": "Agregar sección de columna"
+    },
+    "CharacterInformation": {
+        "title": "Información del personaje"
+    },
+    "WorkspaceActions": {
+        "title": "Acciones disponibles"
+    },
+    "PreviewPageColor": {
+        "title": "Vista previa del color de la página",
+        "pageColor": "Color de fondo de la página de vista previa",
+        "textColor": "Color del texto",
+        "colorInputPlaceholder": "Ninguno, usa #FFFFFF00 para restablecer"
+    },
+    "BasicContent": {
+        "classRaceInfo": "Información de clase y raza",
+        "classRaceInfoPlaceholder": "Clase de personaje (subclase) - Raza completa"
+    },
+    "GenericSection": {
+        "sectionTitlePlaceholder": "Título de la sección",
+        "removeSection": "Eliminar sección",
+        "moveSectionUp": "Mover sección hacia arriba",
+        "moveSectionDown": "Mover sección hacia abajo",
+        "moveColumnLeft": "Mover columna a la izquierda",
+        "moveColumnRight": "Mover columna a la derecha",
+        "addColumnBefore": "Agregar columna antes",
+        "addColumnAfter": "Agregar columna después",
+        "deleteColumn": "Eliminar columna"
+    },
+    "AddGenericSectionButton": {
+        "button": "Agregar sección"
+    },
+    "RichTextEditorComponent": {
+        "placeholder": "Escribe tu contenido aquí.",
+        "control": {
+            "heading": "Título",
+            "table": "Tabla",
+            "insertTable": "Insertar tabla",
+            "addColumnBefore": "Agregar columna antes",
+            "addColumnAfter": "Agregar columna después",
+            "deleteColumn": "Eliminar columna",
+            "addRowBefore": "Agregar fila antes",
+            "addRowAfter": "Agregar fila después",
+            "deleteRow": "Eliminar fila",
+            "deleteTable": "Eliminar tabla",
+            "toggleCellMerge": "Alternar combinación de celdas",
+            "toggleHeaderColumn": "Alternar columna de encabezado",
+            "toggleHeaderRow": "Alternar fila de encabezado",
+            "increaseTextSize": "Aumentar el tamaño del texto",
+            "decreaseTextSize": "Disminuir el tamaño del texto",
+            "undo": "Deshacer",
+            "redo": "Rehacer",
+            "linkControlLabel": "Enlace",
+            "colorPickerControlLabel": "Color del texto",
+            "highlightControlLabel": "Resaltar texto",
+            "boldControlLabel": "Atrevido",
+            "italicControlLabel": "Itálico",
+            "underlineControlLabel": "Subrayar",
+            "strikeControlLabel": "Tachado",
+            "clearFormattingControlLabel": "Borrar formato",
+            "unlinkControlLabel": "Quitar enlace",
+            "bulletListControlLabel": "lista de viñetas",
+            "orderedListControlLabel": "lista ordenada",
+            "h1ControlLabel": "Título 1",
+            "h2ControlLabel": "Título 2",
+            "h3ControlLabel": "Título 3",
+            "h4ControlLabel": "Título 4",
+            "h5ControlLabel": "Título 5",
+            "h6ControlLabel": "Título 6",
+            "blockquoteControlLabel": "Cita en bloque",
+            "alignLeftControlLabel": "Alinear texto: izquierda",
+            "alignCenterControlLabel": "Alinear texto: centro",
+            "alignRightControlLabel": "Alinear texto: derecha",
+            "alignJustifyControlLabel": "Alinear texto: justificar",
+            "codeControlLabel": "Código",
+            "codeBlockControlLabel": "Bloque de código",
+            "subscriptControlLabel": "Subíndice",
+            "superscriptControlLabel": "Sobrescrito",
+            "unsetColorControlLabel": "Resetear color",
+            "hrControlLabel": "Línea horizontal",
+            "shortcuts": "Mostrar atajos del editor de texto enriquecido"
+        },
+        "shortcutModal": {
+            "title": "Atajos del editor de texto",
+            "keyboardWarning": "Si estás utilizando un teclado basado en Mac, usa <kbd>⌘</kbd> en lugar de <kbd>Ctrl</kbd>. ",
+            "disclaimer": "Esta aplicación utiliza el <anchor>editor de tiptap</anchor> como base.",
+            "general": "General",
+            "text": "Formato y selección de texto",
+            "paragraph": "Formato de párrafo",
+            "command": "Comando",
+            "shortcut": "Atajo",
+            "copy": "Copiar",
+            "cut": "Cortar",
+            "paste": "Pegar",
+            "pasteNoFormat": "Pegar sin formatear",
+            "lineBreak": "Agregar un salto de línea",
+            "selectAll": "Seleccionar todo",
+            "extend": "Ampliar selección",
+            "applyNormal": "Aplicar estilo de texto normal",
+            "applyHeader": "Aplicar estilo de título (número)"
+        }
+    },
+    "ChangeLanguage": {
+        "tooltip": "Cambiar idioma"
+    },
+    "ChangeTheme": {
+        "tooltip": "Cambiar tema"
+    },
+    "LoadData": {
+        "button": "Cargar datos"
+    },
+    "PrintSheet": {
+        "tooltip": "Imprimir hoja",
+        "cannotPrint": "¡No se puede imprimir con el contenido desbordando!",
+        "printLimitationWarning": "NOTA: No está disponible en Firefox Android ni en navegadores integrados en una aplicación (WebView).",
+        "printLimitationDisabled": "La impresión en dispositivos móviles está actualmente deshabilitada debido a un error reportado, en espera de un próximo lanzamiento de parche de la dependencia.",
+        "printLimitationWarningHelp": "Si estás usando uno de esos navegadores, guarda la información de tu personaje y ábrela en otro navegador."
+    },
+    "SaveData": {
+        "button": "Guardar datos"
+    },
+    "SendFeedback": {
+        "tooltip": "Enviar comentarios en Github"
     }
 }

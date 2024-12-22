@@ -17,8 +17,6 @@ export function ChangeLanguage() {
                 variant="default"
                 size="input-sm"
                 aria-label={t('ChangeLanguage.tooltip')}
-                //TODO: Add languages
-                disabled
               >
                 {i18n.language}
               </ActionIcon>
