@@ -11,4 +11,4 @@ const endChangelog = fullFileString.indexOf("### [",startRecentChangelog);
 
 const currentChangelog = fullFileString.slice(startRecentChangelogEndOfLine,endChangelog).trim();
 
-fs.writeFileSync('./public/CHANGELOG.md', currentChangelog);
+fs.writeFileSync('./public/minCHANGELOG.md', currentChangelog);

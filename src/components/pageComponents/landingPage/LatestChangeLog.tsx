@@ -1,7 +1,7 @@
 import { Flex, Paper, Title, List } from '@mantine/core';
 import { t } from 'i18next';
 import Markdown from 'react-markdown';
-import changelog from '/CHANGELOG.md?url';
+import changelog from '/minCHANGELOG.md?url';
 import { useState, useEffect } from 'react';
 
 export function LatestChangeLog() {

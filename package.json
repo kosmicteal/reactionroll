@@ -19,7 +19,7 @@
   },
   "standard-version": {
     "scripts": {
-      "postchangelog": "node ./copyLatestChangelog.js && git add ."
+      "postchangelog": "node ./copyLatestChangelog.js"
     }
   },
   "dependencies": {
