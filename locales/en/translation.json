@@ -16,6 +16,9 @@
             }
         }
     },
+    "LatestChangeLog": {
+        "title": "Latest Changelog"
+    },
     "AboutPage": {
         "aboutMeTitle": "About me",
         "bio": "I'm KosmicTeal, a Full Stack developer (with affinity on Frontend) with Swiss-knife experience on various programming languages, both desktop and web-based development. Aside from this and as a hobby, I'm also an illustrator artist, 3D model creator and TTRPG player.",
