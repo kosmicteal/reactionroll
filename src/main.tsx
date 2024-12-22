@@ -77,6 +77,7 @@ const theme = createTheme({
     ],
   },
   primaryColor: 'reactionroll-blue',
+  fontFamily: 'Noto Sans, sans-serif',
 });
 
 createRoot(document.getElementById('root')!).render(
