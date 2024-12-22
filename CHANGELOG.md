@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.24.17](https://github.com/kosmicteal/reactionroll/compare/v0.23.19...v0.24.17) (2024-12-22)
+
+
+### Bug Fixes
+
+* **landing:** update build process and add failsafe in case no patch notes exist in the last bump ([534b23c](https://github.com/kosmicteal/reactionroll/commit/534b23c8c9d78a0dd51a8ec792c57198c6db22c2))
+
 ### [0.23.20](https://github.com/kosmicteal/reactionroll/compare/v0.23.19...v0.23.20) (2024-12-22)
 
 ### [0.23.19](https://github.com/kosmicteal/reactionroll/compare/v0.23.18...v0.23.19) (2024-12-22)
