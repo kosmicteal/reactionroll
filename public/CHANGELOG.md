@@ -1,3 +1,3 @@
 ### Features
 
-* **sections:** allow addition, reorganization and removal of sections ([8b62378](https://github.com/kosmicteal/reactionroll/commit/8b623786ab3adc00c72fbcdf82eb166acf15c62e))
+* **landing:** add latest changelog view at landing page ([6674dbf](https://github.com/kosmicteal/reactionroll/commit/6674dbf2ebf6fd6bdddd89575266a37838345977))

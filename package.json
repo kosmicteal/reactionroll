@@ -18,7 +18,8 @@
   },
   "standard-version": {
     "scripts": {
-      "postchangelog": "node ./copyLatestChangelog.js"
+      "postchangelog": "node ./copyLatestChangelog.js",
+      "precommit": "git add ."
     }
   },
   "dependencies": {
