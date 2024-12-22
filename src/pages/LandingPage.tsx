@@ -5,6 +5,7 @@ import { cx } from '@emotion/css';
 import { styling } from '../style';
 import { Trans, useTranslation } from 'react-i18next';
 import { useMediaQuery } from '@mantine/hooks';
+import { LatestChangeLog } from '../components/pageComponents/landingPage/LatestChangeLog';
 function LandingTitle() {
   const { ready } = useTranslation();
   return (
@@ -52,6 +53,7 @@ export function LandingPage() {
               gap="lg"
               h="100%"
             >
+              <LatestChangeLog />
               <Paper shadow="md" withBorder p="md">
                 <Title ta="left" order={3} mb="md">
                   {t('LandingPage.sidePanel.newSheetPanel.title')}
