@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.25.20](https://github.com/kosmicteal/reactionroll/compare/v0.25.19...v0.25.20) (2024-12-22)
+
+
+### Bug Fixes
+
+* **landing:** fix changelog having the wrong flex attribute ([1157cb0](https://github.com/kosmicteal/reactionroll/commit/1157cb0060bf5200658080828253f92dc79ff321))
+
 ### [0.25.19](https://github.com/kosmicteal/reactionroll/compare/v0.24.19...v0.25.19) (2024-12-22)
 
 

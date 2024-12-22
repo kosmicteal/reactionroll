@@ -1,3 +1,3 @@
-### Features
+### Bug Fixes
 
-* add spanish and catalan translations ([30d43e6](https://github.com/kosmicteal/reactionroll/commit/30d43e63fda7d43ed2a7429fdf569f8859bf789e))
+* **landing:** fix changelog having the wrong flex attribute ([1157cb0](https://github.com/kosmicteal/reactionroll/commit/1157cb0060bf5200658080828253f92dc79ff321))
