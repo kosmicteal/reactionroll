@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.25.21](https://github.com/kosmicteal/reactionroll/compare/v0.25.20...v0.25.21) (2024-12-22)
+
+
+### Features
+
+* **app:** add missing favicon ([d747f6b](https://github.com/kosmicteal/reactionroll/commit/d747f6bf16dd1539fdd23fe6553e8aa6c8488611))
+
 ### [0.25.20](https://github.com/kosmicteal/reactionroll/compare/v0.25.19...v0.25.20) (2024-12-22)
 
 
