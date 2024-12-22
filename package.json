@@ -1,13 +1,14 @@
 {
   "name": "reactionroll",
   "private": true,
-  "version": "0.23.18",
+  "version": "0.23.19",
   "homepage": "https://kosmicteal.github.io/reactionroll",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "lint": "eslint .",
     "preview": "vite preview",
+    "bump": "standard-version",
     "bump-auto": "standard-version && git push --follow-tags origin main",
     "bump-as": "standard-version --release-as \"$@\" && git push --follow-tags origin main",
     "clc": "node ./copyLatestChangelog.js",
@@ -18,8 +19,7 @@
   },
   "standard-version": {
     "scripts": {
-      "postchangelog": "node ./copyLatestChangelog.js",
-      "precommit": "git add ."
+      "postchangelog": "node ./copyLatestChangelog.js && git add ."
     }
   },
   "dependencies": {
