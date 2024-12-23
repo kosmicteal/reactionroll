@@ -150,9 +150,10 @@ export const styling = {
       var(--mantine-color-default-border) solid;
     margin: 0 0.5rem;
   `,
-  floatContextMenu: css`
-    overflow: hidden;
-    background: red;
+  indicatorHeight: css`
+    & > .mantine-Indicator-indicator {
+      height: 1.5em !important;
+    }
   `,
   richTextEditor: css`
     text-align: start;

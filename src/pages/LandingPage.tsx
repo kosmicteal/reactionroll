@@ -1,4 +1,13 @@
-import { Button, Flex, Grid, Paper, Stack, Text, Title } from '@mantine/core';
+import {
+  Button,
+  Flex,
+  Grid,
+  Indicator,
+  Paper,
+  Stack,
+  Text,
+  Title,
+} from '@mantine/core';
 import { Link } from 'react-router-dom';
 import appIcon from '/reactionroll_logoAlpha.png';
 import { cx } from '@emotion/css';
@@ -78,18 +87,23 @@ export function LandingPage() {
                 </Title>
                 <Grid justify="center" align="stretch">
                   <Grid.Col span={6}>
-                    {' '}
-                    <Button
-                      component="a"
-                      href="https://github.com/kosmicteal/reactionroll/issues"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      variant="light"
-                      //TODO: Add tutorial
-                      disabled
+                    <Indicator
+                      inline
+                      color="red"
+                      label="New"
+                      size={12}
+                      className={cx(styling.indicatorHeight)}
                     >
-                      {t('LandingPage.sidePanel.helpPanel.watchTutorial')}
-                    </Button>
+                      <Button
+                        component="a"
+                        href="https://www.youtube.com/watch?v=jeaZp4DC0oE"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        variant="light"
+                      >
+                        {t('LandingPage.sidePanel.helpPanel.watchTutorial')}
+                      </Button>
+                    </Indicator>
                   </Grid.Col>
                   <Grid.Col span={6}>
                     <Link to="/reactionroll/about">
