@@ -1,50 +1,29 @@
-# React + TypeScript + Vite
+# reActionroll
+![React](https://img.shields.io/badge/React-blue) 
+![React](https://img.shields.io/badge/Vite-purple) 
+![React](https://img.shields.io/badge/JavaScript-yellow) 
+![React](https://img.shields.io/badge/TypeScript-blue) 
+![version](https://img.shields.io/github/v/tag/kosmicteal/reactionroll?label=version&color=blue)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<img src="https://kosmicteal.github.io/reactionroll/reactionroll_logoAlpha.png">
 
-Currently, two official plugins are available:
+### <p align=center>This app is now live [on Github Pages](https://kosmicteal.github.io/reactionroll/)!</p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## About
 
-## Expanding the ESLint configuration
+Have you ever had a character that has such a high level you no longer remember all their actions? Maybe it has been more than 2 years since you initially did their character sheet.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+This problem can now be solved easily! With reActionroll, you can now easily do a summary of your sheet that you can print next to you as a helper. You can also save it for future modifications if needed!
 
-- Configure the top-level `parserOptions` property like this:
+I am currently taking this as a hobby project so updates might come randomly from time to time. Feel free to report any bug or suggestion on its Github repository and I will tackle them when time allows me to do so.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
-```
+This page has been done with React, Redux and other Open Source technologies. Detailed information about this project can be found on the About page.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Disclaimer
 
-```js
-// eslint.config.js
-import react from "eslint-plugin-react";
+All product and company names are trademarks or registered trademarks of their respective copyright holders. No copyright has been infringed with this application.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: "18.3" } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs["jsx-runtime"].rules,
-  },
-});
-```
+## For more information
+
+* [KosmicTeal's website](https://kosmicteal.github.io/)
+
