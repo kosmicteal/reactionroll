@@ -1,3 +1,3 @@
 ### Features
 
-* **app:** add missing favicon ([d747f6b](https://github.com/kosmicteal/reactionroll/commit/d747f6bf16dd1539fdd23fe6553e8aa6c8488611))
+* **landing:** add link to video tutorial ([56cce1b](https://github.com/kosmicteal/reactionroll/commit/56cce1bbe326b557f3560fdc5e5b0a1345ac45f6))

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.26.21](https://github.com/kosmicteal/reactionroll/compare/v0.25.21...v0.26.21) (2024-12-23)
+
+
+### Features
+
+* **landing:** add link to video tutorial ([56cce1b](https://github.com/kosmicteal/reactionroll/commit/56cce1bbe326b557f3560fdc5e5b0a1345ac45f6))
+
 ### [0.25.21](https://github.com/kosmicteal/reactionroll/compare/v0.25.20...v0.25.21) (2024-12-22)
 
 
